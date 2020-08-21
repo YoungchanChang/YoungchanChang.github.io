@@ -1,0 +1,71 @@
+# Site Info
+title: '장영찬의 삽질일기'
+tagline: '장영찬의 삽질일기'
+description: '저의 프로그래밍 공부한 것을 기록하는 공간입니다.'
+baseurl: ""
+url: https://YoungchanChang.github.io
+logo: '/public/logo.png'
+
+# Site configurations
+gems:
+  - jekyll-paginate
+markdown: kramdown
+kramdown:
+  input: GFM
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss    
+paginate: 5
+paginate_path: '/blog/page:num'
+permalink: pretty
+
+version: 1.0.0
+
+# About/contact
+author:
+  name: YoungchanChang
+  description: 저의 프로그래밍을 공부한 것을 기록하는 공간입니다.
+  # gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
+  contact:
+    # linkedin:  https://www.linkedin.com/in/lizhihao
+    github:    https://github.com/https://github.com/YoungchanChang
+    # facebook:  <hide>
+    # twitter:   https://twitter.com/Li_Zhihao
+    # weibo:     http://weibo.com/41173780
+    email:     mailto:san0558@naver.com
+
+# Navigation (2nd level links supported)
+nav:
+  Home:           
+    - '/blog/'
+  Blog:           
+    - '/'
+    - { 컴퓨터공학 : '/blog/categories/#컴퓨터공학' }
+    - { 알고리즘: '/blog/categories/#알고리즘' }
+    - { python: '/blog/categories/#python' }
+    - { Django: '/blog/categories/#django' }
+    - { javascript: '/blog/categories/#javascript' }
+    - { nodejs: '/blog/categories/#nodejs' }
+    - { Java: '/blog/categories/#Java' }
+    - { Android: '/blog/categories/#Android' }
+    - { Git: '/blog/categories/#Git' }
+    - { AWS: '/blog/categories/#AWS' }
+    - { Linux: '/blog/categories/#Linux' }
+    - { etc: '/blog/categories/#etc' }
+  About:          
+    - '/about/'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+category_page: '/blog/categories/'
+
+hero:
+  image: /public/img/we_will_be_giants_by_yalestewart.jpg
+  caption: Original Artwork &copy; <a href="http://yalestewart.deviantart.com/art/We-Will-Be-Giants-370176475">Yale Stewart</a>
+
+# Puglins
+mathjax: true # whether support mathjax
+google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
+disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
+
