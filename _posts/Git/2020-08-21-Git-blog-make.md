@@ -2,7 +2,7 @@
 layout: post
 title: 깃허브에 개인 블로그 만들기
 category: Git
-tags: [git, blog]
+tags: [Git, blog]
 comments: true
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: 깃 태그 활용하기
 category: Git
-tags: [git, blog]
+tags: [Git, blog]
 comments: true
 ---
 
