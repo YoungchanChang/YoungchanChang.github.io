@@ -10,7 +10,7 @@ comments: true
 
 ## 1. 구글 검색엔진(웹마스터 도구)에 내 사이트 등록하기
 
-1. [구글 웹마스터 도구](https://search.google.com/)에 접속합니다.
+1. [구글 웹마스터 도구](https://www.google.com/webmasters/tools/)에 접속합니다.
 2. 속성 유형 중 우측의 URL 접두어에 자신의 URL입력(https://youngchanchang.github.io/)합니다.
 3. 소유권 확인 방법 중 HTML파일을 클릭해서 다운로드합니다.
 4. 루트 디렉터리에 해당 파일을 넣고 깃허브에 commit&push를 한 뒤 인증버튼을 누릅니다.
