@@ -36,14 +36,14 @@ Sitemap: http://[자신의 github 사용자명].github.io/sitemap.xml
 > sitemap.xml은 크롤러가 사이트에 접속했을 때 사이트를 정확하고 효율적으로 탐색할 수 있게 합니다.
 
 
-1. 블로그의 루트 디렉터리에 sitemap.xml파일을 작성합니다. 내용은 여기 참조합니다.
+1. 블로그의 루트 디렉터리에 sitemap.xml파일을 작성합니다. 내용은 [여기](<https://joelglovier.com/writing/sitemaps-for-jekyll-sites>)를 참조합니다.
 2. 루트 디렉토리에 존재하는 _config.yml파일 내의 url 부분에 자신의 블로그 url을 입력합니다.
 - 유틸리티 레이아웃(feeds 같은 경우)는 없애야합니다.
 3. 마지막으로 깃허브에  commit&push를 합니다.
 
 
 ## 4. 구글 웹마스터 도구(Search Console)에 sitemap.xml 제출
-1. 구글 웹 마스터 도구 접속합니다.
+1. [구글 웹마스터 도구](https://www.google.com/webmasters/tools/)에 접속합니다.
 2. 좌측 상단에 내가 등록한 사이트 선택합니다.
 3. 왼쪽 메뉴 중 색인 > Sitemaps 선택합니다
 4. 새 사이트맵 추가에 깃허브에 등록한 /sitemap.xml 제출합니다.
