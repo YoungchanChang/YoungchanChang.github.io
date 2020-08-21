@@ -59,8 +59,8 @@ comments: true
 ### 1. 테마 색상 변경하기
 - _scss폴더 아래에 _config.css에서 $theme-color에 원하는 테마 색상을 설정합니다.
 
-### 2. 헤더의 이미지 변경하기
-- _layouts아래에 default.html태그 안에 이미지 원하는 이미지로 변경합니다.
+### 2. 이미지 내용 변경하기
+- public폴더 아래에 이미지 파일들을 원하는 이미지로 덮어씁니다.
 
 ##### _includes에서 sidebar.html에서 sidebar-personal-info-section클래스 태그 안의 내용 변경합니다.
 
@@ -75,8 +75,6 @@ comments: true
       <img src="/public/profile.png" alt="profile picture" />
     </a>
 ```
-
-- public폴더 아래에 이미지 파일들을 원하는 이미지로 덮어씁니다.
 
 ##### _includes에 sidebar.html파일의 아래의 코드 수정합니다.
 
