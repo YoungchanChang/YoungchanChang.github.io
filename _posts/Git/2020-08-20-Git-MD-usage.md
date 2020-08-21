@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 깃 태그 활용하기
-category: GIT
-tags: [ssh, iterm2 theme, iterm2, zsh]
+category: Git
+tags: [git, blog]
 comments: true
 ---
 
