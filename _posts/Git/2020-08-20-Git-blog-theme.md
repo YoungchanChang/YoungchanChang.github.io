@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 다른 사람 테마 내 블로그에 적용하기
-category: Git
-tags: [Git, blog]
+category: git
+tags: [git, blog]
 comments: true
 ---
 

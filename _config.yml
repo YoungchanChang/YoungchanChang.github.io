@@ -49,7 +49,7 @@ nav:
     - { nodejs: '/blog/categories/#nodejs' }
     - { Java: '/blog/categories/#Java' }
     - { Android: '/blog/categories/#Android' }
-    - { Git: '/blog/categories/#Git' }
+    - { git: '/blog/categories/#git' }
     - { AWS: '/blog/categories/#AWS' }
     - { Linux: '/blog/categories/#Linux' }
     - { etc: '/blog/categories/#etc' }

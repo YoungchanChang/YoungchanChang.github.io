@@ -1,0 +1,25 @@
+I"<<blockquote>
+  <p>옛날에 <a href="https://gamsunghacker.tistory.com/">티스토리</a>에서 블로그를 운영한 적이 있습니다.<br />
+그 때의 좋았던 점은 가져가고 아쉬운 점은 개선하고 싶습니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h1 id="오늘-한-일힘들었던-점과-뿌듯한-점">오늘 한 일(힘들었던 점과 뿌듯한 점)</h1>
+<ul>
+  <li>
+    <p>깃허브 블로그를 내가 원하는 대로 custom했다. jekyll테마에서 내가 원하는 테마를 찾지 못하다가 <a href="https://wayhome25.github.io/">초보몽키</a>님의 블로그를 우연히 보고 이 테마로 하고싶다고 생각했다. 여기에 내 방식대로 바꾸고 싶어서 초보몽키님 블로그의 <a href="http://codinfox.github.io/blog/">원본 테마</a>를 비교해가면서 내가 원하는 대로 custom했다. 하나하나 비교했서 찾아가는게 답답하긴 했지만 jekyll 구조 등을 배운 것 같아서 뿌듯했다.</p>
+  </li>
+  <li>
+    <p>markdown문법으로 TIL을 작성했다.</p>
+  </li>
+</ul>
+
+<h1 id="내일-할-일">내일 할 일</h1>
+<ul>
+  <li>깃허브 개설부터 테마 적용하는 부분 유튜브로 찍기</li>
+  <li>깃허브에 VSCODE와 연동하기</li>
+  <li>깃허브에 검색기능 넣기</li>
+  <li>sitemap.xml에 내 엔진 등록하기</li>
+</ul>
+:ET

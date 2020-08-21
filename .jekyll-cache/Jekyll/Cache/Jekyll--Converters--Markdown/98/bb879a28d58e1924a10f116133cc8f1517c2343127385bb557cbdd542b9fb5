@@ -1,0 +1,421 @@
+I"}s<blockquote>
+  <p>lanyon님의 <a href="http://codinfox.github.io/blog/">테마</a>를 <a href="https://wayhome25.github.io/">초보몽키</a>님의 테마로 바꾸는 과정을 기록한 글입니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h1 id="원본-테마-다운받기">원본 테마 다운받기</h1>
+<ol>
+  <li><a href="http://codinfox.github.io/blog/">원본 테마</a>를 다운받습니다.</li>
+  <li>로컬 서버에서 해당 파일을 실행시켜봅니다.</li>
+</ol>
+
+<hr />
+
+<h1 id="_configyml수정하기">_config.yml수정하기</h1>
+<ol>
+  <li>Site Info에서 자신에게 맞는 정보로 변경합니다.
+    <ul>
+      <li>title은 홈페이지의 제목 역할을 합니다.</li>
+      <li>tagline을 상단 헤더의 제목 역할을 합니다.</li>
+      <li>logo는 상단 헤더의 로고 이미지입니다.</li>
+    </ul>
+  </li>
+  <li>#About/Contact부분 자신이 원하는 정보로 변경
+    <ul>
+      <li>description에 우측 배너에 보이는 설명입니다.</li>
+      <li>contact는 자신에게 연락받을 수단을 설정하는 곳입니다.</li>
+    </ul>
+  </li>
+  <li>nav를 자신이 원하는 카테고리로 변경
+    <ul>
+      <li>nav아래 카테고리들은 우측에 보이는 리스트를 의미합니다.</li>
+      <li>카테고리별로 클릭시 이동하고 싶은 경로로 수정합니다.
+        <ul>
+          <li>‘/blog’는 클릭시 ‘/blog/index.html’로 간다는 의미</li>
+          <li>하위태그의 좌측은 보여지는 이름이고 우측은 클릭시에 태그별로 이동하는 파라미터 값입니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>카테고리에 데이터 넣어보기
+    <ul>
+      <li>_post폴더아래에 카테고리 경로를 생성후에 파일을 만들어봅니다.</li>
+      <li>주의할 점은 경로에 한글을 넣으면 안 됩니다.</li>
+      <li>상단에 아래와 같은 코드를 넣습니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Git블로그에 다른 사람 테마 적용해보기</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">Git</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/Git/:year/:month/:day/:title/</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Git</span><span class="pi">,</span> <span class="nv">blog</span><span class="pi">]</span>
+<span class="na">comments</span><span class="pi">:</span> <span class="no">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<ul>
+  <li>category에 적절한 태그를 입력하면 자동으로 카테고리 태그에 분류가 되어서 보여지게 됩니다.</li>
+  <li>tags에 들어가는 값들은 글을 클릭시 글 하단에 태그로 보여지게 됩니다.</li>
+</ul>
+
+<hr />
+
+<h1 id="색상변경이나-파일-내용-수정하기">색상변경이나 파일 내용 수정하기</h1>
+
+<h3 id="1-테마-색상-변경하기">1. 테마 색상 변경하기</h3>
+<ul>
+  <li>_scss폴더 아래에 _config.css에서 $theme-color에 원하는 테마 색상을 설정합니다.</li>
+</ul>
+
+<h3 id="2-이미지-내용-변경하기">2. 이미지 내용 변경하기</h3>
+<ul>
+  <li>public폴더 아래에 이미지 파일들을 원하는 이미지로 덮어씁니다.</li>
+</ul>
+
+<h5 id="_includes에서-sidebarhtml에서-sidebar-personal-info-section클래스-태그-안의-내용-변경합니다">_includes에서 sidebar.html에서 sidebar-personal-info-section클래스 태그 안의 내용 변경합니다.</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c">&lt;!-- 변경전 코드--&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://gravatar.com/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://www.gravatar.com/avatar/?s=350"</span> <span class="na">title=</span><span class="s">"View on Gravatar"</span> <span class="na">alt=</span><span class="s">"View on Gravatar"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+
+    <span class="c">&lt;!-- 변경후 코드--&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://www.github.com/YoungchanChang"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/public/profile.png"</span> <span class="na">alt=</span><span class="s">"profile picture"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<h5 id="_includes에-sidebarhtml파일의-아래의-코드-수정합니다">_includes에 sidebar.html파일의 아래의 코드 수정합니다.</h5>
+
+<pre><code class="language-HTML">  &lt;!-- 제거할 코드 --&gt;
+  &lt;span class="sidebar-nav-item"&gt;Currently v1.0.0&lt;/span&gt;
+
+  &lt;!-- 제거할 코드 --&gt;
+  &lt;div class="sidebar-item"&gt;
+    &lt;p&gt;
+    &amp;copy; 2020 YoungchanChang. This work is liscensed under &lt;a href="http://creativecommons.org/licenses/by-nc/4.0/"&gt;CC BY-NC 4.0&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 추가할 코드 --&gt;
+&lt;!-- &lt;div class="sidebar" id="sidebar"&gt;태그 안에 &lt;div class="sidebar-personal-info-section"&gt; 세번째 테그의 하단 &lt;/p&gt;밑에  이미지 아래에 넣고 싶은 내용 생성 --&gt;
+    &lt;span class="notice"&gt;
+    잘못된 내용이 있다면 편하게 댓글 남겨주세요!
+    &lt;/span&gt;
+</code></pre>
+
+<h1 id="메인-페이지에-내가-쓴-최신글-보이게-하기">메인 페이지에 내가 쓴 최신글 보이게 하기</h1>
+
+<ul>
+  <li>/index.html 폴더에 html뼈대를 추가합니다.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>body태그 안에 blog폴더 아래에 categories의 내용을 복사해서 붙여넣습니다.
+    <ul>
+      <li>categories는 카테고리 목록을 보여주는 역할로, 제가 쓴 글을 순차적으로 보여주는 역할을 합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tags-expo"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tags-expo-list"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#git"</span> <span class="na">class=</span><span class="s">"post-tag"</span><span class="nt">&gt;</span>git<span class="nt">&lt;/a&gt;</span>
+    
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#til"</span> <span class="na">class=</span><span class="s">"post-tag"</span><span class="nt">&gt;</span>TIL<span class="nt">&lt;/a&gt;</span>
+    
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#etc"</span> <span class="na">class=</span><span class="s">"post-tag"</span><span class="nt">&gt;</span>etc<span class="nt">&lt;/a&gt;</span>
+    
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;hr/&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tags-expo-section"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"git"</span><span class="nt">&gt;</span>git<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/21/Git-blog-make/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        깃허브에 개인 블로그 만들기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/21/Git-blog-jekyll/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        깃허브에 제킬 테마 적용하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-blog-theme/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        다른 사람 테마 내 블로그에 적용하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-MD-usage/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        깃 태그 활용하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"til"</span><span class="nt">&gt;</span>TIL<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/21/TIL/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        200821_TIL
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        200820_TIL
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL-why/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        내가 TIL을 하는 이유
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"etc"</span><span class="nt">&gt;</span>etc<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/etc/2020/08/21/etc-sitemap/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        구글 검색엔진에 내 블로그 등록하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>tags-expo-section 아래에 다음 코드를 붙여넣습니다.</li>
+  <li>여기서 shortcut.png에 이미지의 경로를 확인하세요!</li>
+  <li>가장 상단의 a태그는 태그의 제목을 의미한다.</li>
+  <li>for안의 내용은 _posts안에 있는 내용을 0부터 10까지 불러오라는 뜻이다. 그러면 최신 글이 순서대로 불러와진다.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tags-expo-section"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 추가된 내용 --&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">"shortcut"</span><span class="nt">&gt;&lt;img</span> <span class="na">id=</span><span class="s">"shortcut-img"</span> <span class="na">src=</span><span class="s">"/public/shortcut.png"</span><span class="nt">&gt;</span>최근 글 바로가기<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/etc/2020/08/21/etc-sitemap/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            구글 검색엔진에 내 블로그 등록하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/21/TIL/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            200821_TIL
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/21/Git-blog-make/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            깃허브에 개인 블로그 만들기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/21/Git-blog-jekyll/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            깃허브에 제킬 테마 적용하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            200820_TIL
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL-why/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            내가 TIL을 하는 이유
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-blog-theme/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            다른 사람 테마 내 블로그에 적용하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-MD-usage/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            깃 태그 활용하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/2014/01/02/introducing-lanyon/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            Introducing Lanyon
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>02 Jan 2014<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/2014/01/01/example-content/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            Example content
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>01 Jan 2014<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="c">&lt;!-- 추가된 내용 끝--&gt;</span>
+
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"git"</span><span class="nt">&gt;</span>git<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/21/Git-blog-make/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        깃허브에 개인 블로그 만들기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/21/Git-blog-jekyll/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        깃허브에 제킬 테마 적용하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-blog-theme/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        다른 사람 테마 내 블로그에 적용하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-MD-usage/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        깃 태그 활용하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"til"</span><span class="nt">&gt;</span>TIL<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/21/TIL/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        200821_TIL
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        200820_TIL
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL-why/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        내가 TIL을 하는 이유
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"etc"</span><span class="nt">&gt;</span>etc<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/etc/2020/08/21/etc-sitemap/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        구글 검색엔진에 내 블로그 등록하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>마지막으로 style태그 안에 css를 변경합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">&lt;!-- jquery 추가 --&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nc">.category-title</span> <span class="p">{</span>
+      <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nc">.category-title</span><span class="nd">:hover</span><span class="o">&gt;</span><span class="nt">h2</span> <span class="p">{</span>
+      <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nc">.tags-expo-posts</span> <span class="p">{</span>
+      <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">#shortcut</span> <span class="p">{</span>
+      <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.1rem</span><span class="p">;</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">49</span><span class="p">,</span> <span class="m">49</span><span class="p">,</span> <span class="m">49</span><span class="p">,</span> <span class="m">0.82</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nf">#shortcut-img</span> <span class="p">{</span>
+      <span class="nl">width</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+      <span class="nl">display</span><span class="p">:</span> <span class="nb">inline</span><span class="p">;</span>
+      <span class="nl">margin-right</span><span class="p">:</span> <span class="m">9px</span><span class="p">;</span>
+      <span class="nl">vertical-align</span><span class="p">:</span> <span class="n">-webkit-baseline-middle</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+
+</code></pre></div></div>
+:ET

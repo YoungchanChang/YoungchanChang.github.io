@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 깃허브에 개인 블로그 만들기
-category: Git
-tags: [Git, blog]
+category: git
+tags: [git, blog]
 comments: true
 ---
 

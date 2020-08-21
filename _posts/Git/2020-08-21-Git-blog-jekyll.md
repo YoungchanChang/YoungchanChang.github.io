@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 깃허브에 제킬 테마 적용하기
-category: Git
-tags: [Git, blog]
+category: git
+tags: [git, blog]
 comments: true
 ---
 
