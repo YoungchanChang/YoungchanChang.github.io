@@ -1,11 +1,11 @@
-I"k<blockquote>
+I"�<blockquote>
   <p>사람들이 구글에서 내 사이트를 검색해서 들어올 수 있게 하는 방법을 알아봅니다.</p>
 </blockquote>
 
 <h2 id="1-구글-검색엔진웹마스터-도구에-내-사이트-등록하기">1. 구글 검색엔진(웹마스터 도구)에 내 사이트 등록하기</h2>
 
 <ol>
-  <li><a href="https://search.google.com/">구글 웹마스터 도구</a>에 접속합니다.</li>
+  <li><a href="https://www.google.com/webmasters/tools/">구글 웹마스터 도구</a>에 접속합니다.</li>
   <li>속성 유형 중 우측의 URL 접두어에 자신의 URL입력(https://youngchanchang.github.io/)합니다.</li>
   <li>소유권 확인 방법 중 HTML파일을 클릭해서 다운로드합니다.</li>
   <li>루트 디렉터리에 해당 파일을 넣고 깃허브에 commit&amp;push를 한 뒤 인증버튼을 누릅니다.</li>
@@ -36,7 +36,7 @@ Sitemap: http://[자신의 github 사용자명].github.io/sitemap.xml
 </blockquote>
 
 <ol>
-  <li>블로그의 루트 디렉터리에 sitemap.xml파일을 작성합니다. 내용은 여기 참조합니다.</li>
+  <li>블로그의 루트 디렉터리에 sitemap.xml파일을 작성합니다. 내용은 <a href="https://joelglovier.com/writing/sitemaps-for-jekyll-sites">여기</a>를 참조합니다.</li>
   <li>루트 디렉토리에 존재하는 _config.yml파일 내의 url 부분에 자신의 블로그 url을 입력합니다.
     <ul>
       <li>유틸리티 레이아웃(feeds 같은 경우)는 없애야합니다.</li>
@@ -47,7 +47,7 @@ Sitemap: http://[자신의 github 사용자명].github.io/sitemap.xml
 
 <h2 id="4-구글-웹마스터-도구search-console에-sitemapxml-제출">4. 구글 웹마스터 도구(Search Console)에 sitemap.xml 제출</h2>
 <ol>
-  <li>구글 웹 마스터 도구 접속합니다.</li>
+  <li><a href="https://www.google.com/webmasters/tools/">구글 웹마스터 도구</a>에 접속합니다.</li>
   <li>좌측 상단에 내가 등록한 사이트 선택합니다.</li>
   <li>왼쪽 메뉴 중 색인 &gt; Sitemaps 선택합니다</li>
   <li>새 사이트맵 추가에 깃허브에 등록한 /sitemap.xml 제출합니다.</li>

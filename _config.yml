@@ -55,7 +55,10 @@ nav:
     - { etc: '/blog/categories/#etc' }
   About:          
     - '/about/'
+  Search:
+    - '/search/'
 
+    
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
@@ -66,6 +69,6 @@ hero:
 
 # Puglins
 mathjax: true # whether support mathjax
-google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
-disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
+google_analytics_token: 'UA-169277002-1' # leave blank if you don't want google analytics
+disqus_short_name: 'youngchanchang-github-io' # leave blank if you don't want disqus
 
