@@ -1,0 +1,37 @@
+I"�<h3 id="리액트란">리액트란?</h3>
+<ul>
+  <li>React는 facebook에서 만든 <strong>UI라이브러리</strong>입니다.</li>
+</ul>
+
+<h3 id="왜-리액트인가">왜 리액트인가?</h3>
+<ul>
+  <li>웹사이트에 정보가 조금만 증가해도 HTML 태그들은 기하급수적으로 복잡하게 됩니다.</li>
+  <li>facebook홈페이지의 상단 헤더바의 HTML구조만 보아도 HTML 태그들이 매우 많은 것을 볼 수 있습니다.</li>
+  <li>여기서 리액트를 쓰면 복잡한 태그들을 <strong>정리정돈</strong> 할 수 있습니다.</li>
+</ul>
+
+<h3 id="어떻게-리액트를-활용하는가">어떻게 리액트를 활용하는가?</h3>
+<p>복잡한 코드를 <strong>사용자 정의 태그</strong>로 만들어줍니다. 리액트는 이것을 <strong>Compenent</strong>로 부릅니다.</p>
+
+<p>리액트를 썼을 때 장점</p>
+<ol>
+  <li>가독성이 증가합니다.
+    <ul>
+      <li>사용자 정의 component로 문서를 한눈에 보기 쉬워집니다.</li>
+    </ul>
+  </li>
+  <li>재사용성 증가
+    <ul>
+      <li>똑같은 UI라면 다른 곳에서도 사용할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li>유지보수가 편리해집니다
+    <ul>
+      <li>상단 헤더바에 버그가 생겼을 때 헤더바만 수정하면 됩니다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="참조">참조</h1>
+<p><a href="https://www.opentutorials.org/module/4058">https://www.opentutorials.org/module/4058</a></p>
+:ET

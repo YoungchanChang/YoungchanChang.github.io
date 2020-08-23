@@ -1,4 +1,4 @@
-I"}s<blockquote>
+I"Z�<blockquote>
   <p>lanyon님의 <a href="http://codinfox.github.io/blog/">테마</a>를 <a href="https://wayhome25.github.io/">초보몽키</a>님의 테마로 바꾸는 과정을 기록한 글입니다.</p>
 </blockquote>
 
@@ -145,6 +145,10 @@
     
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#etc"</span> <span class="na">class=</span><span class="s">"post-tag"</span><span class="nt">&gt;</span>etc<span class="nt">&lt;/a&gt;</span>
     
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#aws"</span> <span class="na">class=</span><span class="s">"post-tag"</span><span class="nt">&gt;</span>aws<span class="nt">&lt;/a&gt;</span>
+    
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#react"</span> <span class="na">class=</span><span class="s">"post-tag"</span><span class="nt">&gt;</span>React<span class="nt">&lt;/a&gt;</span>
+    
   <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;hr/&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tags-expo-section"</span><span class="nt">&gt;</span>
@@ -185,6 +189,13 @@
     <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"til"</span><span class="nt">&gt;</span>TIL<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
       
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/22/TIL/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        200822_TIL
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
         <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/21/TIL/"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;li&gt;</span>
         200821_TIL
@@ -220,6 +231,37 @@
       
     <span class="nt">&lt;/ul&gt;</span>
     
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"aws"</span><span class="nt">&gt;</span>aws<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/aws/2020/08/22/aws-instance/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        AWS의 EC2서비스를 활용해 웹서비스를 구현하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"react"</span><span class="nt">&gt;</span>React<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/react/2020/08/22/React-what/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        React 소개
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/react/2020/08/22/React-install/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        React 개발환경 구축하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 
@@ -239,10 +281,31 @@
       <span class="nt">&lt;/a&gt;</span>
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
         
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/etc/2020/08/21/etc-sitemap/"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/22/TIL/"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;li&gt;</span>
-            구글 검색엔진에 내 블로그 등록하기
-            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+            200822_TIL
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/react/2020/08/22/React-what/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            React 소개
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/react/2020/08/22/React-install/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            React 개발환경 구축하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/aws/2020/08/22/aws-instance/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            AWS의 EC2서비스를 활용해 웹서비스를 구현하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
           <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;/a&gt;</span>
         
@@ -267,6 +330,13 @@
           <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;/a&gt;</span>
         
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/etc/2020/08/21/etc-sitemap/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;</span>
+            구글 검색엔진에 내 블로그 등록하기
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+          <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        
         <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/20/TIL/"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;li&gt;</span>
             200820_TIL
@@ -278,34 +348,6 @@
           <span class="nt">&lt;li&gt;</span>
             내가 TIL을 하는 이유
             <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
-          <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;/a&gt;</span>
-        
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-blog-theme/"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;li&gt;</span>
-            다른 사람 테마 내 블로그에 적용하기
-            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
-          <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;/a&gt;</span>
-        
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/git/2020/08/20/Git-MD-usage/"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;li&gt;</span>
-            깃 태그 활용하기
-            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>20 Aug 2020<span class="nt">&lt;/small&gt;</span>
-          <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;/a&gt;</span>
-        
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/2014/01/02/introducing-lanyon/"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;li&gt;</span>
-            Introducing Lanyon
-            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>02 Jan 2014<span class="nt">&lt;/small&gt;</span>
-          <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;/a&gt;</span>
-        
-        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/2014/01/01/example-content/"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;li&gt;</span>
-            Example content
-            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>01 Jan 2014<span class="nt">&lt;/small&gt;</span>
           <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;/a&gt;</span>
         
@@ -349,6 +391,13 @@
     <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"til"</span><span class="nt">&gt;</span>TIL<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
       
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/22/TIL/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        200822_TIL
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
         <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/til/2020/08/21/TIL/"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;li&gt;</span>
         200821_TIL
@@ -379,6 +428,37 @@
       <span class="nt">&lt;li&gt;</span>
         구글 검색엔진에 내 블로그 등록하기
        <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>21 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"aws"</span><span class="nt">&gt;</span>aws<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/aws/2020/08/22/aws-instance/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        AWS의 EC2서비스를 활용해 웹서비스를 구현하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+    <span class="nt">&lt;/ul&gt;</span>
+    
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"react"</span><span class="nt">&gt;</span>React<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tags-expo-posts"</span><span class="nt">&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/react/2020/08/22/React-what/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        React 소개
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-title"</span> <span class="na">href=</span><span class="s">"/react/2020/08/22/React-install/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;</span>
+        React 개발환경 구축하기
+       <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"post-date"</span><span class="nt">&gt;</span>22 Aug 2020<span class="nt">&lt;/small&gt;</span>
       <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;/a&gt;</span>
       
