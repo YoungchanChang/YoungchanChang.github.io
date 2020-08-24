@@ -1,0 +1,126 @@
+I"�1<blockquote>
+  <p>본 글은 <a href="https://www.opentutorials.org/module/4058/24738">생활코딩 react</a>를 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="state란">state란?</h1>
+
+<ul>
+  <li>
+    <p>하나의 제품을 바라볼 때 사용자 입장과 구현자 입장이 있다. 아이폰을 예로 들면 사용자 입장은 화면을 터치하는 것이고, 구현자 입장은 내부 부품들을 만드는 것이다.</p>
+  </li>
+  <li>
+    <p>리액트의 관점에서는 props기능은 사용자의 입장에서 컴포넌트를 조작을 도와주는 기능이다. 반면 <strong>state는 구현자 입장에서 컴포넌트 조작을 도와주는 기능</strong>이다.</p>
+  </li>
+  <li>
+    <p>리액트에서 좋은 Component를 만들기 위해서는 사용자를 위한 props기능과 구현자를 위한 state가능이 철저히 분리되어있어야 한다.</p>
+  </li>
+</ul>
+
+<h1 id="state의-사용">state의 사용</h1>
+
+<ol>
+  <li>
+    <p>consturctor를 이용해 컴포넌트의 값을 초기화 한다.</p>
+  </li>
+  <li>
+    <p>constructor 내부에 <code class="language-plaintext highlighter-rouge">this.state = {}</code> 이 코드를 적는다. state내부의 초기화 하고 싶은 값들을 넣는다.</p>
+  </li>
+</ol>
+
+<ul>
+  <li>예시)</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Component</span><span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="na">subject</span> <span class="p">:</span> <span class="p">{</span><span class="na">title</span><span class="p">:</span><span class="dl">"</span><span class="s2">WEB</span><span class="dl">"</span><span class="p">,</span> <span class="na">sub</span><span class="p">:</span><span class="dl">"</span><span class="s2">World Wide Web!</span><span class="dl">"</span><span class="p">}</span>
+        <span class="p">}</span>        
+    <span class="p">}</span>
+    <span class="nx">render</span><span class="p">(){</span>
+        <span class="k">return</span><span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">Subject</span>
+            <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+            <span class="nx">sub</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">sub</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="sr">/Subject</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>상위 컴포넌트 state값을 하위 컴포넌트 props로 전달 가능하다.</li>
+</ul>
+
+<h1 id="state를-쓰는-이유">state를 쓰는 이유</h1>
+
+<ul>
+  <li>state를 쓰면 사용자 입장에서 컴포넌트의 <strong>사용성</strong>이 증가한다.
+    <ul>
+      <li>만약 글 목록을 보여주는 컴포넌트가 있다면 상위 컴포넌트의 state값을 하위 컴포넌트 props로 전달만 해주면 된다.</li>
+      <li>그러면, 컴포넌트의 내부 데이터를 상위 컴포넌트에서 관리할 수 있게 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">subject</span><span class="p">:</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">WEB</span><span class="dl">'</span><span class="p">,</span> <span class="na">sub</span><span class="p">:</span> <span class="dl">'</span><span class="s1">World Wid Web!</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="na">contents</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HTML</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HTML is for information</span><span class="dl">'</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CSS</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CSS is for design</span><span class="dl">'</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JavaScript</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JavaScript is for interactive</span><span class="dl">'</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">App</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Subject</span>
+          <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+          <span class="nx">sub</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">sub</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/Subject</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">TOC</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="sr">/TOC</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Content</span> <span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">HTML</span><span class="dl">"</span> <span class="nx">desc</span><span class="o">=</span><span class="dl">"</span><span class="s2">HTML is HyperText Markup Language.</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/Content</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">TOC</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">TOC render</span><span class="dl">'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">lists</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">lists</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+                <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">a</span>
+                        <span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">/content/</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span>
+                        <span class="nx">data</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span>
+                    <span class="o">&gt;</span><span class="p">{</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/li&gt;</span><span class="se">)</span><span class="err">;
+</span>            <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">nav</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                    <span class="p">{</span><span class="nx">lists</span><span class="p">}</span>
+                <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/nav</span><span class="err">&gt;
+</span>        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>위 클래스에서 TOC클래스의 역할은 글의 목록을 보여주는 역할이다.</li>
+  <li>해당 클래스의 데이터를 직접 건드리지 않고 상위 객체에서 관리하기 때문에 사용성이 증가하게 된다.</li>
+</ul>
+:ET

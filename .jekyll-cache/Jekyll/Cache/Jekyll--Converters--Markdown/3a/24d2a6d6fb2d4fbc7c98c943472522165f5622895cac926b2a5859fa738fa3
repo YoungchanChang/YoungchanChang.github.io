@@ -1,0 +1,21 @@
+I"�<h1 id="https의-필요성">https의 필요성</h1>
+
+<ul>
+  <li>
+    <p>http는 암호화 되지 않은 방법으로 데이터를 전송하기 때문에 서버와 클라이언트가 주고받는 메시지를 쉽게 볼 수 있다.</p>
+  </li>
+  <li>
+    <p>네트워크에서 데이터를 전달하는 데이터 전송 단위를 패킷이라고 한다. <a href="https://wireshark.kr.uptodown.com/windows">와이어샤크</a>라는 패킷 분석 툴을 통해 내 홈페이지에 주소를 입력해 보면 데이터가 그대로 보이는 것을 알 수 있다.</p>
+  </li>
+  <li>
+    <p>따라서 메시지 전송과정에서 암호화한 것이 https이다.</p>
+  </li>
+</ul>
+
+<h1 id="https와-ssl">https와 ssl</h1>
+
+<h1 id="참조">참조</h1>
+
+<p><a href="https://opentutorials.org/course/228/4894">윈도우에서 푸티를 통해 접속하기</a>
+<a href="https://snowdeer.github.io/tips/2018/02/20/editing-files-on-aws-using-vscode/">vscode에서 EC2파일 수정하기</a></p>
+:ET
