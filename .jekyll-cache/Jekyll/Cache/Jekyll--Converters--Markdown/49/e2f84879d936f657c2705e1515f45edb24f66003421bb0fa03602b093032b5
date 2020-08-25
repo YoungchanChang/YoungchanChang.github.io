@@ -1,0 +1,208 @@
+I"U<blockquote>
+  <p>본 글은 <a href="https://www.opentutorials.org/module/4058/24740">생활코딩 react</a>를 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="이벤트의-개념">이벤트의 개념</h1>
+
+<h3 id="이벤트의-필요성">이벤트의 필요성</h3>
+
+<ul>
+  <li>
+    <p>event는 react의 props, state를 활용하여 웹 페이지를 역동적으로 만들어주는 기술이다.</p>
+  </li>
+  <li>이것이 가능한 이유는 react에서 props나 state값이 바뀌면 해당 컴포넌트와 하위 컴포넌트의 render()함수가 호출되도록 약속되었기 때문이다.
+    <ul>
+      <li>render()은 HTML을 그리는 것을 정의하는 메소드이다.</li>
+    </ul>
+  </li>
+  <li>예시) 아래 코드에서 App 컴포넌트의 state값중 mode의 값이 바뀌면 하위 컴포넌트의 <code class="language-plaintext highlighter-rouge">Subect, TOC, Content</code>의 render()함수가 호출된다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">welcome</span><span class="p">:</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Welcome</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello, React!!!</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="na">contents</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HTML</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HTML is for information</span><span class="dl">'</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CSS</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CSS is for information</span><span class="dl">'</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Javscript</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Javscript is for information</span><span class="dl">'</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">React</span><span class="dl">'</span><span class="p">,</span> <span class="na">desc</span><span class="p">:</span> <span class="dl">'</span><span class="s1">React is for information</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">App</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Subject</span>
+          <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+          <span class="nx">sub</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">sub</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/Subject</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">TOC</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="sr">/TOC</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Content</span> <span class="nx">title</span><span class="o">=</span><span class="dl">"</span><span class="s2">HTML</span><span class="dl">"</span> <span class="nx">desc</span><span class="o">=</span><span class="dl">"</span><span class="s2">HTML is HyperText Markup Language.</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/Content</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="태그에-이벤트-설치하기">태그에 이벤트 설치하기</h3>
+
+<ul>
+  <li>태그를 클릭했을 때 경고창 메시지 발생 이벤트 설치</li>
+</ul>
+
+<ol>
+  <li>태그에 클릭 이벤트 속성값을 주면 된다.
+    <ul>
+      <li>JSX규칙상 속성값은 <code class="language-plaintext highlighter-rouge">onClick={ }</code>형태로 준다.</li>
+    </ul>
+  </li>
+  <li>태그안에 익명함수를 작성하고 그 안에 경고창 메시지 함수를 띄운다.
+    <ul>
+      <li>함수는 <code class="language-plaintext highlighter-rouge">function(){ alert(hi); }</code>형태로 작성한다.</li>
+    </ul>
+  </li>
+  <li>태그의 기본 동작을 막기 위해서 event.prevenDefault()코드를 가장 먼저 수행시킨다.
+    <ul>
+      <li>이벤트 함수는 기본 parameter로 event값이 있다.</li>
+      <li>이벤트 함수에 event를 매개변수로 적고 console.log(event)를 적거나 debugger코드를 적으면 확인 가능.</li>
+      <li>event.preventDafault()를 하면 태그의 기본 동작을 막는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="이벤트에서-state-변경하기">이벤트에서 state 변경하기</h3>
+
+<ol>
+  <li>이벤트 함수가 끝난 직후에 .bind(this)를 추가한다.
+    <ul>
+      <li>콜백메소드내에서는 this가 기본적으로 동작하지 않는다.</li>
+      <li>bind함수의 매개변수로 객체를 전달하면 콜백함수 내에서 this로 해당 객체를 쓸 수 있다.</li>
+      <li>여기서 this는 컴포넌트 자신을 의미한다.</li>
+      <li>bind함수의 원리는 <a href="https://www.youtube.com/watch?v=o7Id7GMcuFo&amp;feature=emb_title">여기</a>에 나와있다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">this.setState(mode:'welcome');</code>을 추가한다.
+    <ul>
+      <li>이 코드가 state값을 변경하는 react의 규칙이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="컴포넌트와-이벤트">컴포넌트와 이벤트</h1>
+
+<h3 id="컴포넌트-이벤트-만들기">컴포넌트 이벤트 만들기</h3>
+
+<ul>
+  <li>헤더를 클릭했을 때 웰컴 메시지로 바꾸게 하기</li>
+</ul>
+
+<p>1.컴포넌트 사용자는 컴포넌트에 state값 변경하는 함수 등록(콜백메서드 등록)
+    - 사용하는 컴포넌트는 bind(this)로 사용되는 컴포넌트에게 전달되어야 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Subject</span>
+    <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+    <span class="nx">sub</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">subject</span><span class="p">.</span><span class="nx">sub</span><span class="p">}</span>
+    <span class="nx">onChangePage</span><span class="o">=</span><span class="p">{</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">welcome</span><span class="dl">'</span> <span class="p">});</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/Subject</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>2.컴포넌트 내부에서 this.props.함수();로 등록된 함수 처리.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Header</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Header Rendering</span><span class="dl">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span>
+                    <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+                        <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onChangePage</span><span class="p">();</span>
+                    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span>
+                <span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+                <span class="o">&lt;</span><span class="sr">/a&gt; &lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">sub</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>3.등록된 함수가 수행되면 상위 컴포넌트의 state값이 변함</p>
+
+<p>4.state값에 따라서 메시지 값 변경</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">_title</span><span class="p">,</span> <span class="nx">_desc</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">mode</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">welcome</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">_title</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">welcome</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+      <span class="nx">_desc</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">welcome</span><span class="p">.</span><span class="nx">desc</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">mode</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">_title</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">title</span><span class="p">;</span>
+      <span class="nx">_desc</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">title</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">&lt;</span><span class="nx">Content</span> <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="nx">_title</span><span class="p">}</span> <span class="nx">desc</span><span class="o">=</span><span class="p">{</span><span class="nx">_desc</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="sr">/Content</span><span class="err">&gt;
+</span>
+</code></pre></div></div>
+
+<h3 id="이벤트로-컴포넌트-상호작용-해보기">이벤트로 컴포넌트 상호작용 해보기</h3>
+
+<ul>
+  <li>글 목록을 클릭했을 때 글 내용이 바뀌게 하기</li>
+</ul>
+
+<p>1.id값을 컴포넌트에게 받았을 때 state의 특정 값을 id값으로 변경하는 콜백 메소드 등록</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">TOC</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">}</span>
+    <span class="nx">onChangePage</span><span class="o">=</span><span class="p">{</span><span class="kd">function</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">,</span>
+        <span class="c1">//기본 컨텐츠 값을 변경한다.</span>
+        <span class="na">selected_content_id</span><span class="p">:</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+    <span class="p">});</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/TOC</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>2.컴포넌트 내부의 링크를 클릭했을 시 특정 id값을 콜백메소드에게 전달</p>
+<ul>
+  <li>이벤트 객체의 target속성은 해당 이벤트가 발생한 태그를 가리킨다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">contet/</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span>
+    <span class="nx">data</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span>
+    <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onChangePage</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)}</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">title</span><span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>3.클릭을 했을 때 state값이 변경</p>
+
+<p>4.state값에 따라서 메시지 값 변경</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">contents</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">selected_content_id</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_title</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+            <span class="nx">_desc</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">desc</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="참조">참조</h1>
+<ul>
+  <li><a href="https://ko.reactjs.org/docs/handling-events.html">리액트 이벤트 공식문서</a></li>
+</ul>
+
+:ET

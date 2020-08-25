@@ -1,0 +1,59 @@
+I"<h1 id="ssl">SSL</h1>
+
+<h3 id="ssl의-동작-순서">SSL의 동작 순서</h3>
+
+<center>
+<figure>
+<img src="https://imgur.com/wJH3diP.png" alt="views" />
+<figcaption>참조</figcaption>
+</figure>
+</center>
+
+<ol>
+  <li>
+    <p>서버는 CA(인증기관)으로부터 인증서를 구입한다.</p>
+  </li>
+  <li>
+    <p>인증기관은 사설키로 암호화해서 서버용 인증서를 보낸다.</p>
+  </li>
+  <li>
+    <p>클라이언트가 서버에 접속을 요청하면 서버는 인증서를 제공한다.</p>
+  </li>
+  <li>
+    <p>클라이언트의 브라우저는 인증서를 발급한 인증기관이 자신의 CA리스트에 있는지 확인한다.</p>
+  </li>
+  <li>
+    <p>인증기관이 맞다면 CA의 공개키로 인증서를 복호화한다.</p>
+    <ul>
+      <li>CA공개키로 복호화 한다는 것은 인증기관에서 사설키로 암호화된 것임을 의미한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="ssl-통신-과정-실제로-살펴보기">SSL 통신 과정 실제로 살펴보기</h3>
+
+<ul>
+  <li>실제 네이버에 보내는 패킷을 보면서 SSL의 통신 과정을 살펴보기</li>
+</ul>
+
+<center>
+<figure>
+<img src="https://imgur.com/3B89MUu.png" alt="views" />
+<figcaption>실제 와이어샤크를 통해 본 패킷 통신 방식</figcaption>
+</figure>
+</center>
+
+<center>
+<figure>
+<img src="https://imgur.com/cDbTfQP.png" alt="views" />
+<figcaption>클라이언트가 서버에게 보내는 Hello메시지</figcaption>
+</figure>
+</center>
+
+<h1 id="https-ec2에-적용하기">https EC2에 적용하기</h1>
+
+<h1 id="참조">참조</h1>
+
+<p><a href="https://opentutorials.org/course/228/4894">윈도우에서 푸티를 통해 접속하기</a>
+<a href="https://snowdeer.github.io/tips/2018/02/20/editing-files-on-aws-using-vscode/">vscode에서 EC2파일 수정하기</a></p>
+:ET
