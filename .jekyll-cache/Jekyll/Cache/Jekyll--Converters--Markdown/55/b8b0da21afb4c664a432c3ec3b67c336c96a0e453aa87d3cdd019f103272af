@@ -1,0 +1,81 @@
+I"�	<h1 id="도메인-가입">도메인 가입</h1>
+<p><a href="https://my.freenom.com/clientarea.php">무료 도메인</a></p>
+<ul>
+  <li>확장자까지 적는 편이 좋음</li>
+</ul>
+
+<p><a href="https://www.moakt.com/ko">일회용 이메일</a></p>
+
+<h1 id="letsencrypt설치">letsencrypt설치</h1>
+<p>1.인증서 발급용 SW 설치</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install letsencrypt
+</code></pre></div></div>
+
+<p>2.인증서 발급</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>letsencrypt certonly --webroot --webroot-path=사이트설치경로 -d 해당도메인주소입력
+(예시 :  letsencrypt certonly --webroot --webroot-path=/var/www/omeka -d archivelab.co.kr)
+</code></pre></div></div>
+
+<p>3.인증서 문제 발생시 또는 인증서 만료기간 도래시 메일 알림 주소</p>
+<ul>
+  <li>알림 받을 메일 주소 입력</li>
+</ul>
+
+<p>4.인증서 설치 디렉토리 및 키 설치 여부 확인</p>
+<ul>
+  <li>설치 경로 : /etc/letsencrypt/</li>
+  <li>키 경로 : /etc/letsencrypt/live/해당도메인주소/</li>
+</ul>
+
+<h1 id="letsencrypt-환경설정">letsencrypt 환경설정</h1>
+<ol>
+  <li>Apache 웹서버의 SSL 관련 가상호스트 환경설정 수정
+SSL 환경설정 파일 열기</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi /etc/apache2/sites-available/default-ssl.conf
+</code></pre></div></div>
+
+<ol>
+  <li>다음 코드 삽입
+```
+SSLEngine on</li>
+</ol>
+
+<p>SSLCertificateFile “/etc/letsencrypt/live/[도메인주소]/cert.pem”
+SSLCertificateKeyFile “/etc/letsencrypt/live/[도메인주소]/privkey.pem”
+SSLCertificateChainFile “/etc/letsencrypt/live/[도메인주소]r/chain.pem”
+```</p>
+<ol>
+  <li>
+    <p>Apache 웹서버의 SSL 가상호스트 사이트 설정 활성화
+$ a2ensite default-ssl.conf</p>
+  </li>
+  <li>
+    <p>Apache 웹서버의 SSL 모듈 활성화
+$ a2enmod ssl</p>
+  </li>
+  <li>
+    <p>Apache 웹서버 서비스 재시작
+$ /etc/init.d/apache2 restart</p>
+  </li>
+  <li>
+    <p>웹브라우져에서 SSL 프로토콜로 접근 테스트
+접근 주소 : https://해당도메인주소</p>
+  </li>
+</ol>
+
+<h1 id="http접근-https로-변경">http접근 https로 변경</h1>
+
+<p>vi /etc/apache2/sites-availabe/000-default.conf</p>
+
+<Location />
+
+<p>RedirectMatch /(.*)$ https://도메인주소/$1
+&lt;/Location&gt;</p>
+
+<h1 id="참고">참고</h1>
+
+:ET

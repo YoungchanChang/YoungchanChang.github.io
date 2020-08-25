@@ -1,0 +1,292 @@
+I"�_<blockquote>
+  <p>본 글은 <a href="https://www.opentutorials.org/module/4058/24860">생활코딩 react</a>를 정리한 글입니다.<br />
+모든 정보기술은 crud를 다루는 것이 기본이다.</p>
+</blockquote>
+
+<h1 id="구현-로직">구현 로직</h1>
+
+<ol>
+  <li>컨트롤 컴포넌트 추가(쓰기, 수정 ,삭제 생성)
+    <ul>
+      <li>쓰기, 수정은 <code class="language-plaintext highlighter-rouge">&lt;a&gt;&lt;/a&gt;</code>태그의 링크로 처리한다.</li>
+      <li>삭제 버튼은 링크로 처리하면 문제가 된다. 페이지가 아니라 버튼으로 해야된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//./components/Control.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Control</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/create</span><span class="dl">"</span>
+                    <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span>
+                        <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+                            <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">controlComponent</span><span class="p">(</span><span class="dl">"</span><span class="s2">write</span><span class="dl">"</span><span class="p">);</span>
+                        <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="o">&gt;</span><span class="nx">create</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/update</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">update</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">삭제</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/input&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Control</span>
+
+</code></pre></div></div>
+
+<ol>
+  <li>컨트롤 컴포넌트의 쓰기 버튼 이벤트 핸들러 설치
+    <ul>
+      <li>컨트롤 컴포넌트에서 상위 컴포넌트의 state.mode = “write”으로 변경시키는 event핸들러 설치</li>
+      <li>컨트롤 컴포넌트에 상위 컴포넌트에게 이벤트 핸들러를 통해 <code class="language-plaintext highlighter-rouge">write</code>라는 정보 전달</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//./components/Control.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Control</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/create</span><span class="dl">"</span>
+                <span class="c1">//onClick메소드가 추가된 코드</span>
+                    <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span>
+                        <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+                            <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">controlComponent</span><span class="p">(</span><span class="dl">"</span><span class="s2">write</span><span class="dl">"</span><span class="p">);</span>
+                        <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="o">&gt;</span><span class="nx">create</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/update</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">update</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">삭제</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/input&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Control</span>
+
+</code></pre></div></div>
+
+<ol>
+  <li>상위 컴포넌트에서 하위 컴포넌트의 이벤트를 값을 받아서 state값 변경
+    <ul>
+      <li>상위 컴포넌트는 하위컴포넌트의 <code class="language-plaintext highlighter-rouge">write</code>의 정보 값 받아서 this.setState()메소드로 자신의 state에 변경</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//./components/Control.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Control</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/create</span><span class="dl">"</span>
+                <span class="c1">//onClick메소드가 추가된 코드</span>
+                    <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span>
+                        <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+                            <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">controlComponent</span><span class="p">(</span><span class="dl">"</span><span class="s2">write</span><span class="dl">"</span><span class="p">);</span>
+                        <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="o">&gt;</span><span class="nx">create</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/update</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">update</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">삭제</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/input&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Control</span>
+</code></pre></div></div>
+
+<ol>
+  <li>쓰기 컴포넌트 생성
+    <ul>
+      <li>form 태그에 onSubmit이벤트를 설치한다. 해당 이벤트는 form태그의 고유한 기능이다.</li>
+      <li>쓰기 컴포넌트에서 제목, 내용의 데이터를 상위 컴포넌트에 전달한다.</li>
+      <li>제목, 내용의 데이터를 event.target(현재 태그를 의미).title(폼안에 태그 name속성).value로 전달</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//./components/WriteContent.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">WriteContent</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">article</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Create</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span>
+                    <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+                        <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">sendWrite</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">title</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">desc</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+                    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+                <span class="p">}</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/input</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">textarea</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">desc</span><span class="dl">"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/textarea</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/input</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/article</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">WriteContent</span>
+</code></pre></div></div>
+
+<ol>
+  <li>상위 컴포넌트의 state.mode값에 따라서 하위 컴포넌트 변경
+    <ul>
+      <li>state.mode값에 따라 값을 담을 변수를 생성한다</li>
+      <li>state.mode가 <code class="language-plaintext highlighter-rouge">read</code>면 변수에다가 읽기 컴포넌트를 <code class="language-plaintext highlighter-rouge">write</code>이면 변수에다가 쓰기 컴포넌트로 변경</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">var</span> <span class="nx">write</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">mode</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">write</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Content</span> <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="nx">_title</span><span class="p">}</span> <span class="nx">desc</span><span class="o">=</span><span class="p">{</span><span class="nx">_desc</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="sr">/Content&gt;</span><span class="err">;
+</span>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">mode</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">write</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="nx">write</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">WriteContent</span><span class="o">&gt;&lt;</span><span class="sr">/WriteContent &gt;</span><span class="err">;
+</span>    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<ol>
+  <li>상위 컴포넌트에서 쓰기 컴포넌트의 값 처리.
+    <ul>
+      <li>상위 컴포넌트에서 글쓰기 컴포넌트에서 입력한 데이터를 state.contents 배열에 추가한다.</li>
+      <li>state.contents 배열의 마지막 값 뒤에 추가하기 위해서 마지막 값의 정보를 담는 변수(max_content_id)를 추가한다.</li>
+      <li>여기서 max_content_id는 state안에 넣으면 불필요한 렌더링이 발생하기 때문에 state안에 넣지 않는다.</li>
+      <li>concat()으로 글쓰기 컴포넌트의 데이터를 상위 컴포넌트에서 추가한다. concat()을 쓰면 push()와 달리데이터를 추가한 새로운 배열이 생성된다.</li>
+      <li>push()를 쓰지 않는 이유는 push()는 원본을 바꾸기 때문이다. 다음 shouldComponentUpdate()에서 자세히 설명</li>
+      <li>setState({})에 변경된 데이터를 삽입한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="shouldcomponentupdate">ShouldComponentUpdate</h1>
+
+<ul>
+  <li>
+    <ol>
+      <li>글 목록의 리스트가 바뀌지도 않았는데 계속 render()가 발생하면 비효율적이다.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>render()이전에 shouldComponentUpdate()를 실행시켜서 업데이트가 발생하지 않은 render()수행을 멈추게 한다.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>shouldComponetUpdate()의 return값이 true면 reder()메소드 호출 false면 render()메소드 호출되지 않도록 약속되어있다</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>shouldComponent(nextProps, nextState)의 nextProps는 상위 컴포넌트에서 새로운 값을 줄 때 쓰인다.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>상위 컴포넌트에 새로운 값을 받지 않으면 shouldComponent()의 return값을 false로 줌으로써 <code class="language-plaintext highlighter-rouge">성능 최적화</code>를 이룰 수 있다.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>단, 여기서 상위컴포넌트에서 주는 값은 복사본이어야 한다. push()를 쓰면 원본이 바뀌기 때문에 해당 메소드가 수행되지 않는다.</li>
+    </ol>
+  </li>
+</ul>
+
+<h1 id="참조">참조</h1>
+
+<ul>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/react-component.html">React.Component</a></p>
+  </li>
+  <li>종합 : TOC로 들어오는 data의 prop가 바뀌었을 때 render호출, 아니면 호출되지 않게 한다.</li>
+  <li>만약 push로 구현하면 원본을 바꾸게 된다. =&gt; shouldComponetUIpdat가 수행이 되지 않게 된다.</li>
+  <li>
+    <p>원본 수정 X! 복제본을 수정해야한다.</p>
+
+    <ul>
+      <li>배열의 내용이 바뀌면 TOC component의 render메소드가 호출되는 것을 통해서 TOC가 다시 그려져야해</li>
+      <li>그러나 배열의 내용이 바뀌지 않으면 해당 component의 render는 호출이 되는 것이 안 좋다.</li>
+      <li>mode가 바뀌어도 TOC가 수ㅐㅎㅇ된다.</li>
+      <li>자기랑 상관없는 일이 진행되도 새로 실행하는 것은 매우 비효율적이다</li>
+      <li>프로그램이 커지면 문제가 된다.</li>
+      <li>컴포넌트의 render()함수가 실행될지 실행되지 않을지 react개발자가 결정할 수 있도록 약속을 한다.</li>
+      <li>shouldComponentUpdate(){} 기본 true return / return false하면 render()함수가 호출되지 않는다.</li>
+      <li>첫번째 인자를 통해 바뀐 값을 알 수 있고 ,두번째 인자를 통해 현재 값을 알 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- 5. 상위 컴포넌트의 컨텐츠의 데이터 배열에 새로운 컨텐츠 정보가 ID, 제목, 본문으로 담겨서 컨텐츠에추가된다.
+    - id값을 읽어서 1이 더 큰 아이디값을 만들어야 한다. 그러기 위해서 max_content_id값을 적는다.
+    - max_content_id = 3
+    - 데이터를 push할 때 사용하는 정보, UI에 영향 X / 불필요한 rendering이 발생하기 때문에 밖에 넣으면 된다.
+    - 컨텐츠에 값을 push한다.
+    - setState를 한다.
+    - 배열에 데이터 추가할 때는 push(#); OR arr.concat(3);을 하게 되면 원본 데이터에 추가가 된다.
+    - push는 원본을 바꾼다. concat은 원본을 바꾸지 않는다. 새로운 배열이 return된다.
+    - state에 값을 추가할 때는 push X!!! concat처럼 오리지널 데이터 x
+    - 새로운 데이터로 교체된다. concat
+    - 기존의 배열에 값을 하나 추가하게 된다. 나중에 성능을 개선할 때 까다로워진다. -->
+
+<h1 id="immutable">Immutable</h1>
+
+<ul>
+  <li>
+    <ol>
+      <li>push를 쓰고 싶으면 Array.from()을 통해 복제한다.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>복제한 것에 push를 한다.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="새로운-객체를-만들고-싶다">새로운 객체를 만들고 싶다?</h3>
+
+<p>var b = Object.assign({}, a);</p>
+
+<p>내용을 복제한다. 내용은 같지만 같은 객체가 아니다.</p>
+
+<p>Object.assing을 통해 객체를 복사한다. 배열은 array.from을 통해 한다.</p>
+
+<ul>
+  <li>Object.assign에 값을 새로 주면 기존의 값에 추가가 된다.</li>
+</ul>
+
+<p>Array.from / ObjectAssign 배열, 객체 바꾸기</p>
+
+<p>push는 원본을 바꾸고 concat은 원복을 복제한 것을 바꾼다.</p>
+
+<ol>
+  <li>TOC에 표시될 내용이 드러난다.</li>
+</ol>
+:ET
