@@ -8,19 +8,19 @@ comments: true
 
 > 본 글은 [생활코딩 react](https://www.opentutorials.org/module/4058/24861)를 정리한 글입니다.  
 
-# 참조
-[리액트 폼](https://ko.reactjs.org/docs/forms.html)
-
-
+# Update설명
 - update는 read와 create결합이다. CREATE form안에 READ처럼 데이터를 가져와야 한다.
 
-- 기본 로직
-- READ를 클릭하면 해당되는 글의 id값이 저장된다.**ID값이 현재 저장되어있음**
-- update버튼을 클릭하면 create FORM에 저장된 id의 값이 반영된다.
+### update의 기본 로직
+- Update의 로직은 읽기 -> 수정 -> 저장 순서로 이루어진다.
+- 읽기 : 데이터를 먼저 읽는다.(글의 id값이 저장된다.)
+- 수정 : 읽은 데이터를 수정한다.(Create과 같은 form에 읽은 데이터가 반영된다.)
+- 저장 : 수정한 데이터를 저장한다.(수정한 값이 저장된다.)
 
-- 상세 로직
-- 1.글 리스트 버튼 클릭 후(글 내용이 보인다) 업데이트 버튼 클릭시 create폼태그 안에서 내용이 보이게 하기
-- 업데이트 컴포넌트를 만든다. CREATE form을 UPDATE form으로 가져온다.
+
+### update의 상세 로직
+- 1.준비 : 업데이트 컴포넌트
+- 업데이트 컴포넌트를 만든다. UPDATE form은 CREATE form으로 가져온다.
 
 ```javascript
 import React, { Component } from 'react';
@@ -51,8 +51,8 @@ class UpdateContent extends Component {
 export default UpdateContent
 ```
 
-- 업데이트 컴포넌트에 props로 줄 값? 저장된 id값에 따른 title, desc를 전달한다.
-- 컨트롤 컴포넌트에 업데이트 클릭시 state.mode=='update'로 만든다. 해당 모드에 따라 {content}를 업데이트 컴포넌트로 바꾼다.
+- 2.읽기 : 읽는 글에 따른 제목, 내용을 업데이트 컴포넌트에 props값으로 준다.
+- 컨트롤 컴포넌트에 업데이트 클릭시 state.mode=='update'로 만든다. 그리고 {content}를 업데이트 컴포넌트로 바꾼다.
 
 ```javascript
 else if (this.state.mode === 'update') {
@@ -76,18 +76,20 @@ else if (this.state.mode === 'update') {
         updateDate={data}
       ></UpdateContent>
 
-      
     }
 
 ```
-- 그러면 업데이트 버튼 클릭했을 때 이미 값이 있는 것이 보인다.
+- 확인 : 업데이트 버튼 클릭했을 때 이미 값이 있는 것이 보인다.
 
-- 2.값 입력했을 때 변경시키기
-- props는 read-only이기 때문에 props값(id, title, desc)을 state에 저장시킨다.
+- 3.수정 : 값 입력했을 때 변경시키기
+- onChange메소드와 setState({})메소드로 입력된 값을 변경시킨다.
+- onChange메소드 : 
 - input값에 value는 변하지 않는다. onChange메소드 안에서 setState({})메소드 안에서 내용 변경을 구현해야 한다.
-- id는 히든 값으로 처리해야 한다. textarea에 value={this.state.desc}로 설정한다.
-- update에 대한 식별자를 건네줘야한다. 폼에서 ID는 히든 form으로 한다.
-- `<input type="hidden" name="id" value={this.state.id}></input>`으로 인풋값 설정 id값도 준다.
+- setState({})메소드 " 
+- props는 read-only이기 때문에 수정이 불가능하다. 따라서, props값(id, title, desc)을 state에 저장시킨다.
+- 추가 사항
+- id값이 필요하다. 글 수정을 했을 때 몇번 글을 수정할 것인지 식별자를 건네줘야하기 때문이다. id는 히든 값으로 처리해야 한다. 
+- textarea에 value={this.state.desc}로 설정한다.
 
 ```javascript
 import React, { Component } from 'react';
@@ -143,10 +145,9 @@ export default UpdateContent
 
 ```
 
-- 3.submit버튼으로 제출됬을 때 내용 수정하기
-- READ처럼 현재 ID값을 받아서 교체한다. READ는 그냥 읽기만 하고, UPDATE는 CREATE처럼 Array.from()으로 한다.
-- 배열이나 객체 수정하려고 할 때는 해당 객체를 복사해서 수정한다.
-- id값에 따라서 글을 출력하는 while문과 똑같이 하되, 해당 배열의 id값의 데이터를 바꾸는 것으로 한다.
+- 4.저장:수정된 데이터에서 id, 제목, 내용을 받아서 수정한다.
+- 배열이나 객체 수정하려고 할 때는 해당 객체를 복사해서 수정한다. Array.from()메소드를 쓴다.
+- 내용을 update할 때는 해당 배열의 id값의 데이터의 제목, 내용을 바꾸는 것으로 한다.
 
 ```javascript
       mode = <UpdateContent
@@ -178,11 +179,9 @@ export default UpdateContent
 
 
 
-
-
 - 리팩토링하기
-- 리팩토링 1. 컴포넌트의 리팩토링
-- !!!메소드를 나눠라!!! this.getContent()로 하면 return값 그대로 쓸 수 있다. 보기가 훨씬 좋다!!!
+- 리팩토링 1. 메소드의 리팩토링
+- 메소드를 나누기 this.getContent()로 하면 return값 그대로 쓸 수 있다. 보기가 훨씬 좋다!!!
 - getReadContent() return값은 data로 한다. var content =  this.getReadComponent(); 이런식으로 쓰면 좋다.
 
 ```javascript
@@ -261,3 +260,40 @@ inputFormHandler(e){
 - [e.target.name]은 최신 자바스크립트 문법이다. 객체 리터럴이라고 하며,
 - []안의 내용이 객체의 속성명으로 바로 사용될 수 있다.
 - const newObject = { [es+6] : 'Fantastic' }, console.log(newObject.ES6)
+
+
+
+# React Delete
+
+# Delete의 기본 로직
+- 데이터를 Read로 읽는다. 해당 글의 id에 따라 데이터를 삭제한다.
+- 정말 삭제할지 물어본다.
+
+```javascript
+        function (id) {
+          if (id === "delete") {
+            if (window.confirm('really?')) {
+              var _contents = Array.from(this.state.contents);
+
+              var i = 0;
+              while (i < _contents.length) {
+                if (_contents[i].id === this.state.selected_content_id) {
+                  _contents.splice(i, 1);
+                  break;
+                }
+                i = i + 1
+              }
+
+            }
+          }
+          
+          this.setState({
+                mode: 'welcome',
+                contents: _contents
+              })
+        }.bind(this)
+```
+
+# 참조
+[리액트 폼](https://ko.reactjs.org/docs/forms.html)
+
