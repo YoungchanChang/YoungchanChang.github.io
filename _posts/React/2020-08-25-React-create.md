@@ -7,7 +7,7 @@ comments: true
 ---
 
 > 본 글은 [생활코딩 react](https://www.opentutorials.org/module/4058/24860)를 정리한 글입니다.  
-> 모든 정보기술은 crud를 다루는 것이 기본이다.
+
 
 # 구현 로직
 

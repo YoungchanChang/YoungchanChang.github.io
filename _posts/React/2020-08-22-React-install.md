@@ -7,10 +7,6 @@ comments: true
 ---
 
 > 본 글은 [생활코딩 React](https://www.opentutorials.org/module/4058/24666)강의를 요약, 정리한 글입니다.  
-> "나는 어떻게하면 강사로부터 독립할 수 있을까?"를 고민해야됩니다.  
-> 그 방법은 [공식문서](https://ko.reactjs.org/)에 익숙해지는 것이고, 그 과정은 쉽지 않습니다.
-
-
 
 # 개발환경 구축하기
 개발환경 구축순서는 NPM깔기 -> CreateReact App깔기 -> 개발환경 완성하기

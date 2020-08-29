@@ -7,7 +7,7 @@ comments: true
 ---
 
 > 본 글은 [생활코딩 react](https://www.opentutorials.org/module/4058/24860)를 정리한 글입니다.  
-> 헷갈리는 개념은 이미지 검색하면 좋은 인포그래픽이 많다.
+
 
 # 헷갈리는 개념은 이미지 검색하면 좋은 인포그래픽이 많다.
 

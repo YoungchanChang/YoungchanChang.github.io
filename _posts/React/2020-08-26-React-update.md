@@ -247,7 +247,7 @@ export default UpdateContent
 ```
 
 
-- 리팩토링 2. onChange메소드의 리팩토링
+- 리팩토링 3. onChange메소드의 리팩토링
 
 ```javascript
 inputFormHandler(e){
