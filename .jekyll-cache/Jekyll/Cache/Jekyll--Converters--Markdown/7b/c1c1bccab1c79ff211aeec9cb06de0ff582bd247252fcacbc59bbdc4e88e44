@@ -1,0 +1,11 @@
+I"E<h1 id="파이썬에서-썼던-함수-간략-정리">파이썬에서 썼던 함수 간략 정리</h1>
+
+<ul>
+  <li>type() : 객체의 자료형을 알 수 있다.</li>
+  <li>참고로 파이썬에서 거의 자료형들이 객체이다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+:ET

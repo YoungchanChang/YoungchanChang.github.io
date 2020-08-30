@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React props state event 정리
-category: React
+title: react props state event 정리
+category: react
 tags: [react, event]
 comments: true
 ---

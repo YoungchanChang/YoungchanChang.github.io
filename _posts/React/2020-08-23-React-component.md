@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React 컴포넌트 만들기
-category: React
+title: react 컴포넌트 만들기
+category: react
 tags: [react]
 comments: true
 ---

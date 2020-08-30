@@ -1,0 +1,70 @@
+I"s<h1 id="프로그램의-개념">프로그램의 개념</h1>
+
+<ul>
+  <li>
+    <p>프로그램의 어원 : 미리 정해놓은 것</p>
+  </li>
+  <li>
+    <p>일상 생활에서 프로그램의 예시&gt; 연주회 프로그램, 캠프 프로그램, 방송 프로그램</p>
+  </li>
+  <li>
+    <p>프로그램의 특징? <code class="language-plaintext highlighter-rouge">순서대로</code> 진행이 된다.</p>
+  </li>
+  <li>
+    <p>컴퓨터 프로그램은 <strong>명령을 순차적으로 실행</strong>해서 문제를 해결한다.</p>
+  </li>
+  <li>
+    <p>컴퓨터의 기본 구성은 <code class="language-plaintext highlighter-rouge">순차</code>, <code class="language-plaintext highlighter-rouge">선택</code>, <code class="language-plaintext highlighter-rouge">반복</code>이 있다.</p>
+  </li>
+</ul>
+
+<h1 id="왜-파이썬인가">왜 파이썬인가?</h1>
+
+<ul>
+  <li>자바와 파이썬 비교</li>
+  <li>파이썬은 다른 언어에 비해서 간결하다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="nc">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">"Life is Short!"</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">m</span> <span class="o">:</span> <span class="n">msg</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">)){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">prinltn</span><span class="o">(</span><span class="n">m</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">msg</span> <span class="o">=</span> <span class="s">'Life is short!'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">split</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h1 id="출력하기와-입력하기">출력하기와 입력하기</h1>
+
+<ul>
+  <li>
+    <p>print()는 출력하는 함수이다.</p>
+  </li>
+  <li>
+    <p>print()의 매개변수로 ,를 쓰면 ,대신 공백이 출력된다.</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'My Name is'</span><span class="p">,</span> <span class="s">'YoungChan'</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>input()은 컴퓨터에게 사용자의 입력을 받는 함수이다.</li>
+  <li>참고로 에디터에서는 입력값이 있어도 실제 출력은 하지 않는다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">aaaa</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">input</span><span class="p">(</span><span class="s">'이름을 입력하세요'</span><span class="p">)</span>
+<span class="n">youngchan</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'당신의 나이는?'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="참조">참조</h1>
+
+<p><a href="https://www.inflearn.com/course/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EC%B4%88-%EA%B0%95%EC%A2%8C">파이썬 참조</a></p>
+:ET

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React create 기능 구현
-category: React
+title: react create 기능 구현
+category: react
 tags: [react, create]
 comments: true
 ---

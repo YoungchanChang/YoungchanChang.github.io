@@ -1,0 +1,77 @@
+I"1<ul>
+  <li>파이썬의 for에 대해서 간략히 소개합니다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">container</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">명령1</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>컨테이너에 있는 값이 여러개가 있다.</p>
+  </li>
+  <li>
+    <p>반복할 부분을 codeblock이라고 한다. 구분하기 위해서 :으로 구분한다.</p>
+  </li>
+  <li>
+    <p>띄어쓰기 들여쓰기를 꼭 한다!. 들여쓰기는 다른 언어에서는 필수가 아니다.</p>
+  </li>
+  <li>
+    <p>파이썬에서는 들여쓰기를 꼭 한다.!!!!!!!!! 한 번 탭을 쓰면 끝까지 탭을 써야한다.</p>
+  </li>
+  <li>
+    <p>띄어쓰기 네칸이 적당하다.</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>range(3)
+range라는 자료형이 있다. [0, 1, 2]가 들어간다.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>구구단 출력
+```python
+for i in range(1, 10):
+    print(‘{}x{}={}’.format(2, i, 2*i))</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p>for j in range(2, 10):
+    for i in range(1,10):
+        print(‘{}x{}={}’.format(i, j, i*j))
+```</p>
+
+<ul>
+  <li>Comprehension</li>
+</ul>
+
+<p>odd_numbers = []
+for number in numbers:
+    if number % 2 == 1:
+        odd_numbers.append(number)</p>
+
+<p>odd_numbers = [number for number in numbers if number % 2 == 1]</p>
+
+<p>PEP8(coding Convention)
+파이썬으로 코딩을 했을 때 규칙 제안서</p>
+:ET

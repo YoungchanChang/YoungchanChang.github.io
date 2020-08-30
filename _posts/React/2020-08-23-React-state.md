@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React state
-category: React
+title: react state
+category: react
 tags: [react]
 comments: true
 ---

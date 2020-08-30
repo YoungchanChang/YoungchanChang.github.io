@@ -1,0 +1,289 @@
+I"HB<p><a href="https://www.opentutorials.org/module/4047">리액트</a></p>
+
+<h1 id="자바스크립트와-oop">자바스크립트와 OOP</h1>
+
+<h1 id="1-객체란">1. 객체란</h1>
+
+<ul>
+  <li>
+    <p>객체는 <code class="language-plaintext highlighter-rouge">서로 연관된 변수와 함수를 그룹핑하고 이름을 붙인 것</code>이다.</p>
+  </li>
+  <li>
+    <p>객체를 통해 <strong>정리정돈</strong>을 할 수 있다.</p>
+  </li>
+</ul>
+
+<h1 id="2-js파일-실행시켜보기">2. js파일 실행시켜보기</h1>
+
+<ul>
+  <li>
+    <p>hello.js파일을 생성한다. 파일 내용은 <code class="language-plaintext highlighter-rouge">console.log("hello");</code>로 한다.</p>
+  </li>
+  <li>
+    <p>터미널 창에서  <code class="language-plaintext highlighter-rouge">node hello.js</code>로 명령어를 실행시킨다.</p>
+  </li>
+</ul>
+
+<h1 id="3-객체와-배열">3. 객체와 배열</h1>
+
+<h3 id="배열은-반복문이랑-사용할-때-장점">배열은 반복문이랑 사용할 때 장점</h3>
+
+<ul>
+  <li>
+    <p>배열 : 번호와 번호에 대응 하는 데이터들로 이루어진 구조 / 일반적으로 같은 종류의 데이터들이 순차적으로 저장</p>
+  </li>
+  <li>
+    <p>객체 : <code class="language-plaintext highlighter-rouge">서로 연관된 변수와 함수를 그룹핑하고 이름을 붙인 것</code></p>
+  </li>
+</ul>
+
+<h1 id="배열의-생성">배열의 생성</h1>
+
+<h3 id="배열의-생성과-객체의-생성">배열의 생성과 객체의 생성</h3>
+
+<ul>
+  <li>배열은 [] 대괄호, 객체는 {} 중괄호로 생성</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">memberArray</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">egoing</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">graphittie</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">leezhce</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">memberObject</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">manager</span><span class="p">:</span><span class="dl">'</span><span class="s1">egoing</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">developer</span><span class="p">:</span><span class="dl">'</span><span class="s1">graphittie</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="na">designer</span><span class="p">:</span><span class="dl">'</span><span class="s1">leezhce</span><span class="dl">'</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="배열의-생성과-객체의-읽기">배열의 생성과 객체의 읽기</h3>
+
+<ul>
+  <li>
+    <p>배열은 배열[index]로 접근, 객체는 객체.이름 OR 객체[‘이름’]으로 접근</p>
+  </li>
+  <li>
+    <p>주의점 : <code class="language-plaintext highlighter-rouge">for ( 변수 in 객체 )</code> 구문을 사용할 때에는 객체의 접근은 .멤버변수가 아니라 대괄호[]로 진행해야 한다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">memberArray[2]</span><span class="dl">"</span><span class="p">,</span> <span class="nx">memberArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">memberObject.designer</span><span class="dl">"</span><span class="p">,</span> <span class="nx">memberObject</span><span class="p">.</span><span class="nx">designer</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">memberObject['designer']</span><span class="dl">"</span><span class="p">,</span> <span class="nx">memberObject</span><span class="p">[</span><span class="dl">'</span><span class="s1">designer</span><span class="dl">'</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<h3 id="배열과-객체의-수정">배열과 객체의 수정</h3>
+
+<ul>
+  <li>대입연산자를 통해서 수정 가능</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">memberArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">leezche</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">memberObject</span><span class="p">.</span><span class="nx">designer</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">leezche</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="삭제하기">삭제하기</h3>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">javascript삭제</a> 참조</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">memberArray</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">delete</span> <span class="nx">memberObject</span><span class="p">.</span><span class="nx">manager</span>
+</code></pre></div></div>
+
+<h1 id="기타-알아야-할-사항">기타 알아야 할 사항</h1>
+
+<h3 id="배열은-반복문이랑-사용할-때-장점매우-중요">배열은 반복문이랑 사용할 때 장점!!!(매우 중요)</h3>
+<ul>
+  <li>여러개의 data를 반복적으로 처리할 때 거대한 작업을 할 수 있다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="dl">'</span><span class="s1">array loop</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">memberArray</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">memberArray</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+  <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">array loop</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">tip! 콘솔을 console.group();</code>으로 묶으면 보기 좋게 시각적으로 표현해준다.</p>
+  </li>
+  <li>
+    <p>객체에서 사용하는 for문은 for in문이라고 한다. 객체의 값만큼 중괄호의 내용이 실행된다.</p>
+  </li>
+  <li>in뒤쪽에는 객체, 앞에는 객체가 반복적으로 실행될 때마다 순번에 해당되는 원소의 <strong>이름</strong>이 주입될 변수가 온다.</li>
+  <li>객체의 각각의 속성의 이름이 와야된다. .은 안 되고 대괄호로 해야한다. memberObject[name]은 변수가 된다.</li>
+  <li>.뒤에는 변수가 올 수 없다. / <code class="language-plaintext highlighter-rouge">속성의 이름이 와야한다</code></li>
+  <li>배열에서 사용하는 대괄호로 바꿔야 한다.</li>
+  <li></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="dl">'</span><span class="s1">object loop</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">memberObject</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">memberObject</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">(</span><span class="dl">'</span><span class="s1">object loop</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>반복문과 배열은 필수이다! 객체에서 반복문은 있다는 정도만 알아라!</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">중요</code></p>
+<ul>
+  <li>배열은 인덱스 번호로 데이터를 접근할 때 사용 / for문으로 index번호 증가시킴</li>
+  <li>객체는 값의 이름으로 데이터를 접근할 때 사용 / for in문으로 안에있는 이름값을 가져옴. []로 접근해야함.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">MyMath</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="na">random</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 객체로 안 만들 때</span>
+<span class="c1">// 디렉터리를 배우기 싫으면 클래스로 안 만들어도 된다.</span>
+<span class="c1">// 파일 이름 앞에 접두사를 붙인다. 디렉터리를 만들고 서로 연관된 파일을 몰아넣을 수 있다.</span>
+<span class="kd">function</span> <span class="nx">random</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="객체--연관된-함수와-변수를-그루핑해서-이름을-붙인-것">객체 : 연관된 함수와 변수를 그루핑해서 이름을 붙인 것.</h1>
+
+<ul>
+  <li>
+    <p>대명사 this. 자기 자신을 가리키는 대명사가 있다.</p>
+  </li>
+  <li>
+    <p>[불편함]자기가 속해있는 객체가 어떤 이름을 갖게될 지 알 수 없다.</p>
+  </li>
+  <li>
+    <p>왜 this? 지역변수와 전역변수가 있다. 지역은 새롭게 공간에 들어가게 된다. 그렇기 때문에 완전 새로운 공간이다.</p>
+  </li>
+  <li>
+    <p>kim.first + kim.second로 하면 된다.</p>
+  </li>
+  <li>
+    <p>메소드가 자신이 속해있는 객체를 가리키는 특수한 키워드를 만들기로 약속한다. 나는, 저는같은 역할을 한다.</p>
+  </li>
+  <li>
+    <p>this!!!</p>
+  </li>
+</ul>
+
+<h3 id="양산-체계를-가질-수-있다">양산 체계를 가질 수 있다.</h3>
+
+<ul>
+  <li>
+    <p>constructor의 필요성. 공장의 느낌!!!</p>
+  </li>
+  <li>
+    <p>인자값을 넣으면 값에 따라서 객체가 초기화 된다.</p>
+  </li>
+  <li>WHY NEED?</li>
+  <li>이전에는 중괄호를 통해서 객체를 만들 때마다 다시 정의해줘야 한다.</li>
+  <li>
+    <p>속성값 몇 개를 줌으로써 필요한 값을 빠르게 생성할 수 있게 된다.</p>
+  </li>
+  <li>
+    <p>같은 형태의 data이지만 그 안의 속성값이 다른 경우 속성값만 줌으로써 새롭게 찍어낼 수 있다.</p>
+  </li>
+  <li>constructor을 쓰면 앞에 new를 사용함으로써 실행할 때마다 객체가 양산된다.</li>
+  <li>constructor function의 내용을 바꾸면 갚을 2개만 받는다, 3개만 받는다가 된다.</li>
+  <li>
+    <p>constructor function()에 만들어진 객체가 한번에 바뀐다.</p>
+  </li>
+  <li>
+    <p>객체는 템플릿이라서 똑같은 객체를 만들 수 있다.</p>
+  </li>
+  <li>
+    <p>객체를 찍어내는 공장을 만들기</p>
+  </li>
+  <li>Date의 예시. 인자값을 넣어주면 내부적으로 해당 값을 갖고있는 객체가 생성이 된다.</li>
+  <li>앞에 new를 붙였을 때 객체를 만들어서 return해주고 있다.</li>
+  <li>인자값만 관리해주면 된다!!!</li>
+  <li>
+    <p>안에 메소드들이 있다.</p>
+  </li>
+  <li>The purpose of constructor is to initialize the object of a class</li>
+  <li>
+    <p>the purpose of a method is to perform a task</p>
+  </li>
+  <li>옛날에는 변수명.함수() return부분이 잘 이해가 되지 않았었다.</li>
+  <li>자판기 비유</li>
+</ul>
+
+<h1 id="prototype">prototype</h1>
+<ul>
+  <li>왜 쓰니? 함수가 생성될 때마다 새로 만들어진다. 메모리가 낭비가 된다.</li>
+</ul>
+
+<ol>
+  <li>
+    <p>프로토타입 의미
+객체들이 공통으로 사용하는 속성값</p>
+  </li>
+  <li>
+    <p>프로토타입 없을 때의 비효율적인 점
+객체를 생성할 때 마다 같은 동작을 하는 메소드가 메모리에 계속 생긴다. =&gt; 성능 저하, 메모리 낭비</p>
+  </li>
+  <li>
+    <p>프로토타입을 사용하면 좋은 점
+객체들이 공통으로 사용하는 속성값을 정의해서 객체 생성마다 같은 속성값을 만드는 과정을 생략해, 성능 향상과 메모리를 효율적으로 이용할 수 있게 해준다.</p>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>객체가 만들어질 때 마다 실행되지 않는다. 성능의 절약. 한 번만 만들어진다.</p>
+  </li>
+  <li>
+    <p>중요! 저 함수를 ‘prototype : ‘ 이라면 sum()함수를 호출했을 때, 저 함수가 호출될 것을 기대하고 prototy으 출력한다.</p>
+  </li>
+  <li>
+    <p>Sharing메소드 같다. 성능, 메모리를 절약한다.</p>
+  </li>
+  <li>특정 객체의 메소드만 다르게 동작하게 하고 싶다.</li>
+  <li>
+    <p>프로토타입 특징 : kim객체의 sum()메소드를 호출할 때, 제일 먼저 해당 객체 자신이 sum이라는 속성을 갖고 있는지를 찾는다. 만약 lee라는 객체가 있다면 sum이라는 메소드를 정의한 적이 없어? javascript는 해당 객체 자신이 없으면 생성자인 person의 prototype의 sum의 메소드가 정의되어있는지 찾는다.</p>
+  </li>
+  <li>생성자 함수의 prototype.함수의 이름으로 하면 cunstructor을 이용해서 객체를 생성할 때 사용하는 패턴이다.</li>
+  <li>
+    <p>생성자.prototype.함수의 이름</p>
+  </li>
+  <li>
+    <p>1.프로토타입의 의미 2. 생성자 함수 안에서 메소드나 속성을 직접 정의하면 어떤 비효율이 발생하는가</p>
+  </li>
+  <li>
+    <p>메소드를 바꾸고 싶을 때,</p>
+  </li>
+  <li>
+    <p>생성자 안에서 메소드 갖는 단점. 생산성이 많이 떨어진다.</p>
+  </li>
+  <li>
+    <p>공통적으로 사용하는 함수를 만들고 싶다. 공통적으로 만드는 속성을 만들면 좋다.</p>
+  </li>
+  <li>
+    <p>생성자 함수의 원형을 정한다.</p>
+  </li>
+  <li>이전의 결과와 똑같은 결과가 실행이 된다. 차이점 : Person Constructor생성자 함수 안에 정의하는 것이 없다.</li>
+  <li>한 번만 만들어지기때문에 메모리가 절약된다.</li>
+</ul>
+
+<h1 id="느낀점">느낀점</h1>
+
+<ul>
+  <li>객체와 배열의 의미를 다시 한 번 생각했다. 객체에 이름을 붙이는 자바스크립트</li>
+  <li>배열은 같은 데이터 형태로만 이루어져있는데 실제 테스트해보니깐 아니었다. for in은 익숙하지 않았는데 다시 해봐야겠따.</li>
+  <li>for in에서 - .이냐 []는 처음 공부했다.</li>
+  <li>디렉터리로 파일 이름 구분한다는 것도 처음 알았다.</li>
+  <li>console.group(‘object loop’); console.log(name, memberObject.name); console.groupEnd(‘object loop’);</li>
+  <li>
+    <p>처음 알았다.</p>
+  </li>
+  <li>앞에 new가 붙어있으면 생성자 함수라고 부른다.</li>
+</ul>
+:ET

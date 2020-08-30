@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Javascript OOP
-category: etc
-tags: [Javscript]
+title: javascript OOP
+category: javascript
+tags: [javascript]
 comments: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React event
-category: React
+title: react event
+category: react
 tags: [react, event]
 comments: true
 ---

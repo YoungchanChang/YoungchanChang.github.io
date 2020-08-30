@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Javascript 기타 정보들
-category: Javascript
-tags: [Javascript, variable]
+title: javascript 기타 정보들
+category: javascript
+tags: [javascript, variable]
 comments: true
 ---
 

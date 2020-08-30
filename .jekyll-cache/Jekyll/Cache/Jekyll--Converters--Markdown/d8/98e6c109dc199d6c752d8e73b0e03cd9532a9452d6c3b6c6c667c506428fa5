@@ -1,0 +1,42 @@
+I"�<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/4724">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="값으로서의-함수">값으로서의 함수</h1>
+
+<ul>
+  <li>
+    <p>자바스크립트에서 <strong>객체나 함수는 모두 변수(variable)</strong>이다.</p>
+  </li>
+  <li>
+    <p>JavaScript에서는 <strong>함수는 객체이고 변수(variable)</strong>이다. 다시 말해서 <strong>일종의 값</strong>이다. 거의 모든 언어가 함수를 가지고 있다. JavaScript의 함수가 다른 언어의 함수와 다른 점은 함수가 값이 될 수 있다는 점이다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">function a(){}</code>코드에서 함수 a는 <strong>변수 a에 담겨진 값</strong>이다.</p>
+  </li>
+  <li>
+    <p>아래 예제에서 func(num)은 함수이지만 하나의 변수로 전달됬다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">cal</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">func</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">increase</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="o">+</span><span class="mi">1</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">decrease</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cal</span><span class="p">(</span><span class="nx">increase</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cal</span><span class="p">(</span><span class="nx">decrease</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;center&gt;</span>
+<span class="nt">&lt;figure&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://i.imgur.com/A6jyZKp.png"</span> <span class="na">alt=</span><span class="s">"views"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;figcaption&gt;</span>HTTPS는 HTTP를 안전하게 만드는 방식이다<span class="nt">&lt;/figcaption&gt;</span>
+<span class="nt">&lt;/figure&gt;</span>
+<span class="nt">&lt;/center&gt;</span>
+</code></pre></div></div>
+:ET

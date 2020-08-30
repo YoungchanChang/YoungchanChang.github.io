@@ -1,0 +1,82 @@
+I"{<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/4724">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="값으로서의-함수">값으로서의 함수</h1>
+
+<ul>
+  <li>
+    <p>JavaScript에서는 <strong>함수는 객체이고 변수(variable)</strong>이다. 다시 말해서 <strong>일종의 값</strong>이다. JavaScript의 함수가 다른 언어의 함수와 다른 점은 <strong>함수가 값이 될 수 있다</strong>는 점이다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">function a(){}</code>코드에서 함수 a는 <strong>변수 a에 담겨진 값</strong>이다.</p>
+  </li>
+  <li>
+    <p>아래 예제에서 func(num)은 함수이지만 하나의 변수로 전달됬다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">cal</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">func</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">increase</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="o">+</span><span class="mi">1</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">decrease</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cal</span><span class="p">(</span><span class="nx">increase</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cal</span><span class="p">(</span><span class="nx">decrease</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>아래 사진을 보면 func()함수는 스택 프레임에서 객체를 가리키는 값으로 역할하고 있다.</p>
+  </li>
+  <li>
+    <p>변수, 매개변수, 리턴값으로 사용할 수 있는 형태의 데이터를 일급 객체라고 한다.</p>
+  </li>
+</ul>
+
+<center>
+<figure>
+<img src="https://i.imgur.com/A6jyZKp.png" alt="views" />
+<figcaption>함수는 객체를 가리키는 값이다.</figcaption>
+</figure>
+</center>
+
+<h1 id="콜백">콜백</h1>
+
+<p>###</p>
+
+<ul>
+  <li>
+    <p>함수가 수신하는 인자가 함수인 경우를 콜백이라고 한다.</p>
+  </li>
+  <li>
+    <p>함수 앞에 .이 있다면 객체이다. 배엵개체에는 sort()함수가 있다.</p>
+  </li>
+  <li>
+    <p>sort()는 객체에 속해있기 때문에 함수가 아닌 메소드라고 한다.</p>
+  </li>
+  <li>
+    <p>자바스크립트가 갖고 있는 기본 기능이기 때문에 buil-in method라고 한다.</p>
+  </li>
+  <li>
+    <p>콜백메서드란?</p>
+  </li>
+  <li>
+    <p>예시) 글작성 -&gt; 이메일 발송 예약(짧은 시간에 끝난다.) -&gt; 작성 완료</p>
+  </li>
+  <li>
+    <p>백그라운드에서 진행하면되. TODO같다. 나중에 처리해야 된다. 비동기 처리라고 한다.</p>
+  </li>
+  <li>
+    <p>Asynchronous Javascript and XML :</p>
+  </li>
+</ul>
+
+<h1 id="참조">참조</h1>
+
+<p><a href="https://opentutorials.org/course/50">자바스크립트 사전</a></p>
+:ET

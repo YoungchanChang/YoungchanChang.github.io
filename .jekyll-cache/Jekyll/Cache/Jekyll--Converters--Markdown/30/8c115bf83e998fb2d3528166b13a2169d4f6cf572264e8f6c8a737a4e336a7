@@ -1,0 +1,65 @@
+I"@<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/4673">생활코딩 React</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="javascript와-변수">Javascript와 변수</h1>
+
+<h3 id="변수의-정의">변수의 정의</h3>
+
+<ul>
+  <li>
+    <p>변수는 숫자나 문자와 같은 <strong>데이터</strong>를 담는 컨테이너이다.</p>
+  </li>
+  <li>
+    <p>변수의 특징은 변수에 <strong>담겨있는 어떤 값을 바꿀 수 있다</strong>는 것이다.</p>
+  </li>
+</ul>
+
+<h3 id="변수를-쓰는-이유">변수를 쓰는 이유</h3>
+
+<ul>
+  <li>
+    <p>같은 값들을 한 변수에 담으면 <strong>중복</strong>을 제거할 수 있다.</p>
+  </li>
+  <li>
+    <p>같은 성격의 것들이 똑같은 변수의 이름으로 정해지므로 <strong>가독성</strong>이 증가한다.</p>
+  </li>
+  <li>
+    <p>코드의 로직을 수정할 필요가 있을 때 변수를 쓰는 경우 해당 값만 바꾸면 되므로 <strong>유지보수</strong>하기가 좋아진다.</p>
+  </li>
+</ul>
+
+<h3 id="변수의-선언">변수의 선언</h3>
+
+<p>-JavaScript에서 변수를 <strong>[var 변수명]으로 선언</strong>한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="javascript와-숫자와-문자">Javascript와 숫자와 문자</h1>
+
+<ul>
+  <li>
+    <p>변수에 숫자나 문자의 값을 담을 수 있다.</p>
+  </li>
+  <li>
+    <p>자바스크립트에서는 <strong>큰따옴표나 작은따옴표</strong>가 붙지 않은 숫자는 숫자로 인식한다.</p>
+  </li>
+  <li>
+    <p>문자는 <strong>“(큰 따옴표) 혹은 ‘(작은 따옴표) 중의 하나</strong>로 감싸야 한다. 큰 따옴표로 시작하면 큰 따옴표로 끝나야하고, 작은 따옴표로 시작하면 작은 따옴표로 끝나야 한다.</p>
+  </li>
+  <li>
+    <p>숫자를 따옴표로 감싸면 문자가 된다. 아래는 문자다. typeof는 값의 데이터 형을 알려주는 기능이다. <code class="language-plaintext highlighter-rouge">alert(typeof "1")</code></p>
+  </li>
+  <li>
+    <p>\를 ‘ 앞에 위치시키면 ‘ 를 문자열의 시작과 끝을 구분하는 구분자가 아니라 단순히 문자로 해석하도록 강제 할 수 있다. 이러한 기법을 이스케이프(escape)라고 한다. <code class="language-plaintext highlighter-rouge">alert('egoing\'s javascript')</code></p>
+  </li>
+  <li>
+    <p>문자와 문자를 더할 때는 다음과 같이 한다. <code class="language-plaintext highlighter-rouge">alert("coding"+" everybody");</code></p>
+  </li>
+  <li>
+    <p>문자의 길이를 구할 때는 문자 뒤에 .length를 붙인다. <code class="language-plaintext highlighter-rouge">alert("coding everybody".length)</code></p>
+  </li>
+</ul>
+:ET

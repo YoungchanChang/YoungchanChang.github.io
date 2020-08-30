@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React 개발환경 구축하기
-category: React
+title: react 개발환경 구축하기
+category: react
 tags: [react]
 comments: true
 ---

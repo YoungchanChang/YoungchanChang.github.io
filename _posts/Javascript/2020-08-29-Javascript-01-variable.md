@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Javascript에서 변수
-category: Javascript
-tags: [Javascript, variable]
+title: javascript-01 변수
+category: javascript
+tags: [javascript, variable]
 comments: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React update & delete
-category: React
+title: react update & delete
+category: react
 tags: [react, event]
 comments: true
 ---

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Javascript와 자바에서 변수 개념 비교
-category: Javascript
-tags: [Javascript, JAVA, variable]
+title: javascript와 자바에서 변수 개념 비교
+category: javascript
+tags: [javascript, java, variable]
 comments: true
 ---
 
@@ -27,6 +27,6 @@ comments: true
 - Javascript는 숫자나 문자를 비교할 때 동등 연산자(==)를 쓰며 데이터 형까지 비교할 경우 일치 연산자(===)로 사용한다.
 [Javascript와 변수에서 비교연산자 참조]()
 
-
+- 메소드가 전역변수를 쓰는 경우 객체 안에 메소드가 종속되게 된다. 그렇게 되면 객체를 분할해서 쓰기가 어려워지게 된다. 따라서, 가급적 메소드가 **매개변수를 통해 지역변수를 설정**할 수 있다면 그렇게 하는 것이 더 바람직하다.
 
 # 참조

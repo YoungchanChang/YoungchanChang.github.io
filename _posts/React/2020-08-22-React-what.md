@@ -1,7 +1,7 @@
 ---
 layout: post
-title: React 소개
-category: React
+title: react 소개
+category: react
 tags: [react]
 comments: true
 ---

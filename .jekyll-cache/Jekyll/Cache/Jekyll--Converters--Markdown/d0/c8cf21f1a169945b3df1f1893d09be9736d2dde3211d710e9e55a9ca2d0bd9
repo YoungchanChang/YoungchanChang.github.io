@@ -1,0 +1,44 @@
+I"�<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/4673">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="기타-정보들">기타 정보들</h1>
+
+<h3 id="주석을-쓰는-방법">주석을 쓰는 방법</h3>
+
+<ul>
+  <li>
+    <p>한 줄을 쓸 때는 주석의 줄 앞에 <code class="language-plaintext highlighter-rouge">//</code>를 쓴다</p>
+  </li>
+  <li>
+    <p>여러 줄을 작성 할 때는 <code class="language-plaintext highlighter-rouge">/* 여러 줄의 내용 */</code>로 감싼다.</p>
+  </li>
+</ul>
+
+<h3 id="줄바꿈과-여백">줄바꿈과 여백</h3>
+
+<ul>
+  <li>
+    <p>세미콜론으로 <strong>명령이 끝났다를 표시하는 기호</strong>이다.</p>
+  </li>
+  <li>
+    <p>세미콜론을 삭제해도 명령은 잘 동작한다. 줄이 바뀌면 명령이 끝난다라고 간주한다.</p>
+  </li>
+  <li>
+    <p>세미콜론을 적는 것은 좋은 습관이다. 한 줄에 두 명령어를 적을 때는 세미콜론이 필수이다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nx">alert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="참조">참조</h1>
+
+<ul>
+  <li><a href="https://opentutorials.org/course/50/37">자바스크립트 사전</a></li>
+</ul>
+:ET

@@ -1,0 +1,119 @@
+I"w(<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/4724">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<ul>
+  <li>모듈, API, 레퍼런스, 튜토리얼, 정규표현식의 개념에 대해 작성함</li>
+</ul>
+
+<h1 id="유효범위">유효범위</h1>
+
+<h3 id="유효범위란">유효범위란?</h3>
+
+<ul>
+  <li>유효범위(Scope)는 <strong>변수의 수명</strong>을 의미한다. 자바스크립트에서 변수는 유효 범위에 따라 지역 변수(local variable)와 전역 변수(global variable)로 구분된다.</li>
+</ul>
+
+<h3 id="유효범위를-쓰는-이유">유효범위를 쓰는 이유</h3>
+
+<ul>
+  <li>유효범위는 변수를 전역변수와 지역변수를 나눠서 좀 더 편리하게 관리할 수 있다. 변수를 전역변수처럼 <strong>프로그램 전체에서 접근</strong>하게 된다면 복잡한 변수들로 인해 예기치 못한 문제가 발생하게 된다. 그런데 지역변수를 사용하면 <strong>해당 변수가 영향을 미치는 유효 범위를 제한</strong>할 수 있기 때문에 전역변수를 쓸 때의 문제가 줄어든다.</li>
+</ul>
+
+<h3 id="유효범위를-쓰는-방법">유효범위를 쓰는 방법</h3>
+
+<ul>
+  <li>함수 밖에서 변수를 선언하면 그 변수는 전역변수가 되고, 함수 안에서 변수를 선언하면 지역변수가 된다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">globalNum</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">localNum</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// 지역 변수 num에 숫자 10을 대입함.</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">함수 내부에서 변수 num의 타입은 </span><span class="dl">"</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">num</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">입니다.&lt;br&gt;</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// number</span>
+<span class="p">}</span>
+
+<span class="nx">localNum</span><span class="p">();</span>       <span class="c1">// 함수 localNum()을 호출함.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">함수의 호출이 끝난 뒤 변수 num의 타입은 </span><span class="dl">"</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">num</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">입니다.</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">함수의 호출이 끝난 뒤 변수 num의 타입은 </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">globalNum</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">입니다.</span><span class="dl">"</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<ul>
+  <li><strong>자바스크립트는 함수에 대한 유효범위만을 제공</strong>한다. 많은 언어들이 블록(대체로 {,})에 대한 유효범위를 제공하는 것과 다른 점이다. 아래 예제의 결과는 coding everybody이다. 반면, 자바의 코드가 실행되지 않는다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">coding everybody</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+    <span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"egoing"</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="반드시-알아야-할-사항">반드시 알아야 할 사항</h3>
+
+<ul>
+  <li>
+    <p><strong>전역변수는 사용하지 않는 것</strong>이 좋다. 여러가지 이유로 그 값이 변경되면 버그가 날 가능성이 있기 때문이다.</p>
+  </li>
+  <li>
+    <p>변수를 선언할 때는 꼭 var을 붙이는 것을 습관화해야 한다. 전역변수를 사용해야 하는 경우라면 그것을 사용하는 이유를 명확히 알고 있을 때 사용하도록 하자</p>
+  </li>
+  <li>
+    <p>불가피하게 전역변수를 사용해야 하는 경우는 <strong>전역변수용 객체를 만들고</strong> 객체의 속성으로 변수를 관리하는 방법을 사용한다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">MYAPP</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">coordinate</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+ 
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">right</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">sum</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h3 id="추가로-알아야-할-점">추가로 알아야 할 점</h3>
+
+<ul>
+  <li>
+    <p>for문에서 변수 i를 선언하면 중괄호 안에서만 유효한 지역변수가 된다.</p>
+  </li>
+  <li>
+    <p>지역변수의 유효범위는 함수 안이고, 전역변수의 유효범위는 에플리케이션 전역인데, 같은 이름의 지역변수와 전역변수가 동시에 정의되어 있다면 지역변수가 우선한다</p>
+  </li>
+  <li>
+    <p>자바스크립트에서 <strong>객체나 함수는 모두 변수(variable)</strong>이다.</p>
+  </li>
+  <li>
+    <p>자바스크립트는 함수가 호출될 때가 아닌 <strong>선언된 시점</strong>에서의 유효범위를 갖는다. 이러한 유효범위의 방식을 정적 유효범위(static scoping), 혹은 렉시컬(lexical scoping)이라고 한다. 아래 예제의 경우 b()함수는 선언된 시점에서 i의 지역변수가 없으므로 전역변수를 쓰게 된다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+ 
+<span class="kd">function</span> <span class="nx">a</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">b</span><span class="p">();</span>
+<span class="p">}</span>
+ 
+<span class="kd">function</span> <span class="nx">b</span><span class="p">(){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="nx">a</span><span class="p">();</span>
+</code></pre></div></div>
+:ET

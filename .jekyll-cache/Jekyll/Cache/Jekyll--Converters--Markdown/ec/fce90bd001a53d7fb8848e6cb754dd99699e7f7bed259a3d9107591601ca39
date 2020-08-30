@@ -1,0 +1,155 @@
+I"})<ul>
+  <li>파이썬의 변수와 데이터타입에 대해서 다룹니다. Numeric, String, Boolean, List, 튜플, 딕셔너리에 대해 간략히 소개합니다.</li>
+</ul>
+
+<h1 id="변수의-정의와-사용-이유는-javascript-01-변수를-참조">변수의 정의와 사용 이유는 javascript-01 변수를 참조</h1>
+
+<h1 id="변수의-활용">변수의 활용</h1>
+
+<ul>
+  <li>
+    <p>변수에 값을 할당하기 <code class="language-plaintext highlighter-rouge">변수 = 저장하려는 값</code></p>
+  </li>
+  <li>
+    <p>값에 이름을 붙였다고 볼 수도 있다.</p>
+  </li>
+  <li>
+    <p>대문자 소문자 _ 구분한다. 한글도 구분한다.</p>
+  </li>
+  <li>
+    <p>단, 숫자로 시작하면 안 된다. 띄어쓰기 안 된다.</p>
+  </li>
+</ul>
+
+<p><a href="http://pythontutor.com/">파이썬 자료 시각화</a></p>
+
+<h1 id="데이터-타입-자료형">데이터 타입 자료형</h1>
+
+<ul>
+  <li>Numeric : 정수, 실수를 표현한다. 숫자끼리 연산할 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">1.4</span>
+</code></pre></div></div>
+
+<ul>
+  <li>String : 문자열이다. 문자를 쭉 늘어놓은 것이다. 큰 따옴표나 작은 따옴표로 구분한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s">"Python study"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s">'Python fun'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>String에서 작은따옴표나 큰 따옴표를 구분할 때
+    <ol>
+      <li>섞어서 쓰면 혼란스러우니깐 규칙을 정해놓고 쓴다.
+큰 따옴표(“) : 텍스트에 쓴다.
+작은 따옴표(‘) : 기호, 식별자에 쓴다.
+3개의 큰 따옴표(“””) : docstrings, 정규표현식에 쓴다.</li>
+    </ol>
+  </li>
+</ul>
+
+<ol>
+  <li>작은 따옴표로 문자열을 묶었다고 해도 파이썬 내부에서 자동으로 큰 따옴표로 묶는다.
+    <ul>
+      <li>PostgreSQL과 같은 데이터베이스는 문자열을 insert할 때 큰 따옴표를 지원하지 않으므로 관련 문자열 처리를 해야한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>Boolean : 참과 거짓. 예와 아니오이다. 비교연산자 할 때 사용된다.</li>
+  <li>대문자로 시작한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">my_bool</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">false_bool</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_bool</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="컨테이너--여러개-값을-모아서-저장한다">컨테이너 : 여러개 값을 모아서 저장한다.</h1>
+
+<ul>
+  <li>List : 숫자 문자, 불린등의 자료를 한꺼번에 모아서 저장한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">리스트</span> <span class="n">생성</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Hello'</span><span class="p">,</span><span class="s">'World'</span><span class="p">,</span><span class="s">'Mac'</span><span class="p">]</span>
+
+<span class="o">//</span> <span class="n">반복문</span> <span class="n">출력</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">std</span> <span class="ow">in</span> <span class="n">students</span>
+<span class="o">&gt;&gt;&gt;</span>    <span class="k">print</span><span class="p">(</span><span class="n">std</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">랜덤하게</span> <span class="n">뽑기</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">random</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">students</span><span class="p">))</span>
+
+<span class="o">//</span> <span class="n">학생</span> <span class="n">추가하기</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">students</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">'Window'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">students</span>
+</code></pre></div></div>
+
+<ul>
+  <li>튜플 : 리스트와 유사하다. 단, 안에 있는 값을 바꿀 수 없다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">리스트는</span> <span class="n">교체</span> <span class="n">가능</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">students</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Linux'</span>
+
+<span class="o">//</span> <span class="n">리스트는</span> <span class="n">값을</span> <span class="n">바꿀</span> <span class="n">수</span> <span class="n">없다</span><span class="p">.</span>
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s">'brain'</span><span class="p">,</span> <span class="s">'heart'</span><span class="p">,</span> <span class="s">'kedney'</span><span class="p">)</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'knee'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>딕셔너리 : 관련된 정보를 연관시켜놓는다. 키와 값 쌍으로 붙어 있는 구조이다.</li>
+  <li>딕셔너리 생성 구조 <code class="language-plaintext highlighter-rouge">{key1 : val1 ...}</code></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">딕셔너리</span> <span class="n">생성</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_dic</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span> <span class="p">:</span> <span class="s">'남'</span><span class="p">,</span> <span class="s">'b'</span> <span class="p">:</span> <span class="s">'여'</span><span class="p">,</span> <span class="s">'c'</span> <span class="p">:</span> <span class="s">'여'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_dic</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span>
+
+<span class="o">//</span> <span class="n">딕셔너리</span> <span class="n">수정</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_dic</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'여'</span>
+</code></pre></div></div>
+
+<h1 id="자료형-변환하기">자료형 변환하기</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">my_int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">자료형</span> <span class="n">바꾸기</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">my_int</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">my_int</span><span class="p">))</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_str</span> <span class="o">=</span> <span class="s">"coding"</span>
+<span class="o">//</span><span class="n">값을</span> <span class="n">하나씩</span> <span class="n">뽑아준다</span><span class="p">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_str</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h1 id="주석">주석</h1>
+
+<ul>
+  <li>
+    <p>주석의 목적 1. 내가 쓴 코드를 나중에 봤을 때 이해하기 쉽기 위해서 2. 다른 사람들이 내 코드를 봤을 때 이해하기 쉽기 위해서</p>
+  </li>
+  <li>주석 쓰는 방법</li>
+  <li>#뒤에 오는 내용은 주석이 된다.</li>
+  <li>무슨 내용인지 설명해준다.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span> <span class="c1">#안녕?
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span> <span class="c1"># 처음 로그인한 사용자에게 보여지는 메시지입니다.
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">prinot</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 계산 결과를 봅니다.
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="참조">참조</h1>
+<p><a href="https://brownbears.tistory.com/291">큰따옴표 작은 따옴표</a></p>
+:ET
