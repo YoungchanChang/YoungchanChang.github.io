@@ -1,0 +1,22 @@
+I"q<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/6548">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="argument">argument</h1>
+
+<p>###</p>
+
+<ul>
+  <li>
+    <p>함수 안에서 함수의 여러 정보를 담고 있는 객체이다.</p>
+  </li>
+  <li>
+    <p>sum()함수를 호출할 때, 함수 자체는 매개변수가 없다. 인자를 4개를 전달했다. javascript는</p>
+  </li>
+  <li>
+    <p>함수의 매개변수를 정의하지 않다 하더라도, 인자의 수를 마음대로 지정해도 에러가 나지 않는다.</p>
+  </li>
+  <li></li>
+</ul>
+
+:ET

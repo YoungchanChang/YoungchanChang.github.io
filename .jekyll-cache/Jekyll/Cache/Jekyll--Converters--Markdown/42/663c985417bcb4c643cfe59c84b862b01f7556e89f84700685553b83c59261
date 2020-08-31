@@ -1,0 +1,86 @@
+I"�<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/6548">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="argument">argument</h1>
+
+<h3 id="arguments의-정의">arguments의 정의</h3>
+
+<ul>
+  <li>arguments 객체는 함수에 전달된 인수에 해당하는 Array 형태의 객체이다.
+argument 자바스크립트와 사용자간에 약속한 특수한 변수 명이다.</li>
+  <li>arguments 객체는 함수에 전달된 <strong>인수</strong>에 해당하는 Array 형태의 객체입니다.
+    <h3 id="arguments의-필요성">arguments의 필요성</h3>
+  </li>
+  <li>함수에 전달된 인수의 개수를 파악할 때 쓰인다. 이것을 <strong>반복문과 함께 쓰면</strong> 매개변수 숫자에 따른 결과값을 만들어낼 수 있다. 아래는 예제코드이다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="dl">'</span><span class="s1"> : </span><span class="dl">'</span><span class="o">+</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">+</span><span class="dl">'</span><span class="s1">&lt;br /&gt;</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">_sum</span> <span class="o">+=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>   
+    <span class="k">return</span> <span class="nx">_sum</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">'</span><span class="s1">result : </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h3 id="arguments의-활용">arguments의 활용</h3>
+
+<ul>
+  <li>
+    <p>매개변수와 관련된 두가지 수가 있다. 하나는 함수.length, 다른 하나는 arguments.length이다.</p>
+  </li>
+  <li>
+    <p>arguments.length는 함수로 전달된 실제 인자의 수를 의미하고, 함수.length는 함수에 정의된 인자의 수를 의미한다. 아래의 코드를 보자.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">zero</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">zero.length</span><span class="dl">'</span><span class="p">,</span> <span class="nx">zero</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">arguments</span><span class="dl">'</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">one</span><span class="p">(</span><span class="nx">arg1</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">one.length</span><span class="dl">'</span><span class="p">,</span> <span class="nx">one</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">arguments</span><span class="dl">'</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">two</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">two.length</span><span class="dl">'</span><span class="p">,</span> <span class="nx">two</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">arguments</span><span class="dl">'</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">zero</span><span class="p">();</span> <span class="c1">// zero.length 0 arguments 0 </span>
+<span class="nx">one</span><span class="p">(</span><span class="dl">'</span><span class="s1">val1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">val2</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// one.length 1 arguments 2 </span>
+<span class="nx">two</span><span class="p">(</span><span class="dl">'</span><span class="s1">val1</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// two.length 2 arguments 1</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>arguments.lengths는 실제로 몇 개의 인자가 들어왔는가를 알려준다.</p>
+  </li>
+  <li>
+    <p>함수 안에서 함수의 여러 정보를 담고 있는 객체이다.</p>
+  </li>
+  <li>
+    <p>함수의 매개변수를 정의하지 않다 하더라도, 인자의 수를 마음대로 지정해도 에러가 나지 않는다.</p>
+  </li>
+  <li>
+    <p>유사 배열이 들어가있다.</p>
+  </li>
+  <li>
+    <p>사용자가 접근하는 기능을 제공한다.</p>
+  </li>
+  <li>
+    <p>arguments.length라고 하면, sum()함수로 전달 된 인자가 몇 개인지를 알 수 있다.</p>
+  </li>
+  <li>
+    <p>사용자가 전달한 인자의 수 만큼 for문이 반복된다.</p>
+  </li>
+</ul>
+:ET

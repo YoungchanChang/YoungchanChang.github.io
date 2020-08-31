@@ -1,0 +1,51 @@
+I"�<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/6544">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="클로저">클로저</h1>
+
+<h3 id="클로저란">클로저란?</h3>
+
+<ul>
+  <li>내부함수가 외부함수의 맥락(context)에 접근할 수 있는 것을 클로저라고 한다.</li>
+</ul>
+
+<h3 id="왜-클로저를-쓸까">왜 클로저를 쓸까?</h3>
+
+<ul>
+  <li>자바스크립트를 이용한 고난이도의 테크닉을 구사하는데 필수적인 개념이다.</li>
+</ul>
+
+<h3 id="반드시-알아야할-사항">반드시 알아야할 사항</h3>
+
+<ul>
+  <li>
+    <p>함수 안에 또 다른 함수를 선언하는 것을 <strong>내부함수</strong>라고 한다. 내부함수를 쓰는 이유는 그 함수에서만 사용하기 때문에 응집성이 증가한다.</p>
+  </li>
+  <li>
+    <p>내부함수는 외부함수의 지역변수에 접근할 수 있다.</p>
+  </li>
+  <li>
+    <p>아래 예제에서 내부함수는 inner(), 외부함수는 outter()이다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">outter</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">coding everybody</span><span class="dl">'</span><span class="p">;</span>  
+    <span class="kd">function</span> <span class="nx">inner</span><span class="p">(){</span>        
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">inner</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nx">outter</span><span class="p">();</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>외부함수는 죽었는데, 외부함수에서 파생된 내부함수에서 이미 사라진 외부함수에 접근이 가능하다.</p>
+  </li>
+  <li>
+    <p>private varible은 정보를 아무나 수정하도록 하는 것을 방지한다. 정보 은닉화!</p>
+  </li>
+</ul>
+:ET

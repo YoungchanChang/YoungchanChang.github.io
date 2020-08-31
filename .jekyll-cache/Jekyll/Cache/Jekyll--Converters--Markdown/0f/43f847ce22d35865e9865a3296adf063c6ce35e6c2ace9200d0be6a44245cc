@@ -1,0 +1,114 @@
+I"<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/4724">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="값으로서의-함수">값으로서의 함수</h1>
+
+<ul>
+  <li>
+    <p>JavaScript에서는 <strong>함수는 객체이고 변수(variable)</strong>이다. 다시 말해서 <strong>일종의 값</strong>이다. JavaScript의 함수가 다른 언어의 함수와 다른 점은 <strong>함수가 값이 될 수 있다</strong>는 점이다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">function a(){}</code>코드에서 함수 a는 <strong>변수 a에 담겨진 값</strong>이다.</p>
+  </li>
+  <li>
+    <p>아래 예제에서 func(num)은 함수이지만 하나의 변수로 전달됬다.</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">cal</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">func</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">increase</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="o">+</span><span class="mi">1</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">decrease</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">num</span><span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cal</span><span class="p">(</span><span class="nx">increase</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">cal</span><span class="p">(</span><span class="nx">decrease</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>아래 사진을 보면 func()함수는 스택 프레임에서 객체를 가리키는 값으로 역할하고 있다.</p>
+  </li>
+  <li>
+    <p>변수, 매개변수, 리턴값으로 사용할 수 있는 형태의 데이터를 일급 객체라고 한다.</p>
+  </li>
+</ul>
+
+<center>
+<figure>
+<img src="https://i.imgur.com/A6jyZKp.png" alt="views" />
+<figcaption>함수는 객체를 가리키는 값이다.</figcaption>
+</figure>
+</center>
+
+<h1 id="콜백">콜백</h1>
+
+<h3 id="콜백함수란">콜백함수란?</h3>
+
+<ul>
+  <li>
+    <p>함수가 다른 함수의 인자로 전달하는 것을 콜백함수라고 한다. 다른 함수로 전달이 가능한 이유는 함수가 객체나 값으로 쓰이기 때문이다.</p>
+  </li>
+  <li>
+    <p>아래의 예시는 동기적 콜백이다</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">greeting</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">processUserInput</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">Please enter your name.</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">callback</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">processUserInput</span><span class="p">(</span><span class="nx">greeting</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="콜백함수가-사용되는-이유">콜백함수가 사용되는 이유</h3>
+
+<ul>
+  <li>
+    <p>자바스크립트에서 콜백함수는 주로 비동기처리를 수행할 때 쓰인다.</p>
+  </li>
+  <li>
+    <p>비동기처리란 특정 코드의 연산이 끝날 때까지 코드의 실행을 멈추지 않고, 순차적으로 다음 코드를 먼저 실행하는 것을 말한다.</p>
+  </li>
+  <li>
+    <p>비동기 처리의 예로는 클릭이나 네트워크 요청이 있다. 클릭이나 네트워크 요청 이벤트가 발생할 때 어떤 것을 할지 콜백메서드로 시스템에 미리 등록을 하면, 시스템은 그에 맞추어서 콜백메소드를 수행한다.</p>
+  </li>
+</ul>
+
+<h3 id="콜백함수의-사용">콜백함수의 사용</h3>
+
+<ul>
+  <li>아래 예시는 특정 디렉터리에서 값을 가져왔을 때 수행하는 코드이다.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//code.jquery.com/jquery-1.11.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    
+    <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">./datasource.json.js</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+        <span class="c1">//특정 디렉터리에서 값을 가져왔을 때 수행하는 코드</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+    <span class="p">},</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h1 id="참조">참조</h1>
+
+<p><a href="https://opentutorials.org/course/50">자바스크립트 사전</a>
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Callback_function">콜백 함수</a></p>
+:ET

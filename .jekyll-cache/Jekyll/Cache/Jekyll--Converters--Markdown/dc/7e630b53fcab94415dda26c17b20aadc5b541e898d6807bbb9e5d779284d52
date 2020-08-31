@@ -1,0 +1,50 @@
+I"E<blockquote>
+  <p>본 글은 <a href="https://opentutorials.org/course/743/6548">생활코딩</a>강의를 요약, 정리한 글입니다.</p>
+</blockquote>
+
+<h1 id="argument">argument</h1>
+
+<h3 id="arguments의-정의">arguments의 정의</h3>
+
+<ul>
+  <li>arguments 객체는 함수에 전달된 인수에 해당하는 Array 형태의 객체이다.</li>
+</ul>
+
+<h3 id="arguments의-필요성">arguments의 필요성</h3>
+
+<ul>
+  <li>
+    <p>arguments.lengths는 실제로 몇 개의 인자가 들어왔는가를 알려준다.</p>
+  </li>
+  <li>
+    <p>arguments 객체는 함수에 전달된 <strong>인수</strong>에 해당하는 Array 형태의 객체입니다.</p>
+  </li>
+  <li>
+    <p>함수 안에서 함수의 여러 정보를 담고 있는 객체이다.</p>
+  </li>
+  <li>
+    <p>sum()함수를 호출할 때, 함수 자체는 매개변수가 없다. 인자를 4개를 전달했다. javascript는</p>
+  </li>
+  <li>
+    <p>함수의 매개변수를 정의하지 않다 하더라도, 인자의 수를 마음대로 지정해도 에러가 나지 않는다.</p>
+  </li>
+  <li>
+    <p>javascript의 특징!!!!!!!!!</p>
+  </li>
+  <li>
+    <p>argument 자바스크립트와 사용자간에 약속한 특수한 변수 명이다.</p>
+  </li>
+  <li>
+    <p>유사 배열이 들어가있다.</p>
+  </li>
+  <li>
+    <p>사용자가 접근하는 기능을 제공한다.</p>
+  </li>
+  <li>
+    <p>arguments.length라고 하면, sum()함수로 전달 된 인자가 몇 개인지를 알 수 있다.</p>
+  </li>
+  <li>
+    <p>사용자가 전달한 인자의 수 만큼 for문이 반복된다.</p>
+  </li>
+</ul>
+:ET

@@ -2,7 +2,7 @@
 layout: post
 title: javascript-07 값으로서 함수와 콜백
 category: javascript
-tags: [javascript, API]
+tags: [javascript, callback]
 comments: true
 ---
 
@@ -44,27 +44,56 @@ alert(cal(decrease, 1));
 
 # 콜백
 
-###
+### 콜백함수란?
 
-- 함수가 수신하는 인자가 함수인 경우를 콜백이라고 한다.
+- 함수가 다른 함수의 인자로 전달하는 것을 콜백함수라고 한다. 다른 함수로 전달이 가능한 이유는 함수가 객체나 값으로 쓰이기 때문이다.
 
-- 함수 앞에 .이 있다면 객체이다. 배엵개체에는 sort()함수가 있다.
+- 아래의 예시는 동기적 콜백이다
 
-- sort()는 객체에 속해있기 때문에 함수가 아닌 메소드라고 한다.
+```javascript
+function greeting(name) {
+  alert('Hello ' + name);
+}
 
-- 자바스크립트가 갖고 있는 기본 기능이기 때문에 buil-in method라고 한다.
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
 
-- 콜백메서드란?
+processUserInput(greeting);
+```
 
-- 예시) 글작성 -> 이메일 발송 예약(짧은 시간에 끝난다.) -> 작성 완료
+### 콜백함수가 사용되는 이유
 
-- 백그라운드에서 진행하면되. TODO같다. 나중에 처리해야 된다. 비동기 처리라고 한다.
+- 자바스크립트에서 콜백함수는 주로 비동기처리를 수행할 때 쓰인다.
 
-- Asynchronous Javascript and XML : 
+- 비동기처리란 특정 코드의 연산이 끝날 때까지 코드의 실행을 멈추지 않고, 순차적으로 다음 코드를 먼저 실행하는 것을 말한다.
 
+- 비동기 처리의 예로는 클릭이나 네트워크 요청이 있다. 클릭이나 네트워크 요청 이벤트가 발생할 때 어떤 것을 할지 콜백메서드로 시스템에 미리 등록을 하면, 시스템은 그에 맞추어서 콜백메소드를 수행한다.
 
+### 콜백함수의 사용
 
+- 아래 예시는 특정 디렉터리에서 값을 가져왔을 때 수행하는 코드이다.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    
+    $.get('./datasource.json.js', function(result){
+        //특정 디렉터리에서 값을 가져왔을 때 수행하는 코드
+        console.log(result);
+    }, 'json');
+</script>
+</body>
+</html>
+```
 
 # 참조
 
 [자바스크립트 사전](https://opentutorials.org/course/50)
+[콜백 함수](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
