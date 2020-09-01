@@ -40,8 +40,15 @@ var p2 = new Person('leezche');
 document.write(p2.introduce());
 ```
 
+### 추가로 알아두면 좋을 사항
 
+- javascript에서 프로퍼티는 값을 나타낸다. 프로퍼티는 이름(string)과 값(primitive, method, object reference)로 이루어진다.
+
+- javascript에서는 함수가 객체이고 값으로 작동한다. 
+
+- java의 프로퍼티가 변수와 유사하지만, javascript에서는 함수의 값을 담을 수 있다.
 
 
 # 참조
 [자바 은닉화](https://mainpower4309.tistory.com/7)
+[자바스크립트 프로퍼티](https://m.blog.naver.com/magnking/220966405605)
