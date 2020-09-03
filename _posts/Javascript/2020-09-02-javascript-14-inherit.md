@@ -63,8 +63,10 @@ document.write(p1.introduce()+"<br />");
 - prototype의 매커니즘
 1.상속받을 객체의 prototype값으로 상속할 객체를 연결한다.
 2.객체가 생성될 때 **prototype이라는 속성을 생성자 함수가 갖고 있는지 확인**한다.
-3.생성자 함수 안에 있는 객체와 똑같은 객체를 만들어서 생성자의 결과로 return해준다.
+3.생성자 함수 안에 있는 객체와 **똑같은 객체를 만들어서 생성자의 결과로 return**해준다.
 4.생성된 객체의 property값이 Progammer.prototype의 객체가 된다.
+
+- 주의할 점은 생성자를 만들지 않고 `programmer.prototype = person.prototype`으로 연결시키면 자식 객체에서 부모 객체를 건드려서 문제가 생길 수 있다.
 
 <center>
 <figure>
@@ -74,8 +76,7 @@ document.write(p1.introduce()+"<br />");
 </center>
 
 
+# 참조
 
-- override : **이미 제공된 메소드**를 특정한 형태로 구현하는 것
-
-- [자바스크립트 자료 시각화](http://pythontutor.com/visualize.html#mode=display)를 참조하자.
-- [javascript OOP]()에서 객체지향에 상속의 개념이 들어간다.
+- [자바스크립트 자료 시각화](http://pythontutor.com/visualize.html#mode=display)
+- [javascript OOP]()
