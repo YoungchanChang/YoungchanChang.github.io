@@ -12,7 +12,6 @@ comments: true
 
 -  Python 언어에 사용되는 통합 개발 환경
 
-
 ### 파이참의 다양한 편의 기능들
 
 1. Code Navigation
@@ -29,6 +28,12 @@ comments: true
 
 기타 등등의 장점이 있다.
 
+### 추가로 알아야 할 사항
+
+- 적절한 개발 도구를 사용하는 것은 개발자의 생산성에 많은 영향을 준다. 
+
+
 # 참고
+[개발 도구 비유](https://opentutorials.org/course/1750/9613)
 [파이참 문서](https://medium.com/@mindfiresolutions.usa/what-is-pycharm-ide-cc0735784f64)
 [파이참 소개](https://www.youtube.com/watch?v=Jt0fNgJr400)
