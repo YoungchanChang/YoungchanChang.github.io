@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-15 표준 내장 객체
+title: javascript-19 표준 내장 객체
 category: javascript
 tags: [javascript, prototype]
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-13 globalAndThis
+title: javascript-16 globalAndThis
 category: javascript
 tags: [javascript, globalAndThis]
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-15 prototype
+title: javascript-18 prototype
 category: javascript
 tags: [javascript, prototype]
 comments: true

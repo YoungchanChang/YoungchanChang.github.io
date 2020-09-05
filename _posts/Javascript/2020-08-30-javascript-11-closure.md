@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-08 Closure
+title: javascript-11 Closure
 category: javascript
 tags: [javascript, closure]
 comments: true

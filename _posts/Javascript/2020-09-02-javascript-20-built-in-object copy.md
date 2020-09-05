@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-16 Object
+title: javascript-20 Object
 category: javascript
 tags: [javascript, object]
 comments: true

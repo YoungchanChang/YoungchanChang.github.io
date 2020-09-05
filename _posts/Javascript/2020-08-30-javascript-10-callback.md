@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-07 값으로서 함수와 콜백
+title: javascript-10 값으로서 함수와 콜백
 category: javascript
 tags: [javascript, callback]
 comments: true

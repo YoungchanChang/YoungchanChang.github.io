@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-06 유효범위
+title: javascript-09 유효범위
 category: javascript
 tags: [javascript, API]
 comments: true
@@ -104,3 +104,8 @@ function b(){
  
 a();
 ```
+
+### 추가로 알아야 할 사항
+
+
+- 자바에서 메소드가 전역변수를 쓰는 경우 객체 안에 메소드가 종속되게 된다. 그렇게 되면 객체를 분할해서 쓰기가 어려워지게 된다. 따라서, 가급적 메소드가 **매개변수를 통해 지역변수를 설정**할 수 있다면 그렇게 하는 것이 더 바람직하다.

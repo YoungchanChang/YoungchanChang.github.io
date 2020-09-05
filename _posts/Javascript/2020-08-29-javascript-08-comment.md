@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript 기타 정보들
+title: javascript-08 comment
 category: javascript
 tags: [javascript, variable]
 comments: true

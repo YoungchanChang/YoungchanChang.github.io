@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-05 API란
+title: javascript-07 정규식표현
 category: javascript
 tags: [javascript, API]
 comments: true
@@ -9,96 +9,6 @@ comments: true
 > 본 글은 [생활코딩](https://opentutorials.org/course/743/4724)강의를 요약, 정리한 글입니다.  
 
 - 모듈, API, 레퍼런스, 튜토리얼, 정규표현식의 개념에 대해 작성함
-
-# 모듈
-
-### 모듈의 정의
-
-- 프로그램 내부를 **기능별 단위로 분할한 부분**으로 부품을 간단하게 떼서 **교환이 쉽도록 설계**되어 있을 때의 그 각 구성 요소를 의미한다
-
-### 모듈을 쓰는 이유
-
-1. 자주 사용되는 코드를 별도의 파일로 만들어서 **필요할 때마다 재활용**할 수 있다.
-2. 코드를 개선하면 이를 **사용하고 있는 모든 애플리케이션의 동작이 개선**된다.
-3. 코드 수정 시에 **필요한 로직을 빠르게 찾을** 수 있다.
-4. **필요한 로직만을 로드**해서 메모리의 낭비를 줄일 수 있다.
-5. 한번 다운로드된 모듈은 웹브라우저에 의해서 저장되기 때문에 동일한 로직을 로드 할 때 시간과 네트워크 트래픽을 절약 할 수 있다.(브라우저에서만 해당)
-
-### 모듈을 쓰는 방법
-
-1. Html에서 모듈을 쓰는 방법
-1-1) 자바스크립트 파일 확장자로 파일을 만든다.
-1-2) html파일을 생성하고,html에서 head태그 안에 `<script src="js파일"></script>`코드를 넣는다.(경우에 따라서 body태그 뒤에 넣기도 한다.)
-1-3) 쓰고싶은 위치에 `<script></script>`구문을 통해 구현한다.
-
-- 예시
-```javascript
-function welcome(){
-    return 'Hello world';
-}
-```
-```html
-<head>
-    <meta charset="utf-8"/>
-    <script src="greeting.js"></script>
-</head>
-<body>
-    <script>
-        alert(welcome());
-    </script>
-</body>
-```
-
-2. Node.js에서 모듈을 쓰는 방법
-1-1) 자바스크립트 파일 확장자로 파일을 만든다.
-1-2) 모듈을 만들고 싶은 확장자는 `exports`키워드를 이용한다. 구체적인 방법은 아래와 같다.
-
-예시1) exports.이름을 통해 함수를 정의한다.
-```javascript
-var PI = Math.PI;
-exports.area = function (r) {
-return PI * r * r;
-};
-```
-
-예시2) 모듈.exprots에 변수를 담은 객체를 대입한다. 해당 파일은 모듈로서 기능한다.
-```javascript
-const odd = '홀수';
-const even = '짝수';
-
-module.exports = { odd, even }
-```
-
-1-3) 모듈을 로드할 때는 `require`키워드를 쓴다
-예시)
-```javascript
-var circle = require('./node.circle.js');
-console.log( 'The area of a circle of radius 4 is '
-           + circle.area(4));
-```
-
-### 추가로 알아야 할 사항
-
-- 모듈이 프로그램을 구성하는 **작은 부품으로서의 로직**을 의미한다면 라이브러리는 자주 사용되는 로직을 재사용하기 편리하도록 잘 정리한 일련의 **코드들의 집합**을 의미한다
-
-# API
-
-### API의 개념
-
-- API의 정의는 프로그램이 동작하는 환경을 제어하기 위해서 환경에서 제공되는 `조작 장치`이다.
-
-- API를 쉽게 비유하면 설명서로 비유할 수 있다. 하나의 제품(어플리케이션 프로그램)을 어떻게 조작하는지(Interface) 알려준다.
-
-### 레퍼런트와 튜토리얼
-
-- 플랫폼에서는 일반적으로 레퍼런스와 튜토리얼을 제공한다.
-
-- 튜토리얼은 안내서이고, 튜토리얼을 통해서 해당 환경이 어떤 기능을 제공하는가에 대한 사전에 알고 있어야 하는 것을 알아야 한다.
-
-- 플랫폼이의 환경이 제공하는 명령을 찾아야 한다. refence는 사전이다.
-
-- 튜토리얼은 문법으로 비유할 수 있다면, 레퍼런스는 언어의 사전으로 비유할 수 있다.
-
 
 # 정규표현식
 

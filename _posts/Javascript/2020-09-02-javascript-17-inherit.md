@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-14 inherit
+title: javascript-17 inherit
 category: javascript
 tags: [javascript, inherit]
 comments: true

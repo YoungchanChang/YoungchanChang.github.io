@@ -33,7 +33,7 @@ var a = 1;
 alert(a+1);
 ```
 
-# Javascript와 숫자와 문자
+### Javascript와 숫자와 문자
 
 - 변수에 숫자나 문자의 값을 담을 수 있다.
 
@@ -48,3 +48,19 @@ alert(a+1);
 - 문자와 문자를 더할 때는 다음과 같이 한다. `alert("coding"+" everybody");`
 
 - 문자의 길이를 구할 때는 문자 뒤에 .length를 붙인다. `alert("coding everybody".length)`
+
+# 참고로 알아야 할 사항
+
+# 문자와 문자열
+
+- Javscript는 문자를 문자는 "(큰 따옴표) 혹은 '(작은 따옴표) 중의 하나로 감싸야 한다.
+
+- JAVA에서는 문자열을 문자로 처리하면 에러가 발생한다.
+
+# 변수의 선언
+
+- JAVA에서는 변수를 선언할 때 데이터 형식과 변수의 이름으로 선언한다.
+
+- JAVA는 **데이터 타입을 엄격히 구분**한다. 데이터 타입을 int, double, String으로 구분해야 한다.
+
+- Javascript에서는 var로 선언한다.

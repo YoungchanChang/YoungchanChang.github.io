@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-12 constructor
+title: javascript-15 constructor
 category: javascript
 tags: [javascript, constructor]
 comments: true

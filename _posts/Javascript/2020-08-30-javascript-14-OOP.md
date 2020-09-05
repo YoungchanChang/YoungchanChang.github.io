@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-11 OOP
+title: javascript-14 OOP
 category: javascript
 tags: [javascript, OOP]
 comments: true

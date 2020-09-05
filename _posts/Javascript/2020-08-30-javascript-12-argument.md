@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript-09 arguments
+title: javascript-12 arguments
 category: javascript
 tags: [javascript, arguments]
 comments: true
