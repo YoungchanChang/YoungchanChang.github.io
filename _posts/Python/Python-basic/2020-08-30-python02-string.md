@@ -65,7 +65,8 @@ type(my_str) # 변수 데이터형 출력
 // format()예시2
 >>> '{1} x {0} = {2}'.format(2, 3, 2*3)
 ```
-
+- f""로 .format()을 대신할 수 있다.
+[python f-string](https://www.python-course.eu/python3_formatted_output.php)
 
 # 인덱싱
 
@@ -132,7 +133,9 @@ print('미운코딩새끼의\t집단지성들')
 ```
 
 
+### 추가로 알아두면 좋을 사항
 
+- f-string
 
 # 참조
 - [슬라이스 파이썬 공식문서](https://docs.python.org/ko/3/library/functions.html?highlight=slice#slice)
