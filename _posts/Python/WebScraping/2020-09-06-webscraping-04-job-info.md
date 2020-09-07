@@ -31,7 +31,7 @@ comments: python
 1] [BeautifulSoup 설치](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ```
-$ $ pip install beautifulsoup4
+$ pip install beautifulsoup4
 ```
 
 2] BeautifulSoup를 활용해 원하는 태그의 내용 추출하기. 아래 코드에서는 a태그 안의 결과만 추출한다.
@@ -58,7 +58,7 @@ print(indeed_extract)
 indeed_job_title = indeed_soup.find_all(attrs={"data-tn-element":"jobTitle"}) # 내용중에 a태그의 내용만 리스트로 반환
 ```
 
-4] find()메소드를 통해서 직업 가져오기
+4] find()메소드를 통해서 **직업 가져**오기
 
 ```python
 # for jobs in indeed_job_title:
@@ -70,7 +70,7 @@ for jobs in indeed_job_title:
 print(job_title)
 ```
 
-5] 회사 이름과 지역 이름 가져오기
+5] **회사 이름과 지역 이름** 가져오기
 
 ```python
 job_company = []
@@ -100,6 +100,29 @@ for jobs in indeed_job_info:
     job_info.append({"title" : jobs_title, "comapny" : jobs_company, "location" : jobs_location})
 
 for info in job_info: # 코드 확인하기
+    print(info)
+```
+
+# 전체코드
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+indeed_url = f"https://kr.indeed.com/jobs?q=python"
+indeed_result = requests.get(indeed_url)
+
+indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
+
+job_info = []
+indeed_job_info = indeed_soup.find_all(attrs={"data-tn-component":"organicJob"}) # 내용중에 a태그의 내용만 리스트로 반환
+for jobs in indeed_job_info:
+    jobs_title = jobs.find(attrs={"data-tn-element":"jobTitle"}).attrs['title']
+    jobs_company = jobs.find('span', {'class' : 'company'}).get_text().strip('\n')
+    jobs_location = jobs.find('span', {'class' : 'location'}).get_text()
+    job_info.append({"title" : jobs_title, "comapny" : jobs_company, "location" : jobs_location})
+
+for info in job_info:
     print(info)
 ```
 

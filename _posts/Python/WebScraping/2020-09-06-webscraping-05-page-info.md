@@ -95,6 +95,32 @@ for n in range(max_page):
     print(requests.get(f"{indeed_url}&start={n*LIMIT}"))
 ```
 
+# 전체 코드
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+LIMIT = 10
+indeed_url = f"https://kr.indeed.com/jobs?q=python"
+indeed_result = requests.get(indeed_url)
+
+indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
+
+indeed_pages = indeed_soup.find('div', {'class' : 'pagination'}) # 페이지네이션 클래스의 내용만 추출
+indeed_pages_a_tag = indeed_pages.find_all('a') # 내용중에 a태그의 내용만 리스트로 반환
+
+page_collect = []
+for page_num in indeed_pages_a_tag[:-1]: # 리스트안의 내용을 반복해서 출력
+    page_collect.append(page_num.find('span').string)
+
+max_page = int(max(page_collect)) # 리스트 안에서 최대 숫자 찾기
+
+for n in range(max_page):   # 모든 리스트에서 데이터 가져오기
+    print(requests.get(f"{indeed_url}&start={n*LIMIT}"))
+
+```
+
 ### HTTP 요청 메서드 중 GET방식이란
 
 - HTTP메서드중 GET은 URL의 **query string을 통해 데이터를 요청**한다.

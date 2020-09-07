@@ -6,7 +6,7 @@ tags: [python, webscraping]
 comments: python
 ---
 
-### 파이썬을 이용해서 웹페이지의 html내용을 가져오기
+# 파이썬을 이용해서 웹페이지의 html내용을 가져오기
 
     - request 모듈을 활용
 
@@ -46,6 +46,17 @@ indeed_url = "https://kr.indeed.com/jobs?q=python"
 indeed_result = requests.get(indeed_url)
 
 print(indeed_result.text) # 추가된 코드
+```
+
+# 전체 코드
+
+```python
+import requests
+
+indeed_url = "https://kr.indeed.com/jobs?q=python" 
+indeed_result = requests.get(indeed_url)
+
+print(indeed_result.text)
 ```
 
 

@@ -38,8 +38,6 @@ header : 얼만만큼의 column을 header로 출력할 것인지 정한다.
 
 `xlsx = pd.read_excel('sample.xlsx',header=10)`
 
-
-
 - input값 : 
 
 ```python
