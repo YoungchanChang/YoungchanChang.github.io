@@ -41,6 +41,9 @@ def home():
     return render_template("potato.html")
 ```
 
+### 추가로 알아야 할 사항
+
+- 위의 예시는 Controller(입력과 처리)과 View(결과 처리)의 동작을 보여준다.
 
 
 # 참고

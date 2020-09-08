@@ -31,7 +31,7 @@ $ python -m pip install requests
 ```python
 import requests
 
-indeed_url = "hhttps://kr.indeed.com/jobs?q=python" # 검색할 URL
+indeed_url = "https://kr.indeed.com/jobs?q=python" # 검색할 URL
 indeed_result = requests.get(indeed_url) # python으로 검색한 결과
 
 print(indeed_result)

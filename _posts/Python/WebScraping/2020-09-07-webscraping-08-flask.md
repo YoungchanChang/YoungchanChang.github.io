@@ -40,6 +40,12 @@ def potato():
 app.run(host="127.0.0.1", port=5001)
 ```
 
+### 추가로 알아야 할 사항
+
+- 서버의 구성중 MVC모델이 있다. Model(데이터베이스) View(결과 화면) Controller(입력과 처리)의 의미이다.
+
+- 위의 예시는 Controller(입력과 처리)의 동작을 보여준다.
+
 # 참고
 
 [flask 설치](https://flask.palletsprojects.com/en/1.1.x/installation/)

@@ -24,18 +24,28 @@ comments: python
 
 # Query Arguments
 
-- 서버측에서 클라이언트에서 요청(query)들어온 인자값(arguments)을 받기 위해서는 request메서드를 이용한다.
+- 서버측에서 클라이언트에서 요청(query)들어온 **인자값(arguments)**을 받기 위해서는 request메서드를 이용한다.
     - 아래 코드에서 `print(request.args)`를 이용하면 인자값이 dictionary형태로 값이 전달되는 것을 알 수 있다.
     - 서버측에서 html파일을 만드는 과정을 **렌더링**이라고 한다.
     - 렌더링 작업 시에 인자로 값을 넘겨주면 client측에서 인자 값을 활용할 수 있다.
 
+- 사용자가 유효하지 않은 입력값을 입력했을 때를 처리한다.
+    - **입력값이 유효한지 검증**한다. 유효하다면 편의를 위해 소문자 처리한다.
+    - 입력값이 없을 때 **redirect**시킨다.
+
 ```python
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 @app.route("/report")
 def home():
     # print(request.args)
     word = request.args.get('word')
+
+    if word:
+        word = word.lower()
+    else:
+        return redirect("/")
+
     return render_template("potato.html", searchingBy=word)
 
 ```

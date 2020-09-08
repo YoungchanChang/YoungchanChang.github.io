@@ -8,6 +8,17 @@ comments: python
 
 - 리팩토링한 결과
 
+- 1.get_max_pages() : 총 몇 페이지를 반복할 것인지 정보를 가져온다.
+
+- 2.get_job_list() : **HTML정보**를 가져온 뒤 원하는 **태그 내용**을 지정한다.
+
+- 3.get_job() : 태그에서 정확히 원하는 **정보를 추출**해서 객체로 만든다.
+
+- 4.총 페이지만큼 반복작업을 한다.
+
+- 5.배열값을 RETURN한다.
+
+
 ```python
 LIMIT = 10
 indeed_url = f"https://kr.indeed.com/jobs?q=python"
