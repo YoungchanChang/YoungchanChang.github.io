@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 모두를 위한 딥러닝 08-02 - Linear Regression정리하기
+title: 모두를 위한 딥러닝 10 - Linear Regression정리하기
 category: ML
 tags: [ML]
 comments: ML
@@ -45,3 +45,5 @@ comments: ML
 - 차이값이 2차함수로 나왔을 때, 산을 타고 내려가는 것 처럼 **기울기**를 본다. 그 다음에 한발짝씩 움직인다. **한발짝이 α로 주어진 learning rate**이다.
 
 - 기울기는 **Cost함수를 미분**한 값이다. 한 번에 얼마나 움직일까가 알파값이다. stepsize. learning rate라고 부른다.
+
+- HCG의 학습은 예측 -> 결과 -> 피드백이다.
