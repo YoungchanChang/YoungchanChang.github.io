@@ -10,4 +10,14 @@ comments: ML
 
 - 다 합쳐지고 sum이 일어나고, bias가 더해져서 전달되더라. 어떤 값 이상이 되면 활성화된다.
 
-- 
+- **multinomial classification을 이용**한다.
+
+- 부분부분 추출해서 볼 수 있다!!! 이게 굉장히 중요한 개념이다!!!
+
+
+
+# 참고
+
+[multinomial](https://computer-nerd.tistory.com/19)
+
+[multi2](https://ccibomb.tistory.com/1016)
