@@ -43,4 +43,5 @@ TypeError: unhashable type: 'list'
 
 # 참고
 [파이썬 공식 문서](https://docs.python.org/ko/3/library/csv.html)
+
 [CSV 쓰기](https://woolbro.tistory.com/36)
