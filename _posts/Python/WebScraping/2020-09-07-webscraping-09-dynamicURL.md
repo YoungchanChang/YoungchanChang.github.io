@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑09. Dynamic URL과 템플릿
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---
@@ -34,11 +34,19 @@ def home():
 - 리턴값을 html파일로 돌려줄 수 있다.
     - render_template를 import해야한다
     - 에러가 난다면 디렉터리를 만든 다음에 파일을 시행해보자.
+    - 디렉터리 이름은 반드시 templates여야한다. templates/potato.html
 
 ```python
+from flask import Flask, render_template
+app = Flask("SuperScrapper")
+
+
 @app.route("/")
 def home():
     return render_template("potato.html")
+
+app.run(host="127.0.0.1", port=5000)
+
 ```
 
 ### 추가로 알아야 할 사항

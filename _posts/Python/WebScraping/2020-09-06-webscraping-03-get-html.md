@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑03. 파이썬으로 HTML파일 내용 가져오기
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---
@@ -63,6 +63,9 @@ print(indeed_result.text)
 # 참고
 
 [Python으로 웹 스크래퍼 만들기](https://nomadcoders.co/python-for-beginners/lectures/118)
+
 [Python Request](https://github.com/psf/requests)
+
 [Pyhotn BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
 [import from](http://cloudrain21.com/python-difference-between-import-from-import)

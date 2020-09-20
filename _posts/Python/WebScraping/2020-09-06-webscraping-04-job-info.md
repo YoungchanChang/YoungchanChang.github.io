@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑04. html파일에서 내가 저장하려는 정보 추출하기
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---

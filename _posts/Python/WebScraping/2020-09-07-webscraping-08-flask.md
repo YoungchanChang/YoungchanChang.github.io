@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑08. flask개념과 설치
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---
@@ -10,7 +10,11 @@ comments: python
 
 ### flask란?
 
+- 파이썬용 서버
+
 ### flask를 쓰는 이유는?
+
+- Django보다 가볍다. 가볍게 실행시키기에 좋다.
 
 ### flask 실행시켜보기
 

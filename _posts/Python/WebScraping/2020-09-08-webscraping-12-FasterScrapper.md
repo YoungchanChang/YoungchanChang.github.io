@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑12. FasterScrapper
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---
@@ -63,3 +63,43 @@ comments: python
 
 - DB는 라우트 밖에 있어야 한다. route가 얼마나 실행되던지 상관 없이 실행될 수 있다.
 
+
+# 전체 코드
+
+```python
+from flask import Flask, render_template, request, redirect
+from scrapper import get_result
+
+app = Flask("SuperScrapper")
+
+
+db = {}
+
+
+@app.route("/report")
+def reporting():
+    # print(request.args)
+    word = request.args.get('word')
+
+    if word:
+        word = word.lower()
+
+        # db에 존재하는지 검색하기
+        # db[word]처럼 존재하지 않는 키(nokey)로 값을 가져오려고 할 경우 db[word]는 **Key 오류를 발생**시키고 db.get(word)는 **None을 돌려준다**는 차이가 있다.
+
+        is_exist = db.get(word)
+        if is_exist:
+            jobs = is_exist
+
+        else:
+            jobs = get_result(word)
+            db[word] = jobs
+
+    return render_template("searchingResult.html",
+                           SearchingBy=word,
+                           resultsNumber=len(jobs))
+
+
+app.run(host="127.0.0.1", port=5000)
+
+```

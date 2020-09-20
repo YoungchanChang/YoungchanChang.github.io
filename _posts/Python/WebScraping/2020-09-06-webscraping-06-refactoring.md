@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑06. 리팩토링
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---

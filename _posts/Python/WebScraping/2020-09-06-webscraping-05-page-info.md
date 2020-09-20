@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑05. 웹 페이지의 페이지 리스트 정보 가져오기
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---

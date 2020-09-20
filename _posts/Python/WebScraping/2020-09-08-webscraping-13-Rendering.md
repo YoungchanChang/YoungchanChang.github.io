@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 웹스크래핑13. Rendering
-category: python
+title: 웹스크래핑 13. Rendering
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---
@@ -26,6 +26,10 @@ comments: python
 <span>{{job.link}}</span>
 {% endfor %}
 ```
+        <!-- 반드시 jobs가 서버에서 넘어와야한다.
+        팡썬코드에서 html을 친다면 {%%}를 넣어야한다. 파이썬 코드 실행 {{}} 변수 넣기 -->'
+
+        - cs코드는 grid덕분에 예쁘게 보인다.
 
 ### 참고로 알아야 할 사항
 

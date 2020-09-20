@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 모두를 위한 딥러닝 18 - derivative
+title: 모두를 위한 딥러닝 19 - derivative
 category: ML
 tags: [ML]
 comments: ML

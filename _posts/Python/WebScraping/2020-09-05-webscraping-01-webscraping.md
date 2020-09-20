@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 웹스크래핑01. 웹스크래핑의 개념
-category: python
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---

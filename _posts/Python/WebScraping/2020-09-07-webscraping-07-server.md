@@ -2,7 +2,7 @@
 layout: post
 title: 웹스크래핑10. 서버의 개념
 
-category: python
+category: webscraping
 tags: [python, server]
 comments: python
 ---
@@ -18,7 +18,7 @@ comments: python
 <center>
 <figure>
 <img src="https://imgur.com/jftnqZe.png" alt="views">
-<figcaption>데이터(엣지)가 연산(노드)로 흘러가는 그래프 구조</figcaption>
+<figcaption>클라이언트의 요청에 응답한다.</figcaption>
 </figure>
 </center>
 
