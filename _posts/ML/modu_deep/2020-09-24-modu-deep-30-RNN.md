@@ -111,3 +111,8 @@ h(t) = tanh(W(hh)*h(t-1) + W(xh)x(t))
 <figcaption></figcaption>
 </figure>
 </center>
+
+
+# 개인적인 생각
+
+- 받아쓰기에서 school을 써야되는데 schol이라고 쓰면 틀리게 된다. o뒤에는 o가 와야되는데 l이 와서 틀린 것이다. 이 때 o가 다시 오게끔 훈련을 해야한다.
