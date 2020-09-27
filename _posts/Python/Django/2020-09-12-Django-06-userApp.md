@@ -12,6 +12,8 @@ comments: Django
 
 - 장고에서 user모델을 **덮어쓰기 위한 설정**을 확인한다. **모델은 데이터가 보여지는 모습**이다.
 
+### User App 확장하기
+
 - 1.**User앱 확장**하기
 
 ```python
@@ -24,6 +26,8 @@ class User(AbstactUser):
     pass
 
 ```
+
+### settings.py에 유저앱 등록하기
 
 - 2.User애플리케이션 **settings.py에 설치**하기
 
@@ -44,9 +48,13 @@ PROJECT_APPS = [
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
 ```
 
+### 유저 모델 쓰기
+
 - 3.유저모델 쓰기 확인. config에 settings에 가서 `AUTH_USER_MODEL = 'users.User'`로 변경한다.
 
 - ` Dependency on app with no migrations: users`에러가 뜬다. 장고는 users애플리케이션의 model안의 User가 존재한다는 것을 알게 된다.
+
+### Migration하기
 
 - 4.Migration하기
 
@@ -63,6 +71,8 @@ Migrations for 'users':
 
 - 서버를 다시 돌린다.
 
+### USER추가하기
+
 - 5.admin패널에 USER추가하기
 
 - admin.py에 user모델 연결하기 admin파일의 역할은 관리자(admin)이 접근(interfacE)가능한 구조를 알려주는 것이다.
@@ -75,6 +85,8 @@ from . import models
 class CustomUserAdmin(admin.ModelAdmin):
     pass
 ```
+
+### model에 필드 추가하기
 
 - 6.model에 필드 추가하기
 
@@ -100,6 +112,25 @@ class User(AbstractUser):
 # 추가로 알아두면 좋은 사항
 
 - 장고의 가장 강력한 기능은 관리자 접근을 자동으로 할 수 있는 것이다. metadata를 모델로부터 읽어서 처리할 수 있다.
+
+- 오류 : cannot import name 'AbstactUser' from 'django.contrib.auth.models
+
+- 이유 : 오타이다. AbstractUser라고 적었는지 다시 한 번 확인하자.
+
+- 오류 : django.db.utils.OperationalError: no such table: users_user
+
+- 이유 : db.sqlites3를 삭제한 뒤에 makemigrations를 수행하자.
+
+```python
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+# Create your models here.
+
+class User(AbstractUser):
+
+    pass
+
+```
 
 # 참조
 

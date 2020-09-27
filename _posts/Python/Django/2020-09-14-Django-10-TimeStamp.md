@@ -37,11 +37,11 @@ class Room(models.Model):
 
 - 2.`PROJECT_APPS = ["core.apps.CoreConfig", "users.apps.UsersConfig", "rooms.apps.RoomsConfig"]`을 추가한다.
 
-
+### 추상 클래스 만들기
 
 - 3.core/models.py정의
 
-- abstractModel은 데이터베이스에는 나타나지 않는 모델이다. 대다수의 abstractModel은 확장을 목적으로 한다. users폴더에서 models.py로 들어가서 보면 AbastractUser을 쓰고 있다. 코드에서만 상속을 받는다.
+- abstractModel은 **데이터베이스에는 나타나지 않는 모델**이다. 대다수의 abstractModel은 확장을 목적으로 한다. users폴더에서 models.py로 들어가서 보면 AbastractUser을 쓰고 있다. 코드에서만 상속을 받는다.
 
 
 ```python
@@ -59,6 +59,8 @@ class TimeStampedModel(models.Model):
         abstract = True
 ```
 
+### 사용하는 쪽에서 import하기
+
 - 4.해당 모델을 쓰는 쪽에서 import한다. 이 모델은 많은 곳에서 쓰인다.
  
 ```python
@@ -70,6 +72,15 @@ class Room(core_models.TimeStampedModel):
     """ Room Model Definitino """
 
     pass
+```
+
+### 알아두어야 할 사항
+
+- 파이썬 클래스에 아래와 같은 문구는 데이터베이스에 반영을 안 시키는 부분이다.
+
+```python
+    class Meta:
+        abstract = True
 ```
 
 # 참조

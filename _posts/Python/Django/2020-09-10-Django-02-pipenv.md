@@ -63,6 +63,16 @@ Windows PowerShell
 
 - `C:\Users\msi\.virtualenvs`의 경로에서 가상환경을 관리해주고 있다.
 
+### 명령어
+
+```console
+pipenv --three
+pipenv shell
+pipenv install Django==2.2.5
+django-admin
+```
+
+
 # 참고
 
 [pipenv](https://docs.pipenv.org/)

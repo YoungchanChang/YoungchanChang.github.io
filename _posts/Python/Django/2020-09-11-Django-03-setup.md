@@ -18,6 +18,12 @@ comments: Django
 
 2. Aconfig 안에 있는 config폴더와 mange.py를 바깥으로 꺼낸다.
 
+- python에서는 django-admin은 관리용 유틸리티 명령어 라인이다. 약간 sudo su같은 느낌인다.
+
+- manage.py는 django-admin과 같은 역할을 하지만, settings.py를 다룰 때 사용한다.
+
+- 바깥으로 꺼내는 이유는 경로를 조금 더 다루기 쉽게 만들기 위함이다.
+
 ### 장고 추가 설치
 
 - vscode Extenstion에서 python, flake8, pylint를 설치하면 코드를 관리하는데 도움이 된다.
@@ -44,6 +50,10 @@ comments: Django
 
 - vscode설정파일에 들어가서 아래와 같은 설정이 있는지 확인한다.
 
+# 설정 파일
+
+- flake8설치됨, pylint끔(flake가 대신함), formatter black으로 설치함. (자동 수정 확인)
+
 ```
 {
     "python.pythonPath": "C:\\Users\\msi\\.virtualenvs\\1thefull-q8RE0l9b\\Scripts\\python.exe",
@@ -57,6 +67,10 @@ comments: Django
 }
 ```
 
+
+
 # 참고
 
 [장고 프로젝트 시작](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
+
+[장고 admin의 역할](https://docs.djangoproject.com/en/3.1/ref/django-admin/)

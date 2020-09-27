@@ -8,7 +8,7 @@ comments: Django
 
 # RoomModel
 
-### 
+### 나라이름 import하기
 
 - 나라이름에 대한 모델은 Djanggo-countries라이브러리르 쓰면 된다.
 
@@ -16,15 +16,31 @@ comments: Django
 
 - config/settings.py에서 `THIRD_PARTY_APPS = ['django-countries']`로 등록한다.
 
-- import 팁 `# 파이썬과 관련된 것 # 외부 패키지 # app을 import`
+- import 팁 `# 파이썬과 관련된 것 # 외부 패키지 # app을 import`순서대로 import하면 보기 좋다.
 
 - room의 소유주는 USER의 정보와 연결해야한다.
 
-- DateField에서 auto_now=true로 하면  model을 save할 때 date랑 time을 기록할 것이다. auto_now_add는 이 필드는 Model을 생성할 때마다 수시로 업데이트 될 것이다. 장고가 새로운 Model을 만들 때마다 날짜와 시간을 넣는다.
+### TimeStampedModel에서 param 주의사항
 
-- auto_now는 내가 Model을 저장할 때마다 새로운 날짜를 적어준다.
+- DateField에서 auto_now=true로 하면  model을 save할 때 date랑 time을 기록할 것이다. auto_now_add는 이 필드는 **Model을 생성**할 때마다 수시로 업데이트 될 것이다. 장고가 새로운 Model을 만들 때마다 날짜와 시간을 넣는다.
 
-# Foreign Key
+- auto_now는 내가 **Model을 저장할 때마다** 새로운 날짜를 적어준다.
+
+```python
+from django.db import models
+
+# Create your models here.
+class TimeStampedModel(models.Model):
+
+    """ Time STamped Model """
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    class Meta:
+        abstract = True
+```
+
+### Foreign Key
 
 - ROOM에 USER을 추가해도 USER에는 변화가 없다.
 
@@ -46,9 +62,7 @@ comments: Django
 
 - 아빠와 엄마 model은 많은 자식들을 갖을 수 있다. 반면에 "나"의 경우 엄마는 하나밖에 없다. 내가 형제자매를 여럿 갖는 것을 MANY TO MANY라고 한다.
 
-
-
-### 
+### __str__ 설명
 
 - ROOM에 저장하면 Room object (1)라고 저장된다.
 
@@ -102,6 +116,11 @@ class ItemAdmin(admin):
 - AbstractItem인 이유는 카테고리만 다를 뿐 카테고리마다 item이 들어가기 때문이다.
 
 - 여러개나 한 개를 선택할 수 있게 된다. 
+
+
+### 추가로 알아두어야 할 사항
+
+- import 팁 `# 파이썬과 관련된 것 # 외부 패키지 # app을 import`순서대로 import하면 보기 좋다.
 
 # 참고
 
