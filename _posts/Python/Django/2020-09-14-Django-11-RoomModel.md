@@ -68,7 +68,7 @@ class TimeStampedModel(models.Model):
 
 - 장고랑 파이썬은 **클래스를 가지고 string**으로 만들어준다. class들이 가지고 있는 공통의 method는 string method이다
 
-- 파이썬이 class를 발견하면 string처럼 보여준다. 이 method를 파이썬에서 __str__이라고 표현한다.
+- **파이썬이 class를 발견하면 string처럼 보여준다.** 이 method를 파이썬에서 __str__이라고 표현한다.
 
 - user가 바꿀 수 있다.
 
