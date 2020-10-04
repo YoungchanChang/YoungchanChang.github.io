@@ -1,8 +1,8 @@
 ---
 layout: post
 title: javascript-04 함수, 객체
-category: Javascript
-tags: [Javascript, JAVA, variable]
+category: javascript
+tags: [javascript, JAVA, variable]
 comments: true
 ---
 
