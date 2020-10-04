@@ -34,7 +34,7 @@ Virtualenv location: C:\Users\msi\.virtualenvs\Django-TcpgY73D
 Creating a Pipfile for this project…
 ```
 
-### 가상환경(bubble)에 쟝고 설치하기
+### 가상환경(bubble)에 장고 설치하기
 
 - `pipenv shell` 버블 안으로 들어간다. 가상환경의 내부에 들어가서 뭔가를 설치할 수 있게 된다.
 
