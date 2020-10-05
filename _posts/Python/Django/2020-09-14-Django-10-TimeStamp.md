@@ -6,23 +6,6 @@ tags: [python, Django]
 comments: Django
 ---
 
-# 장고의 특징
-
-- config/settings.py에서 `PROJECT_APPS = ["users.apps.UsersConfig", "rooms.apps.RoosConfig"]`코드 추가
-
-- rooms/models.py에서 ORM정의하기
-
-```python
-from django.db import models
-class Room(models.Model):
-
-    """ Room Model Definitino """
-
-    pass
-```
-
-- rooms/admin.py에서 room의 모델 쓰겠다고 선언. 화면 새로고침하면 administration에 ROOMS를 볼 수 있다.
-
 # TimeStampedModel
 
 - ROOMS가 만들어질 때나 업데이트 될 때를 알면 좋다. 문제는 이 두 필드가 다른 곳에서도 쓰일 수 있기 때문에 **중복이 될 수 있다는 점**이다.
@@ -44,35 +27,10 @@ class Room(models.Model):
 - abstractModel은 **데이터베이스에는 나타나지 않는 모델**이다. 대다수의 abstractModel은 확장을 목적으로 한다. users폴더에서 models.py로 들어가서 보면 AbastractUser을 쓰고 있다. 코드에서만 상속을 받는다.
 
 
-```python
-from django.db import models
-
-# Create your models here.
-class TimeStampedModel(models.Model):
-
-    """ Time STamped Model """
-
-    created = models.DateTimeField()
-    updated = models.DateTimeField()
-
-    class Meta:
-        abstract = True
-```
-
 ### 사용하는 쪽에서 import하기
 
 - 4.해당 모델을 쓰는 쪽에서 import한다. 이 모델은 많은 곳에서 쓰인다.
  
-```python
-from django.db import models
-from core import models as core_models
-
-class Room(core_models.TimeStampedModel):
-
-    """ Room Model Definitino """
-
-    pass
-```
 
 ### 알아두어야 할 사항
 
@@ -82,6 +40,24 @@ class Room(core_models.TimeStampedModel):
     class Meta:
         abstract = True
 ```
+
+
+# 장고의 특징
+
+- config/settings.py에서 `PROJECT_APPS = ["users.apps.UsersConfig", "rooms.apps.RoosConfig"]`코드 추가
+
+- rooms/models.py에서 ORM정의하기
+
+```python
+from django.db import models
+class Room(models.Model):
+
+    """ Room Model Definitino """
+
+    pass
+```
+
+- rooms/admin.py에서 room의 모델 쓰겠다고 선언. 화면 새로고침하면 administration에 ROOMS를 볼 수 있다.
 
 # 참조
 

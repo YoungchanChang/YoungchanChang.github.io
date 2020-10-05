@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 파이썬 장고 구성확인
+title: 파이썬 장고 setting.py설정
 category: Django
 tags: [python, Django]
 comments: Django
@@ -10,10 +10,21 @@ comments: Django
 
 - `import os`는 os의 모듈에 정보를 가져올 수 있다. 몇 bit를 쓰는지, 플랫폼은 윈도우인지 리눅스인지, 이름은 뭔지에 대한 정보가 들어있다. 시스템의 정보를 통해서 
 
-### os path와 관련된 내용
+### os_path와 관련된 내용
 
 - `BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))`
-    - 파일에 대해서 얻은 디렉토리를 얻은 것을 기본 디렉토리로 설정한다. 왜 두 번씌우는지는 모르겠다.
+    - 파일에 대해서 얻은 디렉토리를 얻은 것을 기본 디렉토리로 설정한다.
+
+```console
+>>> os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+E:\GitHub\django_aribnb_again
+
+>>> os.path.dirname(os.path.abspath(__file__))
+E:\GitHub\django_aribnb_again\config\
+
+>>> os.path.abspath(__file__)
+E:\GitHub\django_aribnb_again\config\settings.py
+```
 
 - 특정 경로에 대해 절대 경로 얻기	os.path.abspath(".\\Scripts")
     - "C:\Python35\Scripts"

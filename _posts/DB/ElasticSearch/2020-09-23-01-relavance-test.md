@@ -93,3 +93,5 @@ doc1
 [BM25 파마리터](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html)
 
 [discount-overlaps](https://stackoverflow.com/questions/44115497/elasticsearch-similarity-discount-overlaps)
+
+[좋은 자료](https://littlefoxdiary.tistory.com/12)
