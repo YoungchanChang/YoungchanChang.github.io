@@ -20,17 +20,27 @@ comments: Django
 
 - 2.`PROJECT_APPS = ["core.apps.CoreConfig", "users.apps.UsersConfig", "rooms.apps.RoomsConfig"]`을 추가한다.
 
-### 추상 클래스 만들기
 
-- 3.core/models.py정의
+### TimeStampedModel에서 param 주의사항
 
-- abstractModel은 **데이터베이스에는 나타나지 않는 모델**이다. 대다수의 abstractModel은 확장을 목적으로 한다. users폴더에서 models.py로 들어가서 보면 AbastractUser을 쓰고 있다. 코드에서만 상속을 받는다.
+- DateField에서 auto_now=true로 하면  **model을 save할 때** date랑 time을 기록할 것이다. auto_now_add는 이 필드는 **Model을 생성**할 때마다 수시로 업데이트 될 것이다. 장고가 새로운 Model을 만들 때마다 날짜와 시간을 넣는다.
 
+- auto_now는 내가 **Model을 저장할 때마다** 새로운 날짜를 적어준다.
 
-### 사용하는 쪽에서 import하기
+```python
+from django.db import models
 
-- 4.해당 모델을 쓰는 쪽에서 import한다. 이 모델은 많은 곳에서 쓰인다.
- 
+# Create your models here.
+class TimeStampedModel(models.Model):
+
+    """ Time STamped Model """
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    class Meta:
+        abstract = True
+```
+
 
 ### 알아두어야 할 사항
 
@@ -42,22 +52,7 @@ comments: Django
 ```
 
 
-# 장고의 특징
 
-- config/settings.py에서 `PROJECT_APPS = ["users.apps.UsersConfig", "rooms.apps.RoosConfig"]`코드 추가
-
-- rooms/models.py에서 ORM정의하기
-
-```python
-from django.db import models
-class Room(models.Model):
-
-    """ Room Model Definitino """
-
-    pass
-```
-
-- rooms/admin.py에서 room의 모델 쓰겠다고 선언. 화면 새로고침하면 administration에 ROOMS를 볼 수 있다.
 
 # 참조
 

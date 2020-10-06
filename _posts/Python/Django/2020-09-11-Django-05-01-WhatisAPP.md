@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 파이썬 장고 App만들기
+title: 파이썬 장고 앱의 개념
 category: Django
 tags: [python, Django]
 comments: Django
