@@ -129,6 +129,8 @@ class RoomType(AbstractItem):
 
 - import 팁 `# 파이썬과 관련된 것 # 외부 패키지 # app을 import`순서대로 import하면 보기 좋다.
 
+- 모델 설계시에 처음에는 models에서 오는 모든 fields를 넣고 그 다음에는 foreingkey나 manytomany는 bottom에 넣는다. 그리고 class meta나 STR을 아래에 넣는다. 이렇게 하면 보기가 편리하다.
+
 # 참고
 
 - [__str__](https://docs.djangoproject.com/en/3.1/ref/models/instances/)
