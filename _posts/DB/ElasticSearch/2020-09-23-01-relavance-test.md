@@ -30,7 +30,7 @@ comments: true
 </figure>
 </center>
 
-  - N은 document 전체의 수이고 n은 해당 token을 포함하고 있는 document의 수이다.
+  - N은 **document 전체의 수**이고 n은 해당 token을 **포함하고 있는 document의 수**이다.
   
   - 해당 token을 포함하고 있는 document수가 높으면 높을 수록 점수는 낮게 나온다. 101개의 문서중에 오직 1개만 해당 단어를 포함하고 있다면 해당 score은 1.826 로 나온다. log(1 + (101 - 1 + 0.5) / (1 + 0.5))
 

@@ -6,15 +6,25 @@ tags: [python, Django]
 comments: Django
 ---
 
-#
+# 참고
 
-- 데이터베이스가 이상하게 비어있다. 유저도 1개이고, 사진도 없고, 예약 리스트도 없다.
+[django-admin commands](https://docs.djangoproject.com/en/2.2/howto/custom-management-commands/)
 
-- 나만의 `python manage.py commands` 만들기
+# django-admin commands 커스텀하기
 
-- 장고 seeds를 이용해서 가짜 데이터베이스를 빠르게 만들기
+- 장고에 내가 만든 명령어를 수행하게 하고 싶을 때 사용할 수 있다. 여기서는 데이터베이스에 dummy데이터를 넣을 때 사용할 수 있다.
+
+- 장고의 규칙에 맞춰서 폴더를 만들고 코드를 작성해야한다.
 
 - **내가 장고를 이용하는게 아니라 장고가 내 코드를 이용한다.**
+
+### 나만의 `python manage.py commands` 만들기
+
+- **어떤 argument를 전달**할 것인지, 해당 argument로 **무엇을 할 것인지** 명시해야한다.
+
+- 어떤 argument를 전달할 것인지는 `def add_arguments(self, parser):`에 명시해야한다. 어떻게 다룰 것인지는 `def handle(self, *args, **options):`에 전달해야한다.
+
+- 장고 seeds를 이용해서 가짜 데이터베이스를 빠르게 만들기
 
 - 아무 폴더로 들어가서 폴더 만들기. 파일이름은 __init__.py
 
@@ -27,11 +37,6 @@ comments: Django
 - 에러메시지의 의미는 Command클래스를 기대한다는 의미이다.
 
 - loveyou.py에 아래 파일 생성
-
-```python
-class Command:
-    print("hello")
-```
 
 - 에러메시지 `AttributeError: 'Command' object has no attribute 'run_from_argv'` 발생
 
@@ -89,6 +94,3 @@ optional arguments:
         raise NotImplementedError('subclasses of BaseCommand must provide a handle() method')
 ```
 
-# 참고
-
-[django-admin commands](https://docs.djangoproject.com/en/2.2/howto/custom-management-commands/)

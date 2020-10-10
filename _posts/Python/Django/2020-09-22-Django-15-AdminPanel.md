@@ -67,6 +67,17 @@ AND (first_name ILIKE '%lennon%' OR last_name ILIKE '%lennon%')
 
 - 집계함수처럼 특정 목록의 숫자를 보여준다던지, 시작과 끝의 차이를 보여줄 수 있다.
 
+- 2개의 paramter가 있다. **self는 roomAdmin자체**를 가리킨다. object는 **row**를 가리킨다.
+
+- 장고는 해당 함수명을 인지하고 있다. 
+
+```python
+@admin.register(modes.Room)
+class RoomAdmin(admin.ModelAdmin):
+
+pass
+```
+
 # 참고
 
 [model admin options](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#modeladmin-options)

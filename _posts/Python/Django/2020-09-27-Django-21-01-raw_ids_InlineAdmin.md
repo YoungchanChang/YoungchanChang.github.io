@@ -1,40 +1,12 @@
 ---
 layout: post
-title: 파이썬 장고 Photo Admin
+title: 파이썬 장고 raw_ids and Inline Admin
 category: Django
 tags: [python, Django]
 comments: Django
 ---
 
-# Photo Admin
-
-- 파일은 많은 것을 갖고 있다. dir(obj.file)을 해 보면 width, write, url등을 갖고 있다. 프린트해서 보는 것이 전부가 아니다.
-
-- ImageField에 의해서 접근을 갖을 수 있다.
-
-- 장고는 sercurity를 다루는데 준비가 매우 잘 되어있다. 너가 모든 input을 지워야 한다.
-
-- 장고는 이상한 html을 쓰는 것으로부터 보호해줄 수 있다. 사람들이 모든 입력에 대해서 처리하지 않아서 문제가 생긴다.
-
-### 소스코드
-
-```python
-from django.utils.html import mark_safe
-@admin.register(models.Photo)
-class PhotoAdmin(admin.ModelAdmin):
-
-    """ Photo Admin Definition """
-
-    list_display = ("__str__", "get_thumbnail")
-
-    def get_thumbnail(self, obj):
-        print(dir(obj.file.url))
-        return mark_safe(f'<image width="50px" src="{obj.file.url}"/>')
-
-    get_thumbnail.short_description = "Thumbnail"
-```
-
-# raw_field, inline admins
+### raw_ids
 
 - 유저들이 많아지면 리스트가 매우 커진다. id로 접근하고 싶을 때 쓴다.
 
@@ -46,22 +18,36 @@ class PhotoAdmin(admin.ModelAdmin):
 
 - admin안에 또 다른 admin을 넣는다.
 
+- photo는 room에 소속되어있다. 그래서 **room에서 해당 photo를 관리**하는 것이 편하다.
+
+- admin에 새로운 모델을 만든 뒤에, **Inline클래스를 상속받는다. 해당 모델에 객체를 선언한다.**
+
 - room에는 사진 셋트들이 들어있다. photos에 가서 photo를 추가하고 저장하는 것 보다, admin의  photo에 추가하는게 낫다.
 
-- 장고가 자동으로 room의 foreing key를 가지고 있는 이미지르 ㄹ집어넣는다.
+- 장고가 자동으로 room의 foreing key를 가지고 있는 이미지를 집어넣는다.
 
 - 장고는 똑똑해서 foreing key가 room들과 연결된 것을 알 수 있다.
 
 - TabularInline도 있지만 StackedInline도 있다. 모양이 약간 다르다.
 
+- F.K를 쓰면 Django는 model과 room의 관계를 알아차릴 수 있고, 모든 것을 알아서 다 해준다.
+
+###  User에서 Room 관리해보기
+
 ```python
+from rooms import models as md
+# Register your models here.
+
 class PhotoInline(admin.TabularInline):
 
-    model = models.Photo
+    model = md.Room
 
+@admin.register(models.User)
+class CustomUserAdmin(UserAdmin):
+    """ Custom User Admin """
+
+    inlines = (PhotoInline,)
 ```
-
-- F.K를 쓰면 Django는 model과 room의 관계를 알아차릴 수 있고, 모든 것을 알아서 다 해준다.
 
 # model이 저장될 때 가로채기
 

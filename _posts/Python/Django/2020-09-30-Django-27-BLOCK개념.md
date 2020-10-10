@@ -1,26 +1,12 @@
 ---
 layout: post
-title: 파이썬 장고 Urls and Views
+title: 파이썬 장고 HomeView Intro
 category: Django
 tags: [python, Django]
 comments: Django
 ---
 
-# Urls and Views
-
-### url이 장고에서 어떻게 동작할까
-
-- 하나는 admin/아래에 있는 url이다. 다른 것은 view이다.
-
-- `urlpatterns = [path("admin/", admin.site.urls)]`
-
-- url은 요청에 바로 응답하는 방법이고, view는 내가 이 요청에 (반응하는)답을 하는 방법이다.
-
-- view는 함수이다. 모든 방의 리스틀 보고 싶다면, 방들을 보여주는 rooms application에 두면 된다.
-
-- `/room`으로 시작하는 url은 rooms앱으로 보내고, /usrs로 시작하는 url들은 users파일로 보낸다.
-
-#
+# HTTP 기본 동작
 
 - 뷰는 내가 해당 URL로 매번 들어갈 때마다 HTTP Request를 생성한다.
 
@@ -30,11 +16,11 @@ comments: Django
 
 - 장고는 Request를 Python Object로 만들어서 모든 view에 대해서 넘겨준다.
 
-###
+- `Request`가 오면 해당 Request를 분석한 뒤에 요청 데이터를 `Template`에 넘겨서 `Render`를 수행한 뒤 결과값을 return한다. 읽을 수 있도록 `context`에 넘겨준다.
 
 - `from django.shortcuts import render`는 HttpResponse 안에 html을 넣어서 보내줄 수가 있다.
 
-### Renderingd리나
+### Rendering
 
 - Render은 만들다는 뜻이다. 요리를 만들 때, 재료를 갖고와서 만드는 행위를 하듯, 어떤 변수값을 템플릿에다가 넣어주면 눈에 보이게 만들어주는 것이 Render이다.
 
@@ -44,13 +30,31 @@ comments: Django
 
 - view이름은 urls.py의 이름과 같아야 한다.
 
+# DB로부터 데이터베이스에 가져와서 object를 가져오기
+
+- 
+
+# Extending Templates
+
+- 구조가 똑같으면 중복을 제거하는 편이 좋다. **템플릿이 템플릿을 상속**해서 쓸 수 있다.
+
+- base를 render하지 않더라도, 모든 템플릿은 base를 쓰게 된다. Model을 쓰지는 않지만 다른 Model이 쓰는 것처럼 부모 템플릿을 만들 수 있다.
+
+- **부모 템플릿**
+
+- Extending하기 위해서는 선언하면 된다. 단순하게 `rooms/home.html`로 확장하면 된다.
+
 ### Block의 개념
 
 - Block은 하나의 창과 같은 것이다. 자식 템플릿이 부모 템플릿에게 넘겨주는 창이다.
 
+- 부모 템플릿과 자식 템플릿의 **연결고리**
+
 - Block은 자식 템플릿이 넣을 수 있는 것이다.
 
-- base.html다음에 block을 쓴다. base에서 extend했기 때문에 쓸 수 있다.
+- **base.html다음에 block**을 쓴다. base에서 extend했기 때문에 쓸 수 있다.
+
+- block을 쓸 수 잇는 이유는 extends했기 때문이다.
 
 - extend하고 블럭을 사용했기 때문에 쓸 수 있다. base.html에서 블락으로 선언한 부분을 이용할 수 있다.
 
@@ -60,6 +64,9 @@ comments: Django
 
 - 파일들을 작게 쪼개면 좋다. Divide and conquere!!!
 
+# 문제점
+
+- `<a href="/">Nbnb</a>` 이런 식으로 코드를 구성하면 사용하는 템플릿마다 해당 url이 다르기 때문에 문제가 생길 수 있다.
 
 # 참고
 

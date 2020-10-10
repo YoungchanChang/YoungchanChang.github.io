@@ -1,78 +1,14 @@
 ---
 layout: post
-title: 파이썬 장고 Managers and QuerySets
+title: 파이썬 장고 Practicing Django ORM
 category: Django
 tags: [python, Django]
 comments: Django
 ---
 
-# Managers and QuerySets
-
-### Count
-
-- 숫자를 세기 위해서는 함수를 정의해주면 된다. 그리고 리스트에서 해당 함수를 정의해준다.
-
-```python
-    list_display = (
-        "name",
-        "count_amenities",
-        
-    )
-
-    def count_amenities(self, obj):
-        return obj.amenities.count()
-
-    count_amenities.short_description = "hello sexy!"
-```
-
-### Manager
-
-- Manager은 데이터베이스로부터 elements를 가져오게 해 준다.
-
-- 파이썬을 이용해서, sql을 쓰지 않고 가져올 수 있게 해준다.
-
-- 데이터모델을 만들었다면, 장고는 데이터베이서 API를 제공한다.
-
-- 파이썬 콘솔 안에서 데이터 가져오기
-
-- 단순히 pyhton명령어를 치면 콘솔로 들어가지지 않는다. `python manage.py shell` 명령어를 쳐야 한다.
-
-```console
-python manage.py shell
->>> from users.models import User
->>> User
-<class 'users.models.User'>
->>> User.objects
-<django.contrib.auth.models.UserManager object at 0x03B1FC10>
->>> User.objects.all()
-<QuerySet [<User: msi>, <User: test>]>
-all_user = User.objects.all()
-all_user.filter(superhost=True)
->>> msi = User.objects.get(username="msi")
->>> print(msi)
-
->>> vars(msi)
->>> dir(msi)
-```
-
-- QuerySet은 List이다. 데이터베이스로 부터 온 똑똑한 리스트이다.
-
-- 존재하지 않는 데이터를 가져오려면 에러가 생긴다.
-
-- dir(msi)를 하면 많은 정보들이 생성된다. user에 foreingkey를 갖을 수 있다.
-
-- 'room_set', 'list_set'등이 존재한다. 해당 set을 이용해서 rooms에도 접근할 수 있다.
-
-```console
->>> msi.room_set
-<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x03BFD550
->>> msi.room_set.all()
-<QuerySet [<Room: T>]>
-```
-
-- `?_set`은 elements가 foreign keys에 접근할 수 잇는 방법이다.
-
 ### Practicing Django ORM
+
+- `객체.연관객체_set.all()`로 만들면 해당객체의 정보를 얻어낼 수 있다.
 
 ```console
 >>> msi.review_set.all() 
@@ -81,13 +17,19 @@ all_user.filter(superhost=True)
 
 - set은 `foreing key의 대상이 element를 얻어내는 방법이다.`
 
+### set의 활용용도
+
+- set을 통하면 **사용자와 관련된 모든 정보들을 가져올 수 있다!!!**
+
 - Airbnb라면 사용자에 의해 생성된 모든 room들을 가져올 수 있게끔 해야한다. 인스타그램을 갖고 있으면 인스타그램 프로피롤 가서 업로드된 사진들을 전부 ㄱ자ㅕ와얗나다.
 
 - related_name은 user가 우리를 어떻게 찾는지 명시해주는 것이다.
 
-### Rooms의 models.py수정하기
+### room_set 별명지어주기
 
-- 수정 하고 makemigrations, migrate를 해줘야 한다.
+- F.K속성으로 "related_name"을 주면 해당 객체에게 내가 어떻게 불려질 수 있는지 **별명을 정해줄** 수 있다.
+
+- 그러면 기존에 **room_set대신에 rooms로 접근**할 수 있다.
 
 ```python
     host = models.ForeignKey("users.User", related_name="rooms", on_delete=models.CASCADE)
@@ -102,7 +44,7 @@ all_user.filter(superhost=True)
 
 - 하나의 object가 foreing keys에 접근할 수 있다.
 
-- 장고에서는 pk와 id가 동의어이다.
+- 장고에서는 `pk와 id가 동의어`이다.
 
 - **review에서 room을 가리키고 있었다면**, room은 reivew_set을 갖을 수 있다.
 
@@ -114,7 +56,7 @@ all_user.filter(superhost=True)
 <django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x009757D0>
 ```
 
-###
+### 공식문서 참조해보기
 
 - set과 set을 이용해 데이터를 가져오는 방법을 배웠다.
 
@@ -173,6 +115,18 @@ class ItemAdmin(admin.ModelAdmin):
 
 ```
 
+### vars()와 dirs()의 차이
+
+- 파이썬 x.__dict__와 dir(x)처럼 딕셔너리를 반환한다. 모든 클래스의 속성들을 반홚낟.
+
+- 파이썬에서는 메소드도 속성이다. python은 m.__dict__에서 메소드를 찾는다.  없으면 상위 객체에서 찾는다.
+
+- vars()보다 dir()이 더 많은 메소드를 반환한다. Base까지 반환한다.
+
 # 참고
 
 [Making quries](https://docs.djangoproject.com/en/2.2/topics/db/queries/)
+
+[var과 dir차이](https://stackoverflow.com/questions/980249/difference-between-dir-and-vars-keys-in-python)
+
+[QuerySet](https://docs.djangoproject.com/en/2.2/ref/models/querysets/#django.db.models.query.QuerySet)

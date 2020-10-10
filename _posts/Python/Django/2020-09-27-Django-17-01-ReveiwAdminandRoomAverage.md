@@ -6,47 +6,21 @@ tags: [python, Django]
 comments: Django
 ---
 
-# Reveiw Admin and Room Average
+# Review Admin and Room Average
+
+- **admin에서 메소드를 생성할 수 있었지만, model에서도 생성**할 수 있다.
+
+- function을 이용하면 내부 정보로 **새로운 정보**를 만들 수 있다. 룸을 리뷰한 것들의 평균을 구할 수 있다.
 
 ### models안에 메소드를 넣기
 
-- admin에서 메소드를 생성할 수 있었지만, model에서도 생성할 수 있다.
+- **admin에서 메소드를 생성할 수 있었지만, model에서도 생성**할 수 있다.
 
-- reviews의 평균을 얻어야 한다. 평균은 admin에서만 쓰이는 것 뿐만이 아니라, 모든 사이트에서 이용할 수 있어야 한다.
+- reviews의 **평균**을 얻어야 한다. 평균은 admin에서만 쓰이는 것 뿐만이 아니라, **리뷰와 관련된 모델을 쓰는 모든 사이트에서 이용**할 수 있어야 한다.
 
 - __str__을 list_display에 쓸 수 있다. 또 custom 함수를 모델에다 생성할 수 있다.
 
 - 모델의 기능을 admin, 프론트, 콘솔에 쓰고 싶으면 모델에다 정의할 수 있다. short_description을 쓸 수도 있다.
-
-### Review에서 Average 사용하기
-
-```python
-    def __str__(self):
-        return f"{self.review} - {self.room}"
-
-    def rating_average(self):
-        avg = (
-            self.accuracy
-            + self.communication
-            + self.cleanliness
-            + self.location
-            + self.check_in
-            + self.value
-        ) / 6
-        return round(avg, 2)
-
-    rating_average.short_description = "Avg."
-```
-
-
-### Room에서 Review Average사용하기
-
-- admin에서 모델의 함수 사용하기
-```python
-    list_display = (
-        "total_rating",
-    )
-```
 
 - 모델 안에서 평균 구하는 함수 정의하기
 
