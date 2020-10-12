@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 웹스크래핑 13. Rendering
+title: 웹스크래핑13. Rendering
 category: webscraping
 tags: [python, webscraping]
 comments: python

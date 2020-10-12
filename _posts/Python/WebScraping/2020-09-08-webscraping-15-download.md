@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 웹스크래핑14. FileDownlaod
+title: 웹스크래핑15. FileDownlaod
 category: webscraping
 tags: [python, webscraping]
 comments: python

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 웹스크래핑10. Forms and Query Arguments
-category: python
+title: 웹스크래핑16. Forms and Query Arguments
+category: webscraping
 tags: [python, webscraping]
 comments: python
 ---
