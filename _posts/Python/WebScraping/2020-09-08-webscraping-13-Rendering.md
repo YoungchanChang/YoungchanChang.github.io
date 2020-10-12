@@ -19,12 +19,12 @@ comments: python
 - flask에서 for in을 쓰기 위해서는 {% %}안에 넣으면 파이썬 코드를 실행할 수 있다. 변수는 {{ varibale }}로 보여준다.
 
 ```python
-{% for job in jobs %}
+# {% for job in jobs %}
 <span>{{job.title}}</span>
 <span>{{job.company}}</span>
 <span>{{job.location}}</span>
 <span>{{job.link}}</span>
-{% endfor %}
+# {% endfor %}
 ```
         <!-- 반드시 jobs가 서버에서 넘어와야한다.
         팡썬코드에서 html을 친다면 {%%}를 넣어야한다. 파이썬 코드 실행 {{}} 변수 넣기 -->'
