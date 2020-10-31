@@ -10,50 +10,74 @@ comments: Django
 
 [URL REVERSE](https://wayhome25.github.io/django/2017/05/05/django-url-reverse/)
 
-[메시지 프레임워크](https://docs.djangoproject.com/en/3.1/ref/contrib/messages/)
+# 기본 로직
 
-# 메시지 프레임워크
+<center>
+<figure>
+<img src="https://imgur.com/qYcME8Y.png" alt="views">
+<figcaption></figcaption>
+</figure>
+</center>
 
-- pk값을 주는 이유?
+# READ작업하기
 
-- {{user.get_absolute_url을 쓸 수도 있다. 만약 adminpanel로 가서 카카오 쥬러를 클릭하면 view on site가 있다.
-
-- 웹사이트에서 자세히 보고 싶으면 get_absolute_url은 요긴하게 사용될 수 있다.
-
-###
-
-- url "users:profile" 이랑 pk라고만 할 수도 있다. users.pk라고 할 수 없다. 
-
-- admin패널에서 VIEW버튼을 쓰기 위해서  profile에서는 pk만 전달하지 않는다. get_absolute_url을 쓰면 된다.
+- DB에서 유저의 정보를 반환할 때 아래와 같은 코드를 쓸 수 있다. user.get_absolute_url()를 클릭했을 때, user:profile링크로 **유저의 pk를 갖고** 가게 된다.
 
 ```python
     def get_absolute_url(self):
         return reverse("users:profile", kwargs={"pk": self.pk})
 ```
 
-#### 중요한 문제
+- get_absolute_url()을 설정하면 admin사이트에서 자세히 볼 수 있게 된다.
 
-- UserProfileView에서는 user값들을 바꿔버리고 있다.
+# 중요한 문제 - 다른 사람 정보가 나오는 경우
 
-- 메인 뷰에서는 로그인 한 사람이다.
+- 상단의 userProfile을 클릭했는데, 내 정보가 아닌 다른사람 정보가 나오는 경유가 존재한다.
 
-- 방에서 사용자 정보를 본 뒤에 Profile을 누르면 내 정보가 아니라 사용자 Profile이 나오게 된다.
+- 이 경우는 뷰에서 user정보를 호출할 때 `user/model.py`를 이용했기 때문이다. 유저가 대체된다.
 
-- 유저가 대체 된다.
+- 유저상세보기 DetailView를 볼 땐 변수의 이름을 따로 줘야한다. 이것이 `context_object_name`이다.
 
-- DetailView에서 SingloeObjectMixin을 보면 `context_object_name`가 있다. 로그인 했던 유저가 아니라, 뷰에서 찾았던 유저 객체를 가리키는 방법을 바꿀 수 있도록 해준다.
+```python
+class UserProfileView(DetailView):
 
-- 뷰를 작업할 때 만들어야 하는 가장 중요한 점이다
+    model = models.User
+    context_object_name = "user_obj"
+```
 
-- UserProfileView가 뷰에서 찾았던 유저에 의해서 유저를 대체한다.
+# 로직
 
-###
+<center>
+<figure>
+<img src="https://imgur.com/BTmJVln.png" alt="views">
+<figcaption></figcaption>
+</figure>
+</center>
 
-- DetailView가 하는 역할을 더 자세히 알아야 할 것 같다!!!
+- 1.사용자 페이지에서 `<li class="nav_link"><a href="{{user.get_absolute_url}}">Profile</a></li>`로 사용자가 보기를 클릭한다.
 
-- context_object_name 객체의 역할 `Designates the name of the variable to use in the context.`
+- 2.user 모델 객체의 get_absolute_url메소드는, user:profile URL을 찾는다.
 
-- 유저 상세보기를 클릭하면 아래의 링크를 타고 간다.  UserProfileView에서는 p.k아이디값을 변수로 받게 된다.
+```python
+def get_absolute_url(self):
+    return reverse("users:profile", kwargs={"pk": self.pk})
+```
+
+- 3.users:profile은 URL에서 `path("<int:pk>/", views.UserProfileView.as_view(), name="profile")`를 타고 VIEW를 찾는다.
+
+- 4.UserProfileView객체에 user모델의 p.k를 전달한다.
+
+- 5.VIEW클래스에서 사용자의 데이터를 읽은 뒤 반환한다.
+
+- detailview를 상속받으면 자동으로 user_detail.html에 렌더링을 한다. 여기에서 변수의 이름을 "user_obj"로 하면 p.k가 user_obj를 찾는다. 반면 여기에서 변수의 이름을 주지 않으면 user변수 이름으로 찾는다.
+
+```python
+class UserProfileView(DetailView):
+    model = models.User
+    context_object_name = "user_obj"
+```
+
+- 6.view객체가 렌더링을 해서 사용자에게 보여준다.
 
 ### 프로필 변경 클릭시 아래 링크를 타고 간다.
 
@@ -97,7 +121,6 @@ class UserProfileView(DetailView):
     model = models.User
     context_object_name = "user_obj"
 ```
-
 
 ### 고고고고 여기다!!!!!!!!!!
 

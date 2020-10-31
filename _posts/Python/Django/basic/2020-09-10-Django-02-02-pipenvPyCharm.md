@@ -6,6 +6,15 @@ tags: [python, Django]
 comments: Django
 ---
 
+# 참고
+
+[pipenv](https://docs.pipenv.org/)
+
+[ven사용 이유](https://www.daleseo.com/python-venv/)
+
+[pipenv사용](https://medium.com/@erish/python-pipenv-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-961b00d4f42f)
+
+
 # pipenv
 
 ### pipenv란
@@ -63,20 +72,3 @@ Windows PowerShell
 
 - `C:\Users\msi\.virtualenvs`의 경로에서 가상환경을 관리해주고 있다.
 
-### 명령어
-
-```console
-pipenv --three
-pipenv shell
-pipenv install Django==2.2.5
-django-admin
-```
-
-
-# 참고
-
-[pipenv](https://docs.pipenv.org/)
-
-[ven사용 이유](https://www.daleseo.com/python-venv/)
-
-[pipenv사용](https://medium.com/@erish/python-pipenv-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-961b00d4f42f)
