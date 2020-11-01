@@ -15,7 +15,7 @@ flask OSError: [Errno 99] Cannot assign requested address
 백그라운드로 실행시
 
 - nohup 
-
+. bin
 프로세스 킬
 
 ```console
