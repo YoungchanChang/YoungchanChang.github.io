@@ -53,7 +53,7 @@ Entry.objects.get(id=14)
 
 - html에서는 템플릿처럼 label, value, placeholder, selected를 만들었어야한다.
 
-- 만약 장고 Form을 쓴다면 **label, value같은 태그들을 안 써도** 된다. html의 긴 태그들이 {{form}} form객체 안에 들어가게 된다.
+- 만약 장고 Form을 쓴다면 **label, value같은 태그들을 안 써도** 된다. html의 긴 태그들이 [[form}} form객체 안에 들어가게 된다.
 
 - OneToMany와 관련된 필드 - ModelChoiceField / ManyToMany와 관련된 필드 - ModelMultipleChoiceField
 

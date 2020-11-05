@@ -37,7 +37,7 @@ def ip_address_processor(request):
     return {'ip_address': request.META['REMOTE_ADDR']}
 
 def client_ip_view(request):
-    template = Template('{{ title }}: {{ ip_address }}')
+    template = Template('[[ title }}: [[ ip_address }}')
     context = RequestContext(request, {
         'title': 'Your IP Address',
     }, [ip_address_processor])

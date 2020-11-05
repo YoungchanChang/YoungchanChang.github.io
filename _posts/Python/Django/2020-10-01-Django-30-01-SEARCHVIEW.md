@@ -103,10 +103,10 @@ comments: Django
 
 ```html
     <input 
-        id="f_{{facility.pk}}"
+        id="f_[[facility.pk}}"
         name="facilities"
         type="checkbox"
-        value={{facility.pk}}
+        value=[[facility.pk}}
         [% if facility.pk|slugify in s_facilities %]
             checked
         [% endif %]

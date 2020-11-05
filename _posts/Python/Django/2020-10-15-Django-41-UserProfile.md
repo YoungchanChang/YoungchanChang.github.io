@@ -54,7 +54,7 @@ class UserProfileView(DetailView):
 </figure>
 </center>
 
-- 1.사용자 페이지에서 `<li class="nav_link"><a href="{{user.get_absolute_url}}">Profile</a></li>`로 사용자가 보기를 클릭한다.
+- 1.사용자 페이지에서 `<li class="nav_link"><a href="[[user.get_absolute_url}}">Profile</a></li>`로 사용자가 보기를 클릭한다.
 
 - 2.user 모델 객체의 get_absolute_url메소드는, user:profile URL을 찾는다.
 
@@ -81,7 +81,7 @@ class UserProfileView(DetailView):
 
 ### 프로필 변경 클릭시 아래 링크를 타고 간다.
 
-- `<li class="nav_link"><a href="{{user.get_absolute_url}}">Profile</a></li>`
+- `<li class="nav_link"><a href="[[user.get_absolute_url}}">Profile</a></li>`
 
 - OR `<li class="nav_link"><a href="[% url "users:logout" %}">Log out</a></li>`
 
@@ -101,7 +101,7 @@ class UserProfileView(DetailView):
 
 - 방 상세보기 페이지의 링크는 아래와 같다.
 
-- `<h2>By: <a href="{{room.host.get_absolute_url}}">{{room.host.username}}</a>` user의 p.k번호를 전달한다.
+- `<h2>By: <a href="[[room.host.get_absolute_url}}">[[room.host.username}}</a>` user의 p.k번호를 전달한다.
 
 - `path("<int:pk>/", views.UserProfileView.as_view(), name="profile"),`
 
