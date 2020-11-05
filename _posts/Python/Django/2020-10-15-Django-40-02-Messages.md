@@ -73,7 +73,7 @@ def kakao_callback(request):
 
 - 헤더는 fixed이지만 웰컴은 absolute인 이유는 스크롤했을 때 메시지가 따라올 필요가 없기 때문
 
-[참고](https://zetawiki.com/wiki/CSS_position_absolute,_fixed_%EC%B0%A8%EC%9D%B4_%EC%83%81%EC%84%B8)
+[참고](https://zetawiki.com/wiki/CSS_position_absolute,_fixed_^EC^B0^A8^EC^9D^B4_^EC^83^81^EC^84^B8)
 
 
 

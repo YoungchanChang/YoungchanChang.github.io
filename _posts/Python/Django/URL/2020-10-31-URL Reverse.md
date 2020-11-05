@@ -60,7 +60,7 @@ redirect('blog:post_detail', 10)
 - html에서 내부적으로 reverse()를 사용할 때 쓴다.
 
 ```html
-<li><a href="[% url 'blog:post_detail' post.id %}">[[ post.title }}</a> </li>
+<li><a href="[^ url 'blog:post_detail' post.id ^}">[[ post.title }}</a> </li>
 ```
 
 # get_absolute_url()

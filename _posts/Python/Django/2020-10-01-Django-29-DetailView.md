@@ -25,20 +25,20 @@ comments: Django
 - url에서는 app_names와 namespace를 붙였다. config에서 include로 해당 경로를 불러낼 때 namespace를 전달해준다. 그리고 urls.py에서 name으로 해당 경로의 명칭을 지정해준다.
 
 ```
-[% for room in rooms %]
+[^ for room in rooms ^]
 <h3>
     <a href="/rooms/{{room.pk}}">
         {{room.name}} / ${{room.price}}
     </a>
 </h3>
 <h1>{{room.name}}</h1>
-[% endfor %]
+[^ endfor ^]
 ```
 
 - **따로 url을 하나하나 구성하지 않아도 된다.** namespace:경로 argument
 
 ```
-    <a href="[% url "rooms:detail " room.pk%]">
+    <a href="[^ url "rooms:detail " room.pk^]">
         {{room.name}} / ${{room.price}}
     </a>
 ```

@@ -25,8 +25,8 @@ comments: Django
 - 만약 검색 필드에서 ` ['first_name', 'last_name'] `으로 설정하고 사용자가 `john lennon`을 검색했다면, SQL문을 쓰는 구문에서 아래는 예시이다.
 
 ```python
-WHERE (first_name ILIKE '%john%' OR last_name ILIKE '%john%')
-AND (first_name ILIKE '%lennon%' OR last_name ILIKE '%lennon%')
+WHERE (first_name ILIKE '^john^' OR last_name ILIKE '^john^')
+AND (first_name ILIKE '^lennon^' OR last_name ILIKE '^lennon^')
 ```
 
 - 검색어를 쓸 때 Prefix로 다음과 같은 값을 쓰면 좋다. Prefix는 ^로 startswith를 의미한다. 

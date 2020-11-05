@@ -27,13 +27,13 @@ comments: Django
 ```html
 <header>
 
-    [% include "partials/header.html" %]
+    [^ include "partials/header.html" ^]
 
-    [% block search-bar %]
-        <form method="get" action="[% url "rooms:search" %}">
+    [^ block search-bar ^]
+        <form method="get" action="[^ url "rooms:search" ^}">
             <input name"city" placeholder="Search by City" />
         </form>
-    [% endblock search-bar %]
+    [^ endblock search-bar ^]
     
 </header>
 ```
@@ -107,9 +107,9 @@ comments: Django
         name="facilities"
         type="checkbox"
         value=[[facility.pk}}
-        [% if facility.pk|slugify in s_facilities %]
+        [^ if facility.pk|slugify in s_facilities ^]
             checked
-        [% endif %]
+        [^ endif ^]
     />
 ```
 

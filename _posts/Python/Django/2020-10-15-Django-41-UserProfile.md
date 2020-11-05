@@ -83,7 +83,7 @@ class UserProfileView(DetailView):
 
 - `<li class="nav_link"><a href="[[user.get_absolute_url}}">Profile</a></li>`
 
-- OR `<li class="nav_link"><a href="[% url "users:logout" %}">Log out</a></li>`
+- OR `<li class="nav_link"><a href="[^ url "users:logout" ^}">Log out</a></li>`
 
 - 여기서 유저 변수를 기억하는 것은 로그인 했을 시 user변수 이름으로 기억하게 만들었기때문이다.
 

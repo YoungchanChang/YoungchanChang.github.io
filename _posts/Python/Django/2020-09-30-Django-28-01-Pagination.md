@@ -100,9 +100,9 @@ SELECT 칼럼명1, 칼럼명2
 ```python
     page = int(request.GET.get("page", 1))
 
-    {% if rooms.has_previous %}
+    {^ if rooms.has_previous ^}
         <a href="?page={{rooms.number|add:-1}}">Previous</a>
-    {% endif %}
+    {^ endif ^}
 ```
 
 - 마지막 값이 블록의 끝값이어야 한다.
