@@ -6,6 +6,8 @@ tags: [python, Django]
 comments: Django
 ---
 
+> [Migration](https://wayhome25.github.io/django/2017/03/20/django-ep6-migrations/)
+
 # migratation
 
 - 모델(데이터베이스의 구조) 변경내역 히스토리 관리
@@ -27,8 +29,3 @@ comments: Django
 - migrate : one db -> another db. 하나의 구조를 다른 DB로 이주시킨다.
 
 - 뒤에 UserAPP을 변경할 때, db.sqlite3를 삭제해야 하는 경우가 있다.
-
-
-# 참고
-
-[Migration](https://wayhome25.github.io/django/2017/03/20/django-ep6-migrations/)

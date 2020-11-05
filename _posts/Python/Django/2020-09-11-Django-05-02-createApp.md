@@ -6,7 +6,6 @@ tags: [python, Django]
 comments: Django
 ---
 
-
 ### 앱 생성하기
 
 - `django-admin startapp rooms`로 룸 어플리케이션을 만들 수 있다. 어플리케이션 이름은 **복수형**으로 하는게 좋다.
@@ -32,7 +31,6 @@ django-admin startapp reservations
 - reservations : 사용자들이 방에 대해서 리뷰를 남긴다. (사용자 하나 - 방 하나)
 
 - conversations : 사용자들이 호스트와 대화하기 (사용자 하나 - 사용자 하나)
-
 
 - 관리자 페이지에 들어가면 users탭이 있다. 그런데 새로운 user를 만든 이유는 user페이지가 장고 관리자용 페이지이기 때문이다.
 
