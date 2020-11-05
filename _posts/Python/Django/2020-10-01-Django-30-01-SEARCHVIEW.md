@@ -30,7 +30,7 @@ comments: Django
     [% include "partials/header.html" %]
 
     [% block search-bar %]
-        <form method="get" action="{% url "rooms:search" %}">
+        <form method="get" action="[% url "rooms:search" %}">
             <input name"city" placeholder="Search by City" />
         </form>
     [% endblock search-bar %]
