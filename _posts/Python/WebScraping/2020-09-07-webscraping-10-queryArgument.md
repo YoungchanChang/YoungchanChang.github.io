@@ -55,7 +55,7 @@ def home():
 ```html
     <h1>Search Search</h1>
     <h3>
-        You are looking for {{searchingBy}}
+        You are looking for [[searchingBy}}
     </h3>
 ```
 

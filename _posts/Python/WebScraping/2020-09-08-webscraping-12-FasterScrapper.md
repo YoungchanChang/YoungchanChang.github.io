@@ -56,7 +56,7 @@ comments: python
 
 ```html
     <h1>Search Search</h1>
-    <h3>Found {{resultsNumber}} results for : {{SearchingBy}}</h3>
+    <h3>Found [[resultsNumber}} results for : [[SearchingBy}}</h3>
 ```
 
 ### 추가로 알아야 할 사항

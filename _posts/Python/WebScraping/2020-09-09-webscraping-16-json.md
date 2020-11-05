@@ -71,7 +71,7 @@ def home():
 
 - request값을 렌더링해주기 위해서는 넘겨줘야한다. controller에서 view로 데이터 넘겨주기
 
-- html에서 {{}}에다가 변수를 쓰면 된다.
+- html에서 [[}}에다가 변수를 쓰면 된다.
 
 - **Redirect의 개념**
 
