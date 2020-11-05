@@ -92,9 +92,9 @@ comments: Django
 ```
 
 ```html
-    {% for page in page_range %}
+    [5 for page in page_range 5]
         <a href="?page={{page}}">{{page}}</a>
-    {% endfor %}
+    [5 endfor 5]
 ```
 
 # 추가로 알아두어야 할 사항
@@ -120,15 +120,15 @@ comments: Django
 - 장고에서
 
 ```html
-    {% if page is not 1 %}
+    {5 if page is not 1 5}
         <a href="?page={{page|add:-1}}">Previous</a>
-    {% endif %}
+    {5 endif 5}
 
     Page {{page}} of {{page_count}}
 
-    {% if not page == page_count  %}
+    {5 if not page == page_count  5}
         <a href="?page={{page|add:1}}">Next</a>
-    {% endif %}
+    {5 endif 5}
 ```
 
 # 참고
