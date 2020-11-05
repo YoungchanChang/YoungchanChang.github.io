@@ -1,8 +1,8 @@
 ---
 layout: post
 title: flask에서 엘라스틱서치 인덱스 셋팅변경
-category: python
-tags: [python, 쓰기]
+category: elasticsearch
+tags: [elasticsearch]
 comments: true
 ---
 

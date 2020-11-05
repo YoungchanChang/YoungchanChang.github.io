@@ -1,8 +1,8 @@
 ---
 layout: post
 title: flask에서 엘라스틱서치 검색유사도
-category: python
-tags: [python, 쓰기]
+category: elasticsearch
+tags: [elasticsearch]
 comments: true
 ---
 

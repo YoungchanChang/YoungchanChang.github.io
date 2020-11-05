@@ -1,8 +1,8 @@
 ---
 layout: post
 title: TermVector
-category: python
-tags: [python, 쓰기]
+category: elasticsearch
+tags: [elasticsearch]
 comments: true
 ---
 

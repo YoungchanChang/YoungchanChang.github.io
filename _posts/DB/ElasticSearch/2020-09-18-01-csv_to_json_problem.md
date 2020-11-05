@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 엘라스틱서치 csv를 JSON파일로 바꾸기
-category: python
-tags: [python, 쓰기]
+category: elasticsearch
+tags: [elasticsearch]
 comments: true
 ---
 

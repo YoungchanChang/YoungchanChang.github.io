@@ -1,8 +1,8 @@
 ---
 layout: post
 title: setting설정하기
-category: python
-tags: [python, 쓰기]
+category: elasticsearch
+tags: [elasticsearch]
 comments: true
 ---
 
