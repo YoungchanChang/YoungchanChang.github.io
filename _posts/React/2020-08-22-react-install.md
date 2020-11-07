@@ -37,12 +37,17 @@ cmd창에서 `npm install -g create-react-app`로 설치합니다.
 
 3. cmd창에서 `create-react-app .`명령어를 치시면 개발 환경이 구축됩니다.
 
+- 아래와 같이 명령어를 수행해도 됨
+
+```console
+E:\GitHub\react>npx create-react-app react_test
+```
 
 # react로 코드 작성하기
 
 ### 샘플 앱 실행하기
 
-1. vscod코드 에디터의 상단의 View -> Appearance -> Show Panel(단축키 Ctrl+J)를 누르면 하단에 터미널 창이 생깁니다. 터미널을 통해서 명령어로 컴퓨터를 제어할 수 있습니다.
+1. vscode코드 에디터의 상단의 View -> Appearance -> Show Panel(단축키 Ctrl+J)를 누르면 하단에 터미널 창이 생깁니다. 터미널을 통해서 명령어로 컴퓨터를 제어할 수 있습니다.
 
 2. 하단의 터미널에서 npm [run] start로 샘플 앱을 실행시켜봅니다.
 

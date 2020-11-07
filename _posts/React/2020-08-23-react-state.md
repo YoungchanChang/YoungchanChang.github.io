@@ -32,7 +32,7 @@ class App extends Component{
         super(props);
         this.state = {
             subject : {title:"WEB", sub:"World Wide Web!"}
-        }        
+        }
     }
     render(){
         return(
