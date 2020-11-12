@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker 01. 도커의 개념
+title: Docker 00. 도커의 개념
 category: docker
 tags: [docker]
 comments: docker
@@ -73,10 +73,22 @@ comments: docker
 
 ### 도커를 사용할 이유
 
+도커 파일 = 서버 운영 기록 코드화
+
+도커 이미지 = 도커 파일 + 실행 시점
+
+도커 컨테이너 == 도커 이미지 + 환경 변수
+
+서버를 만들 때 미리 실패해보는 일은 대단히 중요합니다. 왜냐하면 지금 미리 겪은 실패는 약간의 기다림과 귀찮음 뿐이지만, 지금 겪지 않은 실패는 훗날 서비스 장애로 이어지기 때문
+
 - 도커를 사용하는 이유 : 윈도우에서 리눅스 서버가 구동하는 것과 같은 서버 환경을 구성해볼 수 있다. 그리고 내 코드를 적용시켜 본 뒤에 테스트 서버에 올릴 수 있다. 빌드 과정또한 관리가 된다.
 
 
 # 참고
 
 [도커 사용하는 이유](https://www.44bits.io/ko/post/why-should-i-use-docker-container)
+
 [도커 장점](https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html)
+
+
+
