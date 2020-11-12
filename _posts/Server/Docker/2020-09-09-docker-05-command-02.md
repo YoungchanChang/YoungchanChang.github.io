@@ -29,15 +29,14 @@ docker images
 
 
 
-- 명령어로 도커 생성이 너무 귀찮다. 환경설정
-
-- yml파일?
-
 # 참고
 
 [도커 툴박스](https://github.com/docker/toolbox/releases)에서 docker Toolbox-19.03.1.exe다운도드
+
 [도커 공식문서](https://docs.docker.com/toolbox/toolbox_install_windows/)
+
 [도커 subicura](https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html)
+
 [도커 툴박스 참조](https://jinyes-tistory.tistory.com/8)
 
 [도커 추가설명](http://raccoonyy.github.io/docker-usages-for-dev-environment-setup/)
