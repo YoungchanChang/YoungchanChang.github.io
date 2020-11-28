@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 엘라스틱서치 csv를 JSON파일로 바꾸기
+title: 엘라스틱서치서버 에러와 해결
 category: elasticsearch
 tags: [elasticsearch]
 comments: true

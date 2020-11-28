@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 엘라스틱서치 tokenizer
+title: 엘라스틱서치 tokenizer 02
 category: elasticsearch
 tags: [elasticsearch]
 comments: true
