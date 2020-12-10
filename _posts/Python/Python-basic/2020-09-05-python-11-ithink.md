@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 파이썬 10 - 상속
+title: 파이썬 11 - 객체를 쓰는 이유
 category: python
 tags: [python, inherit]
 comments: true

@@ -1,7 +1,6 @@
 ---
 layout: post
-title: 웹스크래핑10. 서버의 개념
-
+title: 웹스크래핑07. 서버의 개념
 category: webscraping
 tags: [python, server]
 comments: python

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 장고 에어비엔비 소개
+title: Django 01 - 장고 에어비엔비 소개
 category: Django
 tags: [python, Django]
 comments: Django
